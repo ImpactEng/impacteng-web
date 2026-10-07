@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="300" height="300">
+  <defs>
+    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#162230" />
+      <stop offset="100%" stop-color="#2c3e50" />
+    </linearGradient>
+  </defs>
+
+  <!-- Dark background -->
+  <rect width="300" height="300" fill="url(#bgGrad)" />
+
+  <!-- Left accent stripe -->
+  <rect x="0" y="0" width="5" height="300" fill="#007acc" />
+
+  <!-- Company name stacked -->
+  <text x="150" y="115" fill="#ffffff" font-family="system-ui, -apple-system, sans-serif" font-weight="bold" font-size="48" text-anchor="middle">
+    IMPACT
+  </text>
+  <text x="150" y="165" fill="#007acc" font-family="system-ui, -apple-system, sans-serif" font-weight="bold" font-size="48" text-anchor="middle">
+    ENG
+  </text>
+
+  <!-- Accent line -->
+  <line x1="90" y1="185" x2="210" y2="185" stroke="#007acc" stroke-width="2" />
+
+  <!-- Domain -->
+  <text x="150" y="220" fill="#95a5a6" font-family="system-ui, -apple-system, sans-serif" font-weight="600" font-size="16" text-anchor="middle" letter-spacing="1">
+    impacteng.com.au
+  </text>
+
+  <!-- Tagline -->
+  <text x="150" y="260" fill="#95a5a6" font-family="system-ui, -apple-system, sans-serif" font-size="12" text-anchor="middle" letter-spacing="1.5">
+    CLOUD + DEVOPS + AI READINESS
+  </text>
+</svg>
