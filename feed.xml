@@ -1,9 +1,46 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-AU"><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://impacteng.com.au/feed.xml" rel="self" type="application/atom+xml" /><link href="https://impacteng.com.au/" rel="alternate" type="text/html" hreflang="en-AU" /><updated>2026-10-15T07:38:36+00:00</updated><id>https://impacteng.com.au/feed.xml</id><title type="html">Cloud, DevOps &amp;amp; AI Readiness Consulting | ImpactEng</title><subtitle>ImpactEng is Nitin Sharma&apos;s independent Cloud, Platform Engineering and AI readiness practice, based in Melbourne.</subtitle><entry><title type="html">A shared AI platform for APRA-regulated organisations</title><link href="https://impacteng.com.au/blog/shared-ai-platform-apra-regulated/" rel="alternate" type="text/html" title="A shared AI platform for APRA-regulated organisations" /><published>2026-10-15T00:00:00+00:00</published><updated>2026-10-15T00:00:00+00:00</updated><id>https://impacteng.com.au/blog/shared-ai-platform-apra-regulated</id><content type="html" xml:base="https://impacteng.com.au/blog/shared-ai-platform-apra-regulated/"><![CDATA[<section class="default-page">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-AU"><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://impacteng.com.au/feed.xml" rel="self" type="application/atom+xml" /><link href="https://impacteng.com.au/" rel="alternate" type="text/html" hreflang="en-AU" /><updated>2026-10-15T07:43:20+00:00</updated><id>https://impacteng.com.au/feed.xml</id><title type="html">Cloud, DevOps &amp;amp; AI Readiness Consulting | ImpactEng</title><subtitle>ImpactEng is Nitin Sharma&apos;s independent Cloud, Platform Engineering and AI readiness practice, based in Melbourne.</subtitle><entry><title type="html">A shared AI platform for APRA-regulated organisations</title><link href="https://impacteng.com.au/blog/shared-ai-platform-apra-regulated/" rel="alternate" type="text/html" title="A shared AI platform for APRA-regulated organisations" /><published>2026-10-15T00:00:00+00:00</published><updated>2026-10-15T00:00:00+00:00</updated><id>https://impacteng.com.au/blog/shared-ai-platform-apra-regulated</id><content type="html" xml:base="https://impacteng.com.au/blog/shared-ai-platform-apra-regulated/"><![CDATA[<section class="default-page">
   <header class="page-section animate-fade-in">
     <h1>A Shared AI Platform in an APRA-Regulated Organisation: From the First Request to the Twentieth App</h1>
     <p>A team asks to put an AI assistant in the contact centre. It sounds like another pilot. In an organisation regulated by APRA (the Australian Prudential Regulation Authority) it isn't: under CPS 230, APRA's operational risk standard, it can make your shared AI platform part of a critical operation.</p>
     <p>Over two weeks I wrote 14 LinkedIn posts on designing one AI platform for every team in a regulated organisation, and getting teams to use it. This is the whole path in one place, from the first request to the twentieth app, including what I tested along the way. Each section links the posts it comes from. Facts about Amazon Web Services (AWS) are as at October 2026.</p>
-    <p><img src="/assets/images/shared-ai-platform-apra-regulated-path-v2.png" alt="Six stages of a shared AI platform in an APRA-regulated organisation, from the first request to the twentieth app." class="blog-image" width="1200" height="627" loading="lazy" /></p>
+    <ol class="phase-timeline">
+      <li>
+        <div>
+          <strong><a href="/blog/shared-ai-platform-apra-regulated/#not-every-request-is-a-pilot">A request arrives</a></strong><br />
+          Is it part of a critical operation? Then it may not be a pilot.
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong><a href="/blog/shared-ai-platform-apra-regulated/#questions-at-the-door">The door</a></strong><br />
+          Six questions decide what gets built before a team gets access.
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong><a href="/blog/shared-ai-platform-apra-regulated/#where-the-data-may-go">Where data goes</a></strong><br />
+          Set per type of data. Tested: the hole in my own residency policy.
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong><a href="/blog/shared-ai-platform-apra-regulated/#one-way-in">One way in</a></strong><br />
+          No other path to a model, no emergency bypass. Fail closed.
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong><a href="/blog/shared-ai-platform-apra-regulated/#who-spent-it">Who spent it</a></strong><br />
+          Tested: billing names the team, but only by the day. Meter every request.
+        </div>
+      </li>
+      <li>
+        <div>
+          <strong><a href="/blog/shared-ai-platform-apra-regulated/#the-twentieth-app">The twentieth app</a></strong><br />
+          Scale by triggers, not the calendar. Watch the queue before the route-around.
+        </div>
+      </li>
+    </ol>
   </header>
 
 <!--more-->
@@ -15,7 +52,7 @@
   </section>
 
   <section class="page-section animate-slide-up">
-    <h2><i class="fas fa-door-open"></i> 2. Not Every Request Is a Pilot</h2>
+    <h2 id="not-every-request-is-a-pilot"><i class="fas fa-door-open"></i> 2. Not Every Request Is a Pilot</h2>
     <p>CPS 230 lists customer enquiries as a critical operation unless you can justify otherwise, and the systems that support it come along too. So a summariser for an internal team is one thing; a staff assistant in the contact centre is another. When one of those comes through, the platform picks up tolerance levels for disruption approved by the Board, a 24-hour clock to tell APRA when a disruption goes beyond them, and a way for the business to keep going without the AI. None of it is hard if you've seen it coming. (<a href="https://www.linkedin.com/posts/ns408_platformengineering-aigovernance-apra-share-7510941831673671680-2gJo">Post 4</a>)</p>
   </section>
 
@@ -26,7 +63,7 @@
   </section>
 
   <section class="page-section animate-slide-up">
-    <h2><i class="fas fa-clipboard-list"></i> 4. The Questions at the Door</h2>
+    <h2 id="questions-at-the-door"><i class="fas fa-clipboard-list"></i> 4. The Questions at the Door</h2>
     <p>Six questions decide what gets built for a team before it gets access:</p>
     <ol>
       <li>Does it support a critical operation? Then it needs a fallback without the AI (section 6).</li>
@@ -40,26 +77,26 @@
   </section>
 
   <section class="page-section animate-slide-up">
-    <h2><i class="fas fa-globe-asia"></i> 5. Where the Data May Go</h2>
+    <h2 id="where-the-data-may-go"><i class="fas fa-globe-asia"></i> 5. Where the Data May Go</h2>
     <p>Global cross-Region inference on Amazon Bedrock, AWS's managed model service, costs roughly 10 per cent less than keeping it in Australia. Whether you take it depends on what you're sending. Bedrock's Australian inference profile keeps processing in Sydney and Melbourne. If a use case supports a critical operation, sending it offshore is material offshoring, and APRA wants notice beforehand; the Privacy Act keeps you accountable for personal information you send overseas. So I set it per type of data, not once for the platform: synthetic or public data can go global and take the saving, anything personal or critical stays here until risk says otherwise. And if a check spots personal information in a prompt, it can only move the request somewhere stricter. (<a href="https://www.linkedin.com/posts/ns408_platformengineering-aigovernance-apra-share-7511425991592902656-7lwq">Post 5</a>)</p>
     <p>The home Region matters too. Bedrock Guardrails' newer Standard tier runs through a cross-Region profile. From Sydney, the Australian profile keeps the checks in Sydney. From Melbourne, the only profile on offer is Asia Pacific, so the checks can go to several countries; Melbourne's other option is the Classic tier, which keeps the checks in Melbourne but has less robust protection, and a customer-facing app is where you want the stronger one. I'd pick Sydney. (<a href="https://www.linkedin.com/posts/ns408_platformengineering-aigovernance-apra-share-7512709250796916736-c74J">Post 9</a>)</p>
     <blockquote><strong>What I tested: the hole in my own residency policy.</strong> On the AWS account where I test the design, I deny Bedrock model calls outside Australia. The policy named Bedrock's two invoke permissions. Then I found Bedrock has a second endpoint, <code>bedrock-mantle</code>, with its own permission, which a deny on those, or on <code>bedrock:*</code>, doesn't cover. The AWS IAM (Identity and Access Management) policy simulator confirmed it: <code>bedrock:InvokeModel</code> came back explicitDeny, <code>bedrock-mantle:CreateInference</code> allowed. Bedrock Guardrails don't run on that endpoint and model invocation logging doesn't capture it. CloudTrail records those calls only as data events, which are off by default. So a call through it gets past the residency policy, the guardrails and, by default, the logs. The fix was one extra statement denying <code>bedrock-mantle:*</code>. (<a href="https://www.linkedin.com/posts/ns408_platformengineering-aigovernance-apra-share-7512636617355063296-JuQA">Post 8</a>)</blockquote>
   </section>
 
   <section class="page-section animate-slide-up">
-    <h2><i class="fas fa-shield-alt"></i> 6. One Way In, and No Bypass</h2>
+    <h2 id="one-way-in"><i class="fas fa-shield-alt"></i> 6. One Way In, and No Bypass</h2>
     <p>Who, apart from the platform's gateway, can call a model? If the answer is "a few teams, for now", every control on the gateway is optional for them. (<a href="https://www.linkedin.com/posts/ns408_platformengineering-aigovernance-apra-share-7511426849084698624-PesE">Post 7</a>)</p>
     <p>A related request sounds reasonable: an emergency bypass for when the platform is down. The answer is no. The bypass is the path with no redaction and none of the platform's audit trail, used at exactly the moment nobody is watching closely. So the platform fails closed, with a clear error the app can handle, and the fallback lives with the app: a way to run the business process without the AI. Where the AI supports a critical operation, APRA expects that fallback to be credible. It has to meet a minimum standard I'm still defining, so it's shown to work. On the platform side, the answer is redundancy that keeps every control, including a second route to models that has been tested. (<a href="https://www.linkedin.com/posts/ns408_platformengineering-aigovernance-apra-share-7512722775262896128-NlET">Post 11</a>)</p>
   </section>
 
   <section class="page-section animate-slide-up">
-    <h2><i class="fas fa-receipt"></i> 7. Knowing Who Spent It</h2>
+    <h2 id="who-spent-it"><i class="fas fa-receipt"></i> 7. Knowing Who Spent It</h2>
     <blockquote><strong>What I tested: can AWS billing name the team?</strong> Claude on Bedrock is billed through AWS Marketplace, and AWS attributes cost by the day, not by the request. The documentation didn't say whether your own tags reach Claude's lines on the bill, so I tagged an application profile and a role as if they belonged to a team, made a handful of calls, and waited for the cost report. It cost less than a cent. The tags did reach the Claude charges, next to the role that made the calls. (<a href="https://www.linkedin.com/posts/ns408_platformengineering-aigovernance-apra-share-7512716677181075456-nnRP">Post 10</a>)</blockquote>
     <p>That's good enough for a monthly showback (reporting spend by team, without charging it back), and no use for a quota that has to act in seconds. So the platform meters every request itself, keyed by the app and cost centre that made it, and the bill is what you reconcile against at the end of the month.</p>
   </section>
 
   <section class="page-section animate-slide-up">
-    <h2><i class="fas fa-layer-group"></i> 8. The Twentieth App on a Shared AI Platform</h2>
+    <h2 id="the-twentieth-app"><i class="fas fa-layer-group"></i> 8. The Twentieth App on a Shared AI Platform</h2>
     <p>The twentieth app is the real test. I'd scale by triggers rather than by calendar: prove the path on made-up data, then first production (often a staff assistant), then many kinds of app at once, then isolate the group that needs its own limits. None of those triggers can fire unless each app has been measured from day one: tokens, throttling, latency, and how long onboarding takes. (<a href="https://www.linkedin.com/feed/update/urn:li:activity:7514075405046407168/">Post 12</a>)</p>
     <p>Adoption fails in one of two ways. The platform team becomes the queue every team waits in, or teams tire of waiting and route around it, straight to a model with their own credentials. You see the queue first, in two numbers: how long onboarding takes and how many teams are waiting. My starting points are more than ten business days, or more than five teams; your own onboarding times will tell you the real ones. Cross either, and add these one at a time, moving on only if the last one didn't fix it: a paved road (a client library and working examples), then self-service onboarding, then a platform team that only looks at the exceptions. (<a href="https://www.linkedin.com/feed/update/urn:li:activity:7514800682902740992/">Post 14</a>)</p>
   </section>
@@ -75,7 +112,7 @@
     <a href="/contact/" class="button-primary">Get in Touch</a>
     <a href="https://calendar.app.google/RgJtyQVimhpUgbTE7" class="button-primary" target="_blank" rel="noopener">Book a 30-Minute Call</a>
   </section>
-</section>]]></content><author><name>Nitin Sharma</name></author><category term="platform-engineering" /><category term="AI" /><category term="AI-governance" /><category term="APRA" /><category term="CPS-230" /><category term="Australia" /><summary type="html"><![CDATA[How to run a shared AI platform for every team in an APRA-regulated organisation: what to ask first, where data may go, and what I tested on AWS.]]></summary></entry><entry><title type="html">Your Platform Team Is About to Inherit the AI Problem. Most Aren’t Ready.</title><link href="https://impacteng.com.au/blog/platform-teams-ai-problem/" rel="alternate" type="text/html" title="Your Platform Team Is About to Inherit the AI Problem. Most Aren’t Ready." /><published>2026-04-27T00:00:00+00:00</published><updated>2026-04-27T00:00:00+00:00</updated><id>https://impacteng.com.au/blog/platform-teams-ai-problem</id><content type="html" xml:base="https://impacteng.com.au/blog/platform-teams-ai-problem/"><![CDATA[<section class="default-page">
+</section>]]></content><author><name>Nitin Sharma</name></author><category term="platform-engineering" /><category term="AI" /><category term="AI-governance" /><category term="APRA" /><category term="CPS-230" /><category term="Australia" /><summary type="html"><![CDATA[How to run a shared AI platform for every team in an APRA-regulated organisation: what to ask first, where data may go, and what I tested on AWS.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://impacteng.com.au/assets/images/shared-ai-platform-apra-regulated-path-v2.png" /><media:content medium="image" url="https://impacteng.com.au/assets/images/shared-ai-platform-apra-regulated-path-v2.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">Your Platform Team Is About to Inherit the AI Problem. Most Aren’t Ready.</title><link href="https://impacteng.com.au/blog/platform-teams-ai-problem/" rel="alternate" type="text/html" title="Your Platform Team Is About to Inherit the AI Problem. Most Aren’t Ready." /><published>2026-04-27T00:00:00+00:00</published><updated>2026-04-27T00:00:00+00:00</updated><id>https://impacteng.com.au/blog/platform-teams-ai-problem</id><content type="html" xml:base="https://impacteng.com.au/blog/platform-teams-ai-problem/"><![CDATA[<section class="default-page">
   <header class="page-section animate-fade-in">
     <h1>Your Platform Team Is About to Inherit the AI Problem. Most Aren't Ready.</h1>
     <p>Gartner forecast in 2024 that 80% of large software engineering organisations would have dedicated platform teams by 2026, up from 45% in 2022. The 2025 <a href="https://dora.dev/dora-report-2025/">DORA (DevOps Research and Assessment) report</a> puts current adoption at nearly 90%. The teams exist. What they're being asked to absorb on top of that is a different question.</p>
