@@ -169,6 +169,13 @@
   font-weight: 500;
   margin-bottom: 0.4rem;
 }
+.form-field input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  margin: 0 0.5rem 0 0;
+  vertical-align: middle;
+  cursor: pointer;
+}
 .form-field input[type="email"],
 .form-field input[type="text"],
 .form-field select {
@@ -697,6 +704,9 @@
 </select>
 
       </div>
+      <div class="form-field">
+        <label for="resp-contact-ok"><input type="checkbox" id="resp-contact-ok" name="contact_ok" value="yes" /> I'm happy to hear from you about the result. <span style="font-weight:normal;color:#888">(optional)</span></label>
+      </div>
       <p class="form-error" id="form-error"></p>
       <div style="display:flex;gap:1rem;align-items:center;margin-top:1rem;flex-wrap:wrap;">
         <button type="submit" class="button-primary">See my results</button>
@@ -909,6 +919,7 @@
         email: emailInput.value,
         organisation: document.getElementById('resp-org').value,
         how_heard: document.getElementById('resp-how-heard').value,
+        contact_ok: document.getElementById('resp-contact-ok').checked ? 'yes' : 'no',
         total_score_percentage: totalPct,
         score_band: band.label
       };
