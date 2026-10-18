@@ -130,7 +130,7 @@
         <p class="post-meta">Posted on Oct 15, 2026</p>
         <p><section class="default-page">
   <header class="page-section animate-fade-in">
-    <h1>A Shared AI Platform in an APRA-Regulated Organisation: From the First Request to the Twentieth App</h1>
+    <h2>A Shared AI Platform in an APRA-Regulated Organisation: From the First Request to the Twentieth App</h2>
     <p>A team asks to put an AI assistant in the contact centre. It sounds like another pilot. In an organisation regulated by APRA (the Australian Prudential Regulation Authority) it isn't: under CPS 230, APRA's operational risk standard, it can make your shared AI platform part of a critical operation.</p>
     <p>Over two weeks I wrote 14 LinkedIn posts on designing one AI platform for every team in a regulated organisation, and getting teams to use it. This is the whole path in one place, from the first request to the twentieth app, including what I tested along the way. Each section links the posts it comes from. Facts about Amazon Web Services (AWS) are as at October 2026.</p>
     <ol class="phase-timeline">
@@ -187,7 +187,6 @@
         <p class="post-meta">Posted on Apr 27, 2026</p>
         <p><section class="default-page">
   <header class="page-section animate-fade-in">
-    <h1>Your Platform Team Is About to Inherit the AI Problem. Most Aren't Ready.</h1>
     <p>Gartner forecast in 2024 that 80% of large software engineering organisations would have dedicated platform teams by 2026, up from 45% in 2022. The 2025 <a href="https://dora.dev/dora-report-2025/">DORA (DevOps Research and Assessment) report</a> puts current adoption at nearly 90%. The teams exist. What they're being asked to absorb on top of that is a different question.</p>
     <p>AI workloads.</p>
     <p>Not as a side project. Not as a prototype sitting on someone's laptop or a sandpit cloud account. As a core platform capability, governed, deployed, and maintained with the same rigour as your CI/CD pipeline or your container orchestration layer. Platform engineering and AI are fusing in 2026, and most teams are unprepared for what that actually requires.</p>
@@ -207,7 +206,6 @@
         <p class="post-meta">Posted on Mar 25, 2026</p>
         <p><section class="default-page">
   <header class="page-section animate-fade-in">
-    <h1>Your AI Coding Session Is a Finite Resource. Manage It Like One.</h1>
     <p>You are forty minutes into a refactor. The model has read the relevant files, understands the architecture, and is tracking changes across five modules. Then something shifts. It starts repeating suggestions you already rejected. It re-reads files it loaded twenty minutes ago. The responses get vaguer. The session is rotting, and you have no useful signal about it.</p>
     <p>I would restart at this point, paste in a quick summary of where I am, and lose twenty to thirty minutes rebuilding context. It might happen three or four times a day, and I would accept it as the cost of using these tools. It does not have to work this way.</p>
     <p><em>A note on scope: when I first outlined this, I was thinking about the broader problem of dependency on a single session, single tool, or provider. That is a real problem but too large for one post. This one focuses on AI session management specifically. The deeper idea is picking up exactly where you left off in a completely different tool (and provider), not just a fresh session of the same one. That comes later. The protocol I describe here is designed with that portability in mind.</em></p>
@@ -227,7 +225,6 @@
         <p class="post-meta">Posted on Mar 19, 2026</p>
         <p><section class="default-page">
   <header class="page-section animate-fade-in">
-    <h1>The Platform Engineering Trap: Why Mandating Your Platform Makes Things Worse</h1>
     <p>The DORA research programme has now tracked platform engineering across multiple years. The pattern is consistent: good platforms, freely adopted, improve performance. Mandated platforms reduce it. In 2024, across 39,000 practitioners, teams required to exclusively use their internal developer platform saw throughput fall by 8% and change stability fall by 14%.</p>
     <p>The 2025 report did not reverse that finding. It added a sharper edge: when platforms are poorly designed, AI adoption does not offset the damage. It amplifies it.</p>
     <p>This is the trap a significant number of Australian engineering teams are building their way into right now.</p>
@@ -247,7 +244,6 @@
         <p class="post-meta">Posted on Mar 18, 2026</p>
         <p><section class="default-page">
   <header class="page-section animate-fade-in">
-    <h1>So I Failed the AWS SA Pro Exam by 17 Points. Then I Built SonicCert Coach.</h1>
     <p>I failed the AWS Solutions Architect Professional exam by 17 points. Not 50 points. Not "I didn't study." Seventeen points, after a few months of preparation.</p>
     <p>The root cause wasn't effort. The problem was where that effort went. I kept going deep on the domains I found interesting and avoided drilling the ones which mattered more. The exam does not care what you find interesting. It weights domains. I didn't respect those weights. So I ate dirt.</p>
     <p>A few months later, I went through a run of certification exams across AWS, Azure, GCP, and Oracle, eight or nine over about two to three months. Again, I failed the OCI Data Science Professional exam too, by a small margin. Same mistake, different exam. WTH!</p>
@@ -267,7 +263,6 @@
         <p class="post-meta">Posted on Mar 12, 2026</p>
         <p><section class="default-page">
   <header class="page-section animate-fade-in">
-    <h1>The Sovereignty Gap: Why Cheap AI Comes With Real Risks for Australia</h1>
     <p>I've been full-time in the AI space since last year, working with Australian tech teams. We've all seen the toggle: "Do not use my data for training." We click it, breathe a sigh of relief, and keep building.</p>
     <p>But here's the uncomfortable truth: every major model provider still captures and retains request/response data for legal, safety, and compliance reasons. Anonymised datasets can still be re-identified through modern AI mosaic attacks. And in the process of learning patterns of malicious behaviour, edge-case IP and sensitive ideas can quietly migrate into internal models.</p>
   </header>
@@ -286,7 +281,6 @@
         <p class="post-meta">Posted on Mar 9, 2026</p>
         <p><section class="default-page">
   <header class="page-section animate-fade-in">
-    <h1>Where AI Agents Break Your CI/CD Pipeline</h1>
     <p>Everyone is talking about AI agents in CI/CD. GitHub shipped Agentic Workflows. AWS announced frontier agents at re:Invent 2025. Deloitte's latest State of AI report says 74% of companies plan to use agentic AI at least moderately within two years.</p>
     <p>Here is the part nobody is talking about: most CI/CD pipelines were designed for a human clicking "merge" a few times a day. Not for an autonomous agent generating hundreds of commits per hour.</p>
     <p>I spent the better part of a decade running CI/CD platforms at scale, including a <a href="/blog/orchestrating-devops-dominance/">migration from Bamboo to GitLab</a> serving 650+ users across hundreds of microservices. That experience taught me exactly where pipelines buckle under pressure. Agents apply that same pressure, only faster and less predictably.</p>
@@ -306,7 +300,7 @@
         <p class="post-meta">Posted on Aug 2, 2025</p>
         <p><section class="default-page">
   <header class="page-section animate-fade-in">
-    <h1>How I Turned a $2.3M Setup into $7.4M Value in an Aussie Enterprise</h1>
+    <h2>How I Turned a $2.3M Setup into $7.4M Value in an Aussie Enterprise</h2>
     <p>Fair dinkum, leading a DevOps function in a large enterprise can feel like herding cats at times. You've got the business folks talking strategy (often vaguely), the developers wanting the latest and greatest tech, and your own team striving to keep the lights on and build for the future.</p>
     <p>My 2024 was precisely that: a whirlwind of bridging these worlds at a significant Australian enterprise. The business objectives were not clear. But the business needed speed, stability, and security. As the Cloud Product Engineering Manager, I saw my role as the orchestrator, the one bringing harmony to this chaos, ultimately delivering some pretty impressive return on investment.</p>
   </header>
@@ -325,7 +319,7 @@
         <p class="post-meta">Posted on Jun 28, 2025</p>
         <p><section class="default-page">
   <header class="page-section animate-fade-in">
-    <h1>Introduction: Why Artificial Intelligence (AI) Matters</h1>
+    <h2>Introduction: Why Artificial Intelligence (AI) Matters</h2>
     <p>If you're a DevOps pro automating CI/CD pipelines, an SRE ensuring site reliability, or a Cloud engineer provisioning resources across AWS, Azure, or GCP, this post is for you.</p>
     <p>My goal is to demystify AI from the ground up using familiar analogies and share examples of practical application. No prior AI knowledge required, just curiosity.</p>
   </header>
@@ -344,7 +338,7 @@
         <p class="post-meta">Posted on Jun 13, 2025</p>
         <p><section class="default-page">
   <header class="page-section animate-fade-in">
-    <h1>Quick Wins for Cost Savings Without Major Time or Money</h1>
+    <h2>Quick Wins for Cost Savings Without Major Time or Money</h2>
     <p>Want to make a positive impact in your tech environment without sinking huge time or budget?</p>
     <p>Focus on quick, high-value actions that save costs, streamline operations, or free up engineering effort. By regularly identifying and acting on these opportunities, you can uncover patterns to prevent waste and build leaner, more efficient systems.</p>
   </header>
@@ -363,7 +357,6 @@
         <p class="post-meta">Posted on May 4, 2025</p>
         <p><section class="default-page">
   <header class="hero animate-fade-in">
-    <h1>Is Your Cloud Strategy Working?</h1>
     <p class="lead">Cloud engineering drives modern businesses, enabling cost efficiency, scalability, and innovation. Yet, many companies struggle to measure its true impact. Here's how to evaluate your strategy and why it matters.</p>
   </header>
 
@@ -380,7 +373,7 @@
         <p class="post-meta">Posted on Apr 15, 2025</p>
         <p><section class="default-page">
   <section class="page-section">
-    <h1>Introduction</h1>
+    <h2>Introduction</h2>
     <p>Cloud engineering is the driving force behind modern business agility, enabling scalable, secure, and innovative solutions. As a dedicated function, it designs and manages cloud systems on platforms like AWS or Azure. By aligning with business objectives and leveraging mature practices, businesses can extract transformative value from their cloud engineering teams. Here’s how.</p>
   </section>
 
