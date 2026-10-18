@@ -159,7 +159,6 @@
   <div class="post-content e-content" itemprop="articleBody">
     <section class="default-page">
   <header class="page-section animate-fade-in">
-    <h2>A Shared AI Platform in an APRA-Regulated Organisation: From the First Request to the Twentieth App</h2>
     <p>A team asks to put an AI assistant in the contact centre. It sounds like another pilot. In an organisation regulated by APRA (the Australian Prudential Regulation Authority) it isn't: under CPS 230, APRA's operational risk standard, it can make your shared AI platform part of a critical operation.</p>
     <p>Over two weeks I wrote 14 LinkedIn posts on designing one AI platform for every team in a regulated organisation, and getting teams to use it. This is the whole path in one place, from the first request to the twentieth app, including what I tested along the way. Each section links the posts it comes from. Facts about Amazon Web Services (AWS) are as at October 2026.</p>
     <ol class="phase-timeline">
@@ -205,24 +204,24 @@
 <!--more-->
 
   <section class="page-section animate-slide-up">
-    <h2><i class="fas fa-filter"></i> 1. Two Filters</h2>
+    <h2><i class="fas fa-filter"></i> 1. Two filters</h2>
     <p>My first instinct was a catalogue: every capability a shared AI platform could need. It told me nothing about what to build first, or what's expensive to get wrong. So I put two filters on it. Does most of the usage need this on day one? And if we get it wrong, how much do we rip up later? High on either, and it gets decided now.</p>
     <p>The second filter earns its place. On usage alone you'd cut the audit trail and per-team telemetry, because hardly any traffic depends on them early. But you can't go back and collect what you never logged. Of 33 candidate capabilities, 18 are in from the start, nine are decided now and built later, and six are parked, each with a named trigger that brings it back. (<a href="https://www.linkedin.com/posts/ns408_platformengineering-aigovernance-apra-share-7510154456429174784-_n6L">Post 1</a>)</p>
   </section>
 
   <section class="page-section animate-slide-up">
-    <h2 id="not-every-request-is-a-pilot"><i class="fas fa-door-open"></i> 2. Not Every Request Is a Pilot</h2>
+    <h2 id="not-every-request-is-a-pilot"><i class="fas fa-door-open"></i> 2. Not every request is a pilot</h2>
     <p>CPS 230 lists customer enquiries as a critical operation unless you can justify otherwise, and the systems that support it come along too. So a summariser for an internal team is one thing; a staff assistant in the contact centre is another. When one of those comes through, the platform picks up tolerance levels for disruption approved by the Board, a 24-hour clock to tell APRA when a disruption goes beyond them, and a way for the business to keep going without the AI. None of it is hard if you've seen it coming. (<a href="https://www.linkedin.com/posts/ns408_platformengineering-aigovernance-apra-share-7510941831673671680-2gJo">Post 4</a>)</p>
   </section>
 
   <section class="page-section animate-slide-up">
-    <h2><i class="fas fa-drafting-compass"></i> 3. Decide the Shape Now, Build It Later</h2>
+    <h2><i class="fas fa-drafting-compass"></i> 3. Decide the shape now, build it later</h2>
     <p>Early in the design, I made up seven that might one day use the platform: a squad prototyping an idea, a staff assistant, back-office processing, a customer-facing assistant, decision support, an agent that calls other systems, and developers' coding tools. Each was a test: for every decision, would this have to change to serve one of the later ones? The customer-facing assistant bit. It needs to know which customer is behind a request, even if only by a pseudonym, and adding that later would change how every app calls the platform. So the field went in on day one. (<a href="https://www.linkedin.com/posts/ns408_platformengineering-aigovernance-apra-share-7510551628039577600-f3bX">Post 3</a>)</p>
     <p>The simplest of the nine "decide now, build later" items is a cost centre on every request, even when nobody is charging anyone yet. Charging back can wait. The field goes in now, because adding it later means changing every app and tool already calling the platform. (<a href="https://www.linkedin.com/posts/ns408_platformengineering-aigovernance-apra-share-7510197631047053312-22Ga">Post 2</a>)</p>
   </section>
 
   <section class="page-section animate-slide-up">
-    <h2 id="questions-at-the-door"><i class="fas fa-clipboard-list"></i> 4. The Questions at the Door</h2>
+    <h2 id="questions-at-the-door"><i class="fas fa-clipboard-list"></i> 4. The questions at the door</h2>
     <p>Six questions decide what gets built for a team before it gets access:</p>
     <ol>
       <li>Does it support a critical operation? Then it needs a fallback without the AI (section 6).</li>
@@ -236,37 +235,37 @@
   </section>
 
   <section class="page-section animate-slide-up">
-    <h2 id="where-the-data-may-go"><i class="fas fa-globe-asia"></i> 5. Where the Data May Go</h2>
+    <h2 id="where-the-data-may-go"><i class="fas fa-globe-asia"></i> 5. Where the data may go</h2>
     <p>Global cross-Region inference on Amazon Bedrock, AWS's managed model service, costs roughly 10 per cent less than keeping it in Australia. Whether you take it depends on what you're sending. Bedrock's Australian inference profile keeps processing in Sydney and Melbourne. If a use case supports a critical operation, sending it offshore is material offshoring, and APRA wants notice beforehand; the Privacy Act keeps you accountable for personal information you send overseas. So I set it per type of data, not once for the platform: synthetic or public data can go global and take the saving, anything personal or critical stays here until risk says otherwise. And if a check spots personal information in a prompt, it can only move the request somewhere stricter. (<a href="https://www.linkedin.com/posts/ns408_platformengineering-aigovernance-apra-share-7511425991592902656-7lwq">Post 5</a>)</p>
     <p>The home Region matters too. Bedrock Guardrails' newer Standard tier runs through a cross-Region profile. From Sydney, the Australian profile keeps the checks in Sydney. From Melbourne, the only profile on offer is Asia Pacific, so the checks can go to several countries; Melbourne's other option is the Classic tier, which keeps the checks in Melbourne but has less robust protection, and a customer-facing app is where you want the stronger one. I'd pick Sydney. (<a href="https://www.linkedin.com/posts/ns408_platformengineering-aigovernance-apra-share-7512709250796916736-c74J">Post 9</a>)</p>
     <blockquote><strong>What I tested: the hole in my own residency policy.</strong> On the AWS account where I test the design, I deny Bedrock model calls outside Australia. The policy named Bedrock's two invoke permissions. Then I found Bedrock has a second endpoint, <code>bedrock-mantle</code>, with its own permission, which a deny on those, or on <code>bedrock:*</code>, doesn't cover. The AWS IAM (Identity and Access Management) policy simulator confirmed it: <code>bedrock:InvokeModel</code> came back explicitDeny, <code>bedrock-mantle:CreateInference</code> allowed. Bedrock Guardrails don't run on that endpoint and model invocation logging doesn't capture it. CloudTrail records those calls only as data events, which are off by default. So a call through it gets past the residency policy, the guardrails and, by default, the logs. The fix was one extra statement denying <code>bedrock-mantle:*</code>. (<a href="https://www.linkedin.com/posts/ns408_platformengineering-aigovernance-apra-share-7512636617355063296-JuQA">Post 8</a>)</blockquote>
   </section>
 
   <section class="page-section animate-slide-up">
-    <h2 id="one-way-in"><i class="fas fa-shield-alt"></i> 6. One Way In, and No Bypass</h2>
+    <h2 id="one-way-in"><i class="fas fa-shield-alt"></i> 6. One way in, and no bypass</h2>
     <p>Who, apart from the platform's gateway, can call a model? If the answer is "a few teams, for now", every control on the gateway is optional for them. (<a href="https://www.linkedin.com/posts/ns408_platformengineering-aigovernance-apra-share-7511426849084698624-PesE">Post 7</a>)</p>
     <p>A related request sounds reasonable: an emergency bypass for when the platform is down. The answer is no. The bypass is the path with no redaction and none of the platform's audit trail, used at exactly the moment nobody is watching closely. So the platform fails closed, with a clear error the app can handle, and the fallback lives with the app: a way to run the business process without the AI. Where the AI supports a critical operation, APRA expects that fallback to be credible. It has to meet a minimum standard I'm still defining, so it's shown to work. On the platform side, the answer is redundancy that keeps every control, including a second route to models that has been tested. (<a href="https://www.linkedin.com/posts/ns408_platformengineering-aigovernance-apra-share-7512722775262896128-NlET">Post 11</a>)</p>
   </section>
 
   <section class="page-section animate-slide-up">
-    <h2 id="who-spent-it"><i class="fas fa-receipt"></i> 7. Knowing Who Spent It</h2>
+    <h2 id="who-spent-it"><i class="fas fa-receipt"></i> 7. Knowing who spent it</h2>
     <blockquote><strong>What I tested: can AWS billing name the team?</strong> Claude on Bedrock is billed through AWS Marketplace, and AWS attributes cost by the day, not by the request. The documentation didn't say whether your own tags reach Claude's lines on the bill, so I tagged an application profile and a role as if they belonged to a team, made a handful of calls, and waited for the cost report. It cost less than a cent. The tags did reach the Claude charges, next to the role that made the calls. (<a href="https://www.linkedin.com/posts/ns408_platformengineering-aigovernance-apra-share-7512716677181075456-nnRP">Post 10</a>)</blockquote>
     <p>That's good enough for a monthly showback (reporting spend by team, without charging it back), and no use for a quota that has to act in seconds. So the platform meters every request itself, keyed by the app and cost centre that made it, and the bill is what you reconcile against at the end of the month.</p>
   </section>
 
   <section class="page-section animate-slide-up">
-    <h2 id="the-twentieth-app"><i class="fas fa-layer-group"></i> 8. The Twentieth App on a Shared AI Platform</h2>
+    <h2 id="the-twentieth-app"><i class="fas fa-layer-group"></i> 8. The twentieth app on a shared AI platform</h2>
     <p>The twentieth app is the real test. I'd scale by triggers rather than by calendar: prove the path on made-up data, then first production (often a staff assistant), then many kinds of app at once, then isolate the group that needs its own limits. None of those triggers can fire unless each app has been measured from day one: tokens, throttling, latency, and how long onboarding takes. (<a href="https://www.linkedin.com/feed/update/urn:li:activity:7514075405046407168/">Post 12</a>)</p>
     <p>Adoption fails in one of two ways. The platform team becomes the queue every team waits in, or teams tire of waiting and route around it, straight to a model with their own credentials. You see the queue first, in two numbers: how long onboarding takes and how many teams are waiting. My starting points are more than ten business days, or more than five teams; your own onboarding times will tell you the real ones. Cross either, and add these one at a time, moving on only if the last one didn't fix it: a paved road (a client library and working examples), then self-service onboarding, then a platform team that only looks at the exceptions. (<a href="https://www.linkedin.com/feed/update/urn:li:activity:7514800682902740992/">Post 14</a>)</p>
   </section>
 
   <section class="page-section animate-slide-up">
-    <h2><i class="fas fa-search"></i> 9. What I'd Do the Same Way</h2>
+    <h2><i class="fas fa-search"></i> 9. What I'd do the same way</h2>
     <p>Most of this came from asking the questions. The second endpoint only turned up while I was working out how to make the platform the only way to reach a model. When the documentation didn't say whether a batch job would take the Australian profile, I ran one. It was accepted and completed, though I've only tried one Claude model. Cheap decisions get the simple option; expensive ones get tested before I trust them. (<a href="https://www.linkedin.com/posts/ns408_platformengineering-aigovernance-apra-share-7511426512458309633-1kh5">Post 6</a>)</p>
   </section>
 
   <section class="contact-cta animate-fade-in">
-    <h2>Talk to Me</h2>
+    <h2>Talk to me</h2>
     <p>If you're working through any of this, whether it's the six questions, your residency policy or the onboarding queue, I'd like to hear where you've got to.</p>
     <a href="/contact/" class="button-primary">Get in Touch</a>
     <a href="https://calendar.app.google/RgJtyQVimhpUgbTE7" class="button-primary" target="_blank" rel="noopener">Book a 30-Minute Call</a>
