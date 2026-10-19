@@ -1,4 +1,72 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-AU"><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://impacteng.com.au/feed.xml" rel="self" type="application/atom+xml" /><link href="https://impacteng.com.au/" rel="alternate" type="text/html" hreflang="en-AU" /><updated>2026-10-18T22:27:51+00:00</updated><id>https://impacteng.com.au/feed.xml</id><title type="html">Cloud, DevOps &amp;amp; AI Readiness Consulting | ImpactEng</title><subtitle>ImpactEng is Nitin Sharma&apos;s independent Cloud, Platform Engineering and AI readiness practice, based in Melbourne.</subtitle><entry><title type="html">A shared AI platform for APRA-regulated organisations</title><link href="https://impacteng.com.au/blog/shared-ai-platform-apra-regulated/" rel="alternate" type="text/html" title="A shared AI platform for APRA-regulated organisations" /><published>2026-10-15T00:00:00+00:00</published><updated>2026-10-15T00:00:00+00:00</updated><id>https://impacteng.com.au/blog/shared-ai-platform-apra-regulated</id><content type="html" xml:base="https://impacteng.com.au/blog/shared-ai-platform-apra-regulated/"><![CDATA[<section class="default-page">
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-AU"><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://impacteng.com.au/feed.xml" rel="self" type="application/atom+xml" /><link href="https://impacteng.com.au/" rel="alternate" type="text/html" hreflang="en-AU" /><updated>2026-10-19T01:57:01+00:00</updated><id>https://impacteng.com.au/feed.xml</id><title type="html">Cloud, DevOps &amp;amp; AI Readiness Consulting | ImpactEng</title><subtitle>ImpactEng is Nitin Sharma&apos;s independent Cloud, Platform Engineering and AI readiness practice, based in Melbourne.</subtitle><entry><title type="html">Separating human, agent and CI credentials as a solo operator</title><link href="https://impacteng.com.au/blog/separating-human-agent-ci-credentials/" rel="alternate" type="text/html" title="Separating human, agent and CI credentials as a solo operator" /><published>2026-10-19T01:00:00+00:00</published><updated>2026-10-19T01:00:00+00:00</updated><id>https://impacteng.com.au/blog/separating-human-agent-ci-credentials</id><content type="html" xml:base="https://impacteng.com.au/blog/separating-human-agent-ci-credentials/"><![CDATA[<section class="default-page">
+  <header class="page-section animate-fade-in">
+    <h2>One login, three actors: separating human, agent and CI credentials when AI agents do the work</h2>
+    <p>I run <a href="/services/">ImpactEng</a> on my own, and a lot of the hands-on work now goes through AI coding agents. From mid-September I started bringing the pieces together. Most already followed the same conventions. They just didn't share one way in. In October I set out to make that one governed path for deploying infrastructure to every provider I use. One rule sits at the centre: I approve every production deploy.</p>
+  </header>
+
+<!--more-->
+
+  <section class="page-section animate-slide-up">
+    <p>This post follows an earlier piece, <a href="/blog/where-ai-agents-break-your-cicd-pipeline/">Where AI Agents Break Your CI/CD Pipeline</a>, which looked at the pipeline itself. This one covers the credentials behind it.</p>
+  </section>
+
+  <section class="page-section animate-slide-up">
+    <h2><i class="fas fa-flag"></i> Where it started</h2>
+    <p>The path covers more ground than a one-person business might suggest. Deploys go to AWS, Cloudflare, GitHub Pages and Google Apps Script. Code lives on GitHub and on a self-hosted Git forge, secrets sit in a password manager, and CI (continuous integration) does the deploying. Several AI coding agents do much of the preparation, Claude Code among them. I wanted one way in, so that at any time I could say what was deployed where, and by whom.</p>
+    <p><img src="/assets/images/separating-credentials-path.svg" alt="The path to production: agents prepare branches, I push and merge, and CI deploys separately to AWS, Cloudflare, GitHub Pages, Google Apps Script and other providers, with credentials from a password manager and my approval on every production deploy." class="blog-image" width="760" height="498" loading="lazy" /></p>
+    <p><em>The path as it stands now.</em></p>
+    <p>The approval rule matters most to me. An agent can prepare a change; only I let it reach production.</p>
+  </section>
+
+  <section class="page-section animate-slide-up">
+    <h2><i class="fas fa-exclamation-triangle"></i> Why it changed</h2>
+    <p>Then I looked at what the one GitHub login on my machine could do. Everything: push to any repository and start runs. And every agent session used it, because the agents ran as me.</p>
+    <p>So in principle an agent could edit the deploy workflow, remove the check that enforced my approval, and start a run. My approval gate meant poop while the agents held the trigger.</p>
+  </section>
+
+  <section class="page-section animate-slide-up">
+    <h2><i class="fas fa-cut"></i> The first fix: split the login</h2>
+    <p>It looked like an easy fix. Give each actor its own root of trust: me, CI and the agents. My own GitHub login has always lived in my password manager; now the command-line token goes through it too, so using it needs my fingerprint (and a little patience). The agents got a narrow token of their own. CI was planned around short-lived federated credentials through OIDC (OpenID Connect) wherever a provider supports them, so that no long-lived Cloud key has to sit in a repository.</p>
+    <p>The problem was real, and splitting the login was the right call. The way I did it caused most of what came next. Good intentions, road to hell, you know the rest.</p>
+  </section>
+
+  <section class="page-section animate-slide-up">
+    <h2><i class="fas fa-bug"></i> What it broke</h2>
+    <p>I removed access without first listing what it was used for. Within days the agents could no longer read CI results or open pull requests. My own login lost access I still need now and then, such as organisation settings. And my tests checked each token's settings. None of them ran a real task, such as an agent opening a pull request.</p>
+    <p>One gap I knew of and left open. A push over SSH (Secure Shell) doesn't care about token permissions, and I had written that down at the start. It stayed a note until an agent session pushed a branch as me. 🤦</p>
+  </section>
+
+  <section class="page-section animate-slide-up">
+    <h2><i class="fas fa-clipboard-list"></i> Doing it again, from an inventory</h2>
+    <p>Second time round, I started with what we actually used. I went through what the old login had been used for, by me and by the agents, and listed every workflow that touched GitHub: reading CI, opening a pull request, creating a repository, merging, settings. For each one I wrote down how it worked before, after, and how it should work. That table became my test plan.</p>
+    <p>I also added a guard at the git level so that an agent session doesn't push as me by accident. Its first version rewrote push addresses, and a git setting I hadn't accounted for got round it. The second, which replaced it, refuses the push itself.</p>
+    <p>GitHub helped with one of the losses. In October it added a narrow Repository creation permission, so I can create repositories again without the wider permission, and the agents still can't. I covered that step in <a href="https://www.linkedin.com/posts/ns408_github-leastprivilege-aiagents-share-7517228965535698944-14ei/">a short LinkedIn post</a>.</p>
+    <p>One thing I'd recommend: commits made in an agent session are now authored and signed as the agents, under their own name and signing key, but they keep my GitHub noreply email address. The history shows the work as the agents', and by GitHub's rule it should still count on my contribution graph, because GitHub credits a commit by its email address, and the noreply address counts (<a href="https://docs.github.com/en/account-and-profile/reference/why-are-my-contributions-not-showing-up-on-my-profile">GitHub Docs</a>).</p>
+    <p><img src="/assets/images/separating-credentials-timeline.svg" alt="Timeline of the change, from one shared login through a first split and its fixes to agents that only read and prepare." class="blog-image" width="760" height="470" loading="lazy" /></p>
+  </section>
+
+  <section class="page-section animate-slide-up">
+    <h2><i class="fas fa-lightbulb"></i> What changed my mind</h2>
+    <p>There was still a gap GitHub couldn't see. The agents' token sat on my own account, so as far as GitHub could tell, everything done with it was done by me. Merging a pull request needed no permission beyond what an agent already held to push a branch. So GitHub couldn't tell an agent's merge from mine. "Agents never merge" only held because the agents behaved.</p>
+    <p>Turns out this is a known mistake. AWS lists it for IAM (Identity and Access Management) in its guidance for agentic AI: reusing human user credentials or roles for agent authentication, which makes it "impossible to distinguish agent actions from human actions in audit logs" (<a href="https://docs.aws.amazon.com/wellarchitected/latest/agentic-ai-lens/agentsec03-bp02.html">AWS Well-Architected, Agentic AI Lens</a>).</p>
+    <p>The pattern I found in vendor docs and in other solo operators' write-ups has three actors and three credentials. The agent works under its own identity and can at most push a branch. The human approves and merges as a different identity. CI holds the deploy credential, through short-lived federation where the provider offers it.</p>
+    <p><img src="/assets/images/separating-credentials-before-after.svg" alt="Before, one GitHub login served me, my agents and CI. After, agents only read and prepare; I push and merge." class="blog-image" width="760" height="500" loading="lazy" /></p>
+  </section>
+
+  <section class="page-section animate-slide-up">
+    <h2><i class="fas fa-map-marker-alt"></i> Where it landed, for now</h2>
+    <p>By that pattern, the agent needs its own identity. Its commits already carried one, but GitHub's own logs still saw only me. I also started on the shape other solo operators describe: a free machine account as a collaborator with write access, and a main-branch rule requiring a review the agents can't give. Then the merge decision would sit with GitHub.</p>
+    <p>Setting it up, I had to change the plan twice. The token I meant to give the machine account couldn't be made: a fine-grained token on that account could reach only repositories it owned, and it owns none. And on GitHub's free plans, rulesets are available only on public repositories (<a href="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets">GitHub Docs</a>), so on a private repository the review rule isn't enforced. There, any credential that can push a branch can also merge it. Both facts were cheap to check, and I should have checked them before deciding.</p>
+    <p>So I went with the simplest option, one GitHub doesn't have to enforce: the agents hold no write credential on GitHub, and their old token is revoked. They prepare branches under their own identity, and I push them and merge the pull requests. Read-only access will give them back most of what they lost, since most of what they did on GitHub was reading. If pushing by hand becomes a chore, there is a researched way to split the permissions across two GitHub Apps, so that the one able to open a pull request can't merge it. I haven't tested it yet.</p>
+    <p>Two things I'm still working out. The first is an operating system boundary for agent sessions, a microVM (a lightweight virtual machine) or a second user account. The second is providers without OIDC. Cloudflare's guide for deploying from CI still asks for an API token stored as a secret (<a href="https://developers.cloudflare.com/workers/ci-cd/external-cicd/github-actions/">Cloudflare Docs</a>), so for providers like that the plan is to keep the deploy token behind the same approval gate, out of the agents' reach.</p>
+  </section>
+
+  <section class="contact-cta animate-fade-in">
+    <h2>Over to you</h2>
+    <p>How have you separated human, agent and CI credentials? I'm most interested in solo operators and small teams, and in anyone doing it across several providers at once, where each one has its own idea of identity.</p>
+    <p>If you've solved this, or you're partway through, I'd like to hear how. <a href="/contact/">Get in touch</a> or <a href="https://calendar.app.google/RgJtyQVimhpUgbTE7" target="_blank" rel="noopener">book a time to talk</a>.</p>
+  </section>
+</section>]]></content><author><name>Nitin Sharma</name></author><category term="platform-engineering" /><category term="AI" /><category term="agentic-ai" /><category term="devops" /><category term="security" /><summary type="html"><![CDATA[How I split one GitHub login into separate credentials for me, my AI coding agents and CI, what the first attempt broke, and where it landed.]]></summary><media:thumbnail xmlns:media="http://search.yahoo.com/mrss/" url="https://impacteng.com.au/assets/images/separating-human-agent-ci-credentials-card.png" /><media:content medium="image" url="https://impacteng.com.au/assets/images/separating-human-agent-ci-credentials-card.png" xmlns:media="http://search.yahoo.com/mrss/" /></entry><entry><title type="html">A shared AI platform for APRA-regulated organisations</title><link href="https://impacteng.com.au/blog/shared-ai-platform-apra-regulated/" rel="alternate" type="text/html" title="A shared AI platform for APRA-regulated organisations" /><published>2026-10-15T00:00:00+00:00</published><updated>2026-10-15T00:00:00+00:00</updated><id>https://impacteng.com.au/blog/shared-ai-platform-apra-regulated</id><content type="html" xml:base="https://impacteng.com.au/blog/shared-ai-platform-apra-regulated/"><![CDATA[<section class="default-page">
   <header class="page-section animate-fade-in">
     <p>A team asks to put an AI assistant in the contact centre. It sounds like another pilot. In an organisation regulated by APRA (the Australian Prudential Regulation Authority) it isn't: under CPS 230, APRA's operational risk standard, it can make your shared AI platform part of a critical operation.</p>
     <p>Over two weeks I wrote 14 LinkedIn posts on designing one AI platform for every team in a regulated organisation, and getting teams to use it. This is the whole path in one place, from the first request to the twentieth app, including what I tested along the way. Each section links the posts it comes from. Facts about Amazon Web Services (AWS) are as at October 2026.</p>
@@ -779,117 +847,4 @@
     <p>Understanding AI fundamentals is the first step. The next is knowing whether your organisation's Cloud and DevOps foundations are ready to support AI agents in production. Our <a href="/services/ai-readiness-audit/">Agentic AI Readiness Audit</a> evaluates exactly that, scoring your infrastructure, data pipelines, governance, and team capability across six dimensions.</p>
     <p>For a broader look at how we help engineering teams build AI-ready foundations, see our <a href="/services/">full list of services</a>. You may also find our case study on <a href="/blog/orchestrating-devops-dominance/">turning a $2.3M DevOps investment into $7.4M value</a> a useful example of what mature Cloud and DevOps practice looks like in an Australian enterprise.</p>
   </section>
-</section>]]></content><author><name>Nitin Sharma</name></author><category term="AI" /><category term="devops" /><category term="sre" /><category term="cloud" /><category term="platform-engineering" /><category term="LLMs" /><summary type="html"><![CDATA[A guide to AI fundamentals, terminology, and LLM usage tailored for DevOps, SRE, and Cloud professionals with limited AI experience.]]></summary></entry><entry><title type="html">Cloud Engineering - Targeting the Lowest-Hanging Fruit</title><link href="https://impacteng.com.au/blog/cloud-engineering-targeting-the-lowest-hanging-fruit/" rel="alternate" type="text/html" title="Cloud Engineering - Targeting the Lowest-Hanging Fruit" /><published>2025-06-13T00:00:00+00:00</published><updated>2025-06-13T00:00:00+00:00</updated><id>https://impacteng.com.au/blog/Cloud-Engineering-targeting-the-lowest-hanging-fruit</id><content type="html" xml:base="https://impacteng.com.au/blog/cloud-engineering-targeting-the-lowest-hanging-fruit/"><![CDATA[<section class="default-page">
-  <header class="page-section animate-fade-in">
-    <h2>Quick Wins for Cost Savings Without Major Time or Money</h2>
-    <p>Want to make a positive impact in your tech environment without sinking huge time or budget?</p>
-    <p>Focus on quick, high-value actions that save costs, streamline operations, or free up engineering effort. By regularly identifying and acting on these opportunities, you can uncover patterns to prevent waste and build leaner, more efficient systems.</p>
-  </header>
-
-<!--more-->
-
-  <section class="page-section animate-slide-up">
-    <h2><i class="fas fa-bullseye"></i> What are quick wins?</h2>
-    <p>Quick wins are low-effort, high-impact changes that deliver savings or efficiency. Examples include:</p>
-    <ul class="section-list">
-      <li><strong>Cost Savings:</strong> Reduce infrastructure or licensing expenses</li>
-      <li><strong>Engineering Efficiency:</strong> Eliminate toil to free up time for innovation</li>
-      <li><strong>Tool Consolidation:</strong> Streamline tools to lower maintenance overhead</li>
-      <li><strong>Documentation:</strong> Create self-service guides for easier troubleshooting</li>
-      <li><strong>Lifecycle Management:</strong> Archive or delete unused artifacts (e.g., old AMIs, snapshots, ECR images)</li>
-      <li><strong>Security Benefits:</strong> Reduce potential attack surface for malicious actors</li>
-    </ul>
-  </section>
-
-  <section class="page-section animate-slide-up">
-    <h2><i class="fa fa-compass"></i> General Guidance</h2>
-    <ul class="section-list">
-      <li><strong>Plan Consistently:</strong> Use a single tool (e.g., Excel, Jira, Trello) to track tasks and progress</li>
-      <li><strong>Identify Low-Priority Assets:</strong> Target unused, unsupported, or non-critical applications. Ask teams for input to uncover "zombie" resources - those running without a clear purpose or SLA</li>
-      <li><strong>Validate Thoroughly:</strong> Confirm each asset's purpose, criticality, and usage (e.g., check logs, CMDB, or Git history)</li>
-      <li><strong>Follow Change Management:</strong> Stick to your process (or establish one if absent)</li>
-      <li><strong>Communicate Clearly:</strong> Share plans early via multiple channels (Slack, email, meetings). Leverage top-down support and bottom-up advocacy</li>
-      <li><strong>Decommission Strategically:</strong> Set soft and hard deletion dates. Ensure short-term restoration and long-term data retrieval options</li>
-      <li><strong>Incentivise Participation:</strong> Reward contributors with recognition (e.g., shoutouts, small perks) to make cleanup engaging</li>
-    </ul>
-  </section>
-
-  <section class="page-section animate-slide-up">
-    <h2><i class="fas fa-tasks"></i> Implementation Approach</h2>
-    <h3>1. Identify Assets</h3>
-    <p>Choose an approach:</p>
-    <ul>
-      <li><strong>Resource-Based:</strong> Group similar resources (e.g., S3 buckets, AMIs, Docker Images, Compute or LBs)</li>
-      <li><strong>Application-Based:</strong> Target resources tied to specific apps</li>
-    </ul>
-    <p>Keep the criteria simple. Review your backlog or ask internal teams for opportunities.</p>
-    <h3>2. Validate Resources</h3>
-    <ul>
-      <li><strong>Purpose:</strong> Check usage metrics, logs, CMDB, or Git history. Ask on Slack for tribal knowledge</li>
-      <li><strong>Criticality:</strong> Focus on low-criticality assets to avoid complex approvals or compliance hurdles</li>
-      <li><strong>Usage:</strong> Avoid assumptions. Systematically confirm inactivity at each stage (e.g., no recent access or pipeline triggers)</li>
-    </ul>
-    <h3>3. Communicate</h3>
-    <p>Communicate changes proactively. This allows for transparency and prevents pitfalls.</p>
-    <h3>4. Take Action</h3>
-    <p>Take a balanced approach.</p>
-    <a href="/assets/images/targeting-the-lowest-hanging-fruit_image1.png" class="zoom-image">
-      <img src="/assets/images/targeting-the-lowest-hanging-fruit_image1.png" alt="Three-step approach to cloud resource cleanup" class="blog-image" loading="lazy" />
-    </a>
-    <p>You may start by restricting access to the asset to prevent usage while you prepare for archival or deletion. Move assets to a low-cost storage tier (e.g., S3 to Glacier) with a lifecycle policy for eventual deletion.</p>
-    <p><strong>Delete assets only after confirming no impact. Always retain a restoration path for a reasonable period.</strong></p>
-    <h3>5. Track progress</h3>
-    <p>Log actions in your planning tool as it will allow to quantify impact and leave a papertrail for the next person.</p>
-  </section>
-
-<section class="page-section animate-slide-up">
-    <h3>Example Lifecycle Policies</h3>
-    <p>S3 bucket lifecycle policy:</p>
-    <a href="/assets/images/targeting-the-lowest-hanging-fruit_image2.png" class="zoom-image">
-      <img src="/assets/images/targeting-the-lowest-hanging-fruit_image2.png" alt="S3 bucket lifecycle policy example" class="blog-image" loading="lazy" />
-    </a>
-    <p>ECR lifecycle policy:</p>
-    <a href="/assets/images/targeting-the-lowest-hanging-fruit_image3.png" class="zoom-image">
-      <img src="/assets/images/targeting-the-lowest-hanging-fruit_image3.png" alt="ECR lifecycle policy example" class="blog-image" loading="lazy" />
-    </a>
-</section>
-
-<section class="page-section animate-slide-up">
-    <h2><i class="fas fa-chart-line"></i> Reflect and Improve</h2>
-    <ul class="section-list">
-      <li>
-        <p><strong>Run Retrospectives</strong></p>
-        <p>After each cleanup, hold a retro to capture lessons learned and refine the process.</p>
-        <ul>
-          <li>What worked well?</li>
-          <li>What blockers emerged?</li>
-          <li>How can we prevent waste upfront?</li>
-        </ul>
-      </li>
-      <li>
-        <p><strong>Quantify Value</strong></p>
-        <p>Document savings and efficiency gains in two formats:</p>
-        <ul>
-          <li><strong>Detailed Tracker</strong>: For engineers, list specific wins (e.g., “Decommissioned 100 unused AMIs, saving $200/month”).</li>
-          <li><strong>One-Pager</strong>: For stakeholders, tell a high-level story (e.g., “Cut costs by $5,000 annually with no impact”).</li>
-        </ul>
-        <p>Share these wins across engineering, product, and business teams to gain support and resources.</p>
-      </li>
-      <li>
-        <p><strong>Codify Patterns</strong></p>
-        <p>Turn repeated findings into principles or, even better, automate them.
-        For example, if resources lack lifecycle policies, mandate notifications or auto-archival for S3 objects, AMIs, or EBS snapshots.</p>
-      </li>
-      <li>
-        <p><strong>Schedule Regular Cleanups</strong></p>
-        <p>Set a biannual cadence for spring-cleaning. As you mature, automate proactive measures to reduce manual effort. If your organisation is exploring AI adoption, these same infrastructure hygiene practices are foundational. Our <a href="/services/ai-readiness-audit/">Agentic AI Readiness Audit</a> assesses Cloud infrastructure readiness as one of six key dimensions.</p>
-      </li>
-    </ul>
-  </section>
-
-  <section class="contact-cta animate-fade-in">
-    <h2>Ready to Find Your Quick Wins?</h2>
-    <p>Start your optimisation journey today. We can help you identify and execute high-impact improvements in your Cloud infrastructure. See how cost optimisation fits into a broader <a href="/services/">strategic assessment</a>, or read more about <a href="/blog/is-your-cloud-strategy-working/">evaluating whether your Cloud strategy is working</a>.</p>
-    <a href="/contact/" class="button-primary">Get Started</a>
-  </section>
-</section>]]></content><author><name>Nitin Sharma</name></author><category term="cloud" /><category term="cost-optimisation" /><category term="quick-wins" /><summary type="html"><![CDATA[Learn how to identify and execute quick wins in your cloud infrastructure for immediate cost savings and efficiency gains.]]></summary></entry></feed>
+</section>]]></content><author><name>Nitin Sharma</name></author><category term="AI" /><category term="devops" /><category term="sre" /><category term="cloud" /><category term="platform-engineering" /><category term="LLMs" /><summary type="html"><![CDATA[A guide to AI fundamentals, terminology, and LLM usage tailored for DevOps, SRE, and Cloud professionals with limited AI experience.]]></summary></entry></feed>
