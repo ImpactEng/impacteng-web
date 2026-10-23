@@ -446,9 +446,15 @@ a.more { display: inline-flex; align-items: center; min-height: 44px; }
 .product .fee { font-family: var(--font-display); font-weight: 600; font-size: var(--step-1); line-height: 1.25; margin-top: 6px; }
 .product .fee .nw { white-space: nowrap; }
 .product .product-act { margin-top: auto; padding-top: 6px; }
-.offer-form { gap: 12px; max-width: none; margin-top: 6px; padding-top: 16px; border-top: 1px solid var(--line); }
+/* The short form sits collapsed behind a plain disclosure, "Ask about this one" (owner, 2026-10-24):
+   a details element whose summary is a 44px control drawn like the What's covered button. */
+.offer-ask { margin-top: 6px; border-top: 1px solid var(--line); }
+.offer-ask summary { list-style: none; display: inline-flex; align-items: center; min-height: 44px; cursor: pointer; font-family: var(--font-mono); font-size: var(--step--1); letter-spacing: .06em; text-transform: uppercase; color: var(--ink); border-bottom: 1px dashed var(--slate); }
+.offer-ask summary::-webkit-details-marker { display: none; }
+.offer-ask[open] summary { border-bottom-style: solid; border-bottom-color: var(--ink); }
+.offer-form { gap: 12px; max-width: none; padding-top: 12px; }
 .offer-form .collect { font-size: var(--step--1); }
-/* "I reply within one business day", beside every contact and booking button */
+/* "I reply within one business day": the contact form only, since 2026-10-24 */
 .reply { font-size: var(--step--1); color: var(--slate); }
 .actions .reply { align-self: center; }
 .band-ink .reply { color: var(--paper); }
