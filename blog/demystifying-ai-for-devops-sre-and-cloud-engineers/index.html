@@ -1,8 +1,7 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-AU"><head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Demystifying AI for DevOps, SRE, and Cloud Engineers: From Basics to Practical LLM Applications | Cloud, DevOps &amp; AI Readiness Consulting ImpactEng</title>
 <meta name="generator" content="Jekyll v3.10.0" />
 <meta property="og:title" content="Demystifying AI for DevOps, SRE, and Cloud Engineers: From Basics to Practical LLM Applications" />
@@ -21,22 +20,37 @@
 {"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Nitin Sharma"},"dateModified":"2025-06-28T00:00:00+00:00","datePublished":"2025-06-28T00:00:00+00:00","description":"A guide to AI fundamentals, terminology, and LLM usage tailored for DevOps, SRE, and Cloud professionals with limited AI experience.","headline":"Demystifying AI for DevOps, SRE, and Cloud Engineers: From Basics to Practical LLM Applications","mainEntityOfPage":{"@type":"WebPage","@id":"https://impacteng.com.au/blog/demystifying-ai-for-devops-sre-and-cloud-engineers/"},"url":"https://impacteng.com.au/blog/demystifying-ai-for-devops-sre-and-cloud-engineers/"}</script>
 <!-- End Jekyll SEO tag -->
 <meta property="og:locale" content="en_AU"><meta property="article:author" content="Nitin Sharma">
-  <meta property="article:published_time" content="2025-06-28T00:00:00+00:00"><link rel="stylesheet" href="/assets/main.css">
-  <!-- Impact Eng customisation -->
-  <link rel="stylesheet" href="/assets/fontawesome-5.15.4/css/fontawesome.min.css">
-  <link rel="stylesheet" href="/assets/fontawesome-5.15.4/css/solid.min.css">
-  <link rel="stylesheet" href="/assets/fontawesome-5.15.4/css/brands.min.css"><link type="application/atom+xml" rel="alternate" href="https://impacteng.com.au/feed.xml" title="Cloud, DevOps &amp; AI Readiness Consulting | ImpactEng" /><!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-89R5ETTN6P"></script>
+  <meta property="article:published_time" content="2025-06-28T00:00:00+00:00">
+<meta name="theme-color" content="#EEF0EC" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121518" media="(prefers-color-scheme: dark)">
+<link rel="preload" href="/assets/fonts/bricolage-grotesque-normal-300-800-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/ibm-plex-sans-normal-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
+<link rel="stylesheet" href="/assets/brand.css">
+<link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
+<script>(function(){try{var t=localStorage.getItem('ie-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script><link type="application/atom+xml" rel="alternate" href="https://impacteng.com.au/feed.xml" title="Cloud, DevOps &amp; AI Readiness Consulting | ImpactEng" /><!-- Google tag (gtag.js). Not loaded for browsers that declare themselves automated
+     (navigator.webdriver): in October 2026, 425 of 446 users in 28 days were single-page-view
+     visits from data-centre addresses, which would drown the demand test. -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  if (!navigator.webdriver) {
+    (function () {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-89R5ETTN6P';
+      document.head.appendChild(s);
+    })();
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-  gtag('config', 'G-89R5ETTN6P');
+    gtag('config', 'G-89R5ETTN6P');
+  }
 </script>
 <script>
-  // Sends a GA4 event when gtag is loaded (production only); a no-op otherwise.
+  // Sends a GA4 event when gtag is loaded (production only); a no-op otherwise, and a no-op
+  // for browsers that declare themselves automated (navigator.webdriver), which never get gtag.
   window.ieTrack = function (name, params) {
+    if (navigator.webdriver) return;
     if (typeof window.gtag === 'function') window.gtag('event', name, params || {});
   };
   document.addEventListener('click', function (e) {
@@ -44,9 +58,12 @@
     if (link) window.ieTrack('booking_click', { page: window.location.pathname });
   });
 </script>
-<!-- Microsoft Clarity -->
+
+<script>(function(){var r=document.documentElement;if(r.getAttribute('data-exp')!=='home_e1')return;var a=null;try{a=localStorage.getItem('ie-exp-home');}catch(e){}if(a!=='q'&&a!=='d'){a=Math.random()<0.5?'q':'d';try{localStorage.setItem('ie-exp-home',a);}catch(e){a='none';}}r.setAttribute('data-exp-arm',a);if(a==='d'){r.setAttribute('data-exp-home','d');var s=document.createElement('style');s.textContent='[data-exp-home="d"] [data-questions-link]{display:none !important}';document.head.appendChild(s);}})();</script>
+<script src="/assets/measure.js" defer></script><!-- Microsoft Clarity. Not loaded for browsers that declare themselves automated
+     (navigator.webdriver); see google-analytics.html. -->
 <script>
-  (function (c, l, a, r, i, t, y) {
+  if (!navigator.webdriver) (function (c, l, a, r, i, t, y) {
     c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
     t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
     y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
@@ -60,7 +77,7 @@
   "@id": "https://impacteng.com.au/#organization",
   "name": "Impact Eng",
   "url": "https://impacteng.com.au",
-  "email": "hi@impacteng.com.au",
+  "email": "nitin@impacteng.com.au",
   "description": "ImpactEng is Nitin Sharma's independent Cloud, Platform Engineering and AI readiness practice, based in Melbourne.",
   "image": "https://impacteng.com.au/assets/images/og-image.jpg",
   "areaServed": {
@@ -74,9 +91,9 @@
   "founder": {
     "@type": "Person",
     "name": "Nitin Sharma",
-    "jobTitle": "Founder and Principal"
+    "jobTitle": "Principal, ImpactEng"
   },
-  "serviceType": ["Cloud Engineering", "DevOps Consulting", "AI Readiness Audit"],
+  "serviceType": ["Cloud Engineering", "DevOps Consulting", "AI Coding Assessment", "Cloud Architecture Assessment", "Software Delivery Assessment"],
   "knowsAbout": ["Cloud Infrastructure", "Cloud Architecture", "DevOps", "AI Readiness", "Platform Engineering", "Containers", "CI/CD", "Linux Systems"],
   "sameAs": ["https://www.linkedin.com/company/impactengx"
   ]
@@ -105,24 +122,30 @@
     }
   ]
 }
-</script><body><header class="site-header" role="banner">
+</script><body><header class="site-header">
+  <div class="sheet bar">
+    <a class="wordmark" href="/" aria-label="ImpactEng home"><svg viewBox="0 0 32 32" aria-hidden="true"><path class="m" d="M3 3h26v6H20v14h9v6H3v-6h9V9H3z"/></svg><span><b>Impact</b>Eng</span></a>
 
-  <div class="wrapper"><!-- <a class="site-title" rel="author" href="/">Cloud, DevOps &amp; AI Readiness Consulting | ImpactEng</a> --><nav class="site-nav">
-        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-        <label for="nav-trigger">
-          <span class="menu-icon">
-            <svg viewBox="0 0 18 15" width="18px" height="15px">
-              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
-            </svg>
-          </span>
-        </label>
-
-        <div class="trigger"><a class="page-link" href="/">Home</a><a class="page-link" href="/about/">About</a><a class="page-link" href="/services/">Services</a><a class="page-link" href="/tools/">Tools</a><a class="page-link" href="/blog/">Blog</a><a class="page-link" href="/contact/">Contact</a></div>
-      </nav></div>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/services/">Services</a>
+      <a href="/work/">Work with me</a>
+      <a href="/blog/" aria-current="page">Blog</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <a class="btn" href="https://calendar.app.google/RgJtyQVimhpUgbTE7">Book a call</a>
+      <button class="theme-btn" type="button" data-theme-toggle aria-label="Switch colour theme">
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+    </div>
+  </div>
 </header>
-<main class="page-content" aria-label="Content">
-      <div class="wrapper">
-        <script type="application/ld+json">
+
+<main id="main">
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
@@ -145,246 +168,257 @@
   }
 }
 </script>
-<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Demystifying AI for DevOps, SRE, and Cloud Engineers: From Basics to Practical LLM Applications</h1>
-    <p class="post-meta">
-      <time class="dt-published" datetime="2025-06-28T00:00:00+00:00" itemprop="datePublished">Jun 28, 2025
-      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">Nitin Sharma</span></span></p>
-  </header>
-
-  <div class="post-content e-content" itemprop="articleBody">
-    <section class="default-page">
-  <header class="page-section animate-fade-in">
-    <h2>Introduction: Why Artificial Intelligence (AI) Matters</h2>
-    <p>If you're a DevOps pro automating CI/CD pipelines, an SRE ensuring site reliability, or a Cloud engineer provisioning resources across AWS, Azure, or GCP, this post is for you.</p>
-    <p>My goal is to demystify AI from the ground up using familiar analogies and share examples of practical application. No prior AI knowledge required, just curiosity.</p>
-  </header>
+<article class="essay">
+<div class="sheet">
+<section class="row essay-head" style="border-top:0">
+  <div class="margin"><span class="label">Idea</span><p class="muted">One idea, in full</p></div>
+  <div class="body">
+    <h1>Demystifying AI for DevOps, SRE, and Cloud Engineers: From Basics to Practical LLM Applications</h1>
+    <p class="lead measure">A guide to AI fundamentals, terminology, and LLM usage tailored for DevOps, SRE, and Cloud professionals with limited AI experience.</p>
+    <dl class="titleblock essay-meta">
+      <div><dt>Dated</dt><dd><time datetime="2025-06-28">28 Jun 2025</time></dd></div>
+      <div><dt>Thread</dt><dd><a href="/blog/#thread-engineers-ai">Engineers working with AI</a></dd></div>
+      <div><dt>Read</dt><dd class="num">6 min, 1,329 words</dd></div>
+    </dl>
+  </div>
+</section>
+<section class="row essay-sec" id="s1">
+  <div class="margin"><span class="label">Section 01</span></div>
+  <div class="body">
+<h2>Introduction: Why Artificial Intelligence (AI) Matters</h2>
+<p>If you're a DevOps pro automating CI/CD pipelines, an SRE ensuring site reliability, or a Cloud engineer provisioning resources across AWS, Azure, or GCP, this post is for you.</p>
+<p>My goal is to demystify AI from the ground up using familiar analogies and share examples of practical application. No prior AI knowledge required, just curiosity.</p>
 
 <!--more-->
 
-  <section class="page-section animate-slide-up">
-    <h2><i class="fas fa-brain"></i> Section 1: AI Basics (Building Blocks)</h2>
-    <p>Artificial Intelligence (AI) is essentially machines simulating human intelligence to perform tasks like learning, reasoning, and problem-solving. Think of it as evolving from rigid scripts (like early bash automation) to adaptive systems that learn from data.</p>
-    <p>Historically, this marks an evolution from rule-based, deterministic systems, where outputs were predictable and explicitly coded, to modern AI systems that learn from data and are probabilistic and adaptive.</p>
-  </section>
-
-  <section class="page-section animate-slide-up">
-    <h3>What is AI?</h3>
-    <ul class="section-list">
-      <li><strong>Narrow AI (What We Have Today):</strong> Specialised for one task, like a microservice handling log parsing. Examples include spam filters or predictive autoscaling in AWS Auto Scaling groups.</li>
-      <li><strong>General AI (The Future Horizon):</strong> Capable of any intellectual task, akin to a universal orchestrator managing your entire multi-cloud infrastructure seamlessly. We're not there yet, but progress is rapid.</li>
-    </ul>
-  </section>
-
-  <section class="page-section animate-slide-up">
-    <h3>Key Concepts: Machine Learning and Beyond</h3>
-    <p><strong>Machine Learning (ML):</strong> The core of modern AI, where systems learn patterns from data without explicit coding. Analogy: Instead of hardcoding rules for alert thresholds, ML trains on historical data to predict failures.</p>
-    <ul>
-      <li><strong>Supervised Learning:</strong> Uses labelled data, like training on past incidents tagged "high CPU" or "normal." Real-world: Azure Machine Learning's classification models for predicting VM failures based on labelled telemetry.</li>
-      <li><strong>Unsupervised Learning:</strong> Finds hidden patterns, such as clustering unusual traffic in GCP's Operations Suite for anomaly detection.</li>
-    </ul>
-    <p><strong>Deep Learning &amp; Neural Networks:</strong> A subset of ML using layered networks. Imagine nodes as containers in a Kubernetes cluster: inputs (data) flow through layers (transformations), with connections routing like network policies.</p>
-  </section>
-
-  <section class="page-section animate-slide-up">
-    <h3>Essential Terminology:</h3>
-    <ul class="section-list">
-      <li><strong>Dataset:</strong> Your training fuel. E.g., a collection of CloudWatch logs or Terraform configs.</li>
-      <li><strong>Training:</strong> Feeding data to models so they can learn, similar to teaching a runbook to a new engineer.</li>
-      <li><strong>Model:</strong> The output artifact, deployable via services like AWS SageMaker, Azure ML, or GCP Vertex AI. The learned logic is like an advanced runbook for patterns.</li>
-      <li><strong>Inference:</strong> Using the trained model to make real-time predictions on new data, think of predictions like automated alert triage.</li>
-    </ul>
-  </section>
-
-  <section class="page-section animate-slide-up">
-    <h2><i class="fas fa-robot"></i> Section 2: Diving into Large Language Models (LLMs)</h2>
-    <p>LLMs are the stars of the AI show, massive neural networks trained on text corpora to understand and generate human-like language. Think GPT (OpenAI), Grok (xAI), Claude (Anthropic), or Gemini (Google).</p>
-  </section>
-
-  <section class="page-section animate-slide-up">
-    <h3>How LLMs Work</h3>
-    <p>LLMs use transformer architectures with attention mechanisms that allow the model to consider all parts of a prompt simultaneously. This lets the LLM understand context and dependencies across the entire input, much like how Terraform evaluates the complete dependency graph of resources before applying changes.</p>
-  </section>
-
-  <section class="page-section animate-slide-up">
-    <h3>Key Terminology:</h3>
-    <ul class="section-list">
-      <li><strong>Tokens:</strong> Basic text units (e.g., "Hello world!" = ~3 tokens).</li>
-      <li><strong>Prompt Engineering:</strong> Crafting inputs for optimal outputs. Always specify role, context, and format. It's like writing precise Helm charts.
-        <ul>
-          <li>Poor: "Fix code."</li>
-          <li>Good: "As an SRE, analyse this Azure ARM template for security flaws and suggest fixes."</li>
-        </ul>
-      </li>
-      <li><strong>Fine-Tuning:</strong> customising models with your data, e.g., tuning Llama on internal runbooks via Hugging Face.</li>
-      <li><strong>RAG (Retrieval-Augmented Generation):</strong> Pulls external knowledge to avoid hallucinations, like querying your Confluence docs before generating code.</li>
-      <li><strong>MCP (Model Context Protocol):</strong> Standard for LLMs to interact with tools, e.g., querying Kubernetes APIs directly.</li>
-      <li><strong>Agentic AI:</strong> Autonomous agents that take goal-oriented actions, like an agent creating PRs on GitHub.</li>
-    </ul>
-  </section>
-
-  <section class="page-section animate-slide-up">
-    <p><strong>LLMs vs. Traditional ML:</strong> LLMs are general-purpose (text-focused), while traditional ML is task-specific (e.g., regression for metrics). Real-world: Use GCP's Vertex AI for LLM fine-tuning on codebases, versus scikit-learn (Python) for simple predictions.</p>
-    <table>
-      <thead>
-        <tr>
-          <th></th>
-          <th>Traditional ML</th>
-          <th>LLMs</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Input</td>
-          <td>Structured data</td>
-          <td>Unstructured text/cfg</td>
-        </tr>
-        <tr>
-          <td>Output</td>
-          <td>Classification</td>
-          <td>Text, code, explanations</td>
-        </tr>
-        <tr>
-          <td>Use</td>
-          <td>Log anomaly, metrics</td>
-          <td>Code, IaC, troubleshooting</td>
-        </tr>
-      </tbody>
-    </table>
-  </section>
-
-  <section class="page-section animate-slide-up">
-    <h2><i class="fas fa-magic"></i> Section 3: Practical Applications (Where AI Meets Ops)</h2>
-    <p>Here's where it gets exciting. LLMs automating your pain points across DevOps, SRE, and Cloud.</p>
-  </section>
-
-  <section class="page-section animate-slide-up">
-    <h3>DevOps Use Cases</h3>
-    <ul class="section-list">
-      <li><strong>Code Generation &amp; Debugging:</strong>
-        <ul>
-          <li>Generating <strong>CI/CD pipelines (e.g., GitLab YAML, AWS CodePipeline config)</strong> from natural language.
-            <ul>
-              <li><em>Example Prompt:</em> "Generate a GitLab CI/CD YAML for a Node.js application. It should have stages for build, test, and deploy. The build stage should install dependencies and build, test should run Jest tests, and deploy should push to an ECR repository and update an ECS service named 'my-nodejs-service'."</li>
-            </ul>
-          </li>
-          <li>Debug <strong>Dockerfiles, Kubernetes YAML</strong>, or <strong>Terraform HCL</strong> by explaining errors.</li>
-        </ul>
-      </li>
-      <li><strong>Configuration optimisation:</strong> "Suggest improvements to this Nginx config for performance."</li>
-      <li><strong>Documentation Generation:</strong> Automatically create READMEs for repos, API documentation, or runbooks from code.</li>
-      <li><strong>Dockerfile optimisation:</strong> LLM reviews for security. E.g., 'Harden my multi-stage Dockerfile for an Azure Container Instance deployment, catching exposed ports'.</li>
-      <li><strong>MCP for Docker/K8s:</strong> Imagine an <strong>Agentic AI</strong> using <strong>MCP</strong> to:
-        <ul>
-          <li>Dynamically fetch <strong>Kubernetes manifests</strong> from your Git repo via an MCP resource server.</li>
-          <li>Validate live <strong>Pod logs</strong> against best practices by connecting to a CloudWatch Logs MCP server.</li>
-          <li>Troubleshoot a failing <strong>Docker container</strong> by querying its logs and then suggesting a <code>docker-compose</code> fix.</li>
-        </ul>
-      </li>
-    </ul>
-  </section>
-
-  <section class="page-section animate-slide-up">
-    <h3>SRE Applications</h3>
-    <ul class="section-list">
-      <li><strong>Log Analysis &amp; Incident Response:</strong>
-        <ul>
-          <li>summarise complex CloudWatch/Sumo Logic logs: "Find critical errors and unusual patterns from the last hour in this log stream."</li>
-          <li>Generate incident summaries or root cause analysis drafts from disparate log sources and alerts.</li>
-          <li><em>AWS Tooling:</em> LLMs, especially via <strong>Amazon Q (for AWS professionals)</strong>, can analyse <strong>CloudWatch Logs Insights</strong> query results, identify patterns, and correlate events to accelerate debugging. You can feed Q your CloudWatch logs and ask for anomaly explanations.</li>
-        </ul>
-      </li>
-      <li><strong>Troubleshooting Guides:</strong> "Generate a troubleshooting guide for high CPU on an EC2 instance."</li>
-      <li><strong>Runbook Automation:</strong> Convert tribal knowledge to automation.</li>
-    </ul>
-  </section>
-
-  <section class="page-section animate-slide-up">
-    <h3>Cloud Engineering</h3>
-    <ul class="section-list">
-      <li><strong>IaC optimisation:</strong> Change my terraform module from basic S3 to enabling versioning/encryption.</li>
-      <li><strong>Cloud Resource optimisation:</strong> "Suggest cost optimisation for this AWS account based on its EC2 usage."</li>
-      <li><strong>Resource Provisioning:</strong> Generate Lambda functions or VM scripts. Example: Create an Azure Function for log processing, including env vars.</li>
-      <li><strong>Security Audits:</strong> Scan IaC for common security misconfigurations using prompts. "Review this CloudFormation template for IAM least privilege violations."</li>
-      <li><strong>Compliance Checks:</strong> Validate configuration files against compliance standards (e.g., PCI DSS).</li>
-    </ul>
-  </section>
-
-  <section class="page-section animate-slide-up">
-    <h3>Integration Methods:</h3>
-    <ul class="section-list">
-      <li><strong>Cloud Services:</strong> AWS Bedrock/SageMaker, Azure OpenAI, GCP Vertex AI.</li>
-      <li><strong>Via APIs:</strong> OpenAI (ChatGPT), Anthropic (Claude), Gemini (Google), etc.</li>
-      <li><strong>AI-Native Tools:</strong>
-        <ul>
-          <li><strong>Cursor:</strong> An AI-powered code editor (VS Code fork) that understands your entire codebase for smarter suggestions and edits.</li>
-          <li><strong>Kiro (AWS offering):</strong> An <strong>Agentic AI IDE</strong> that uses 'spec-driven development' to turn high-level prompts into production-ready code across multiple files, integrating with <strong>MCP</strong> for secure enterprise access.</li>
-          <li><strong>Windmill.dev:</strong> An open-source developer platform for turning scripts into auto-generated UIs, APIs, and cron jobs. Includes AI chat, code completion, and AI-powered flow building for automation.</li>
-        </ul>
-      </li>
-      <li><strong>Frameworks:</strong> LangChain, LlamaIndex (for RAG orchestration).</li>
-    </ul>
-  </section>
-
-  <section class="page-section animate-slide-up">
-    <h3>Effective Prompting - Key to Success!</h3>
-    <ul class="section-list">
-      <li><strong>Be Specific:</strong> Clearly define output format, role, and constraints.</li>
-      <li><strong>Provide Context:</strong> Include relevant code, logs, and error messages.</li>
-      <li><strong>Iterate:</strong> Refine prompts based on initial outputs.</li>
-      <li><strong>Costs:</strong> Monitor costs</li>
-      <li><em>Example:</em> "Act as an AWS Solutions Architect. Write a Terraform module for an S3 bucket with versioning enabled, block public access, and enforce encryption with KMS. Include a variable for the bucket name and an output for the ARN."</li>
-    </ul>
-  </section>
-
-  <section class="page-section animate-slide-up">
-    <h3>Enterprise Considerations</h3>
-    <ul class="section-list">
-      <li><strong>Data Privacy:</strong> Don’t send sensitive code or production data to public LLMs.</li>
-      <li><strong>Cost Control:</strong> Use APIs judiciously; local open-source LLMs for sensitive tasks.</li>
-      <li><strong>Limitations:</strong> Hallucinations (LLMs may invent configs or facts), potential bias from training data, and unsuitable where automation accuracy is business-critical.</li>
-    </ul>
-  </section>
-
-  <section class="page-section animate-slide-up">
-    <h2><i class="fas fa-forward"></i> Where to From Here</h2>
-    <p>Understanding AI fundamentals is the first step. The next is knowing whether your organisation's Cloud and DevOps foundations are ready to support AI agents in production. Our <a href="/services/ai-readiness-audit/">Agentic AI Readiness Audit</a> evaluates exactly that, scoring your infrastructure, data pipelines, governance, and team capability across six dimensions.</p>
-    <p>For a broader look at how we help engineering teams build AI-ready foundations, see our <a href="/services/">full list of services</a>. You may also find our case study on <a href="/blog/orchestrating-devops-dominance/">turning a $2.3M DevOps investment into $7.4M value</a> a useful example of what mature Cloud and DevOps practice looks like in an Australian enterprise.</p>
-  </section>
-</section>
-
-  </div><a class="u-url" href="/blog/demystifying-ai-for-devops-sre-and-cloud-engineers/" hidden></a>
-</article>
-
-      </div>
-    </main><footer class="site-footer h-card">
-  <data class="u-url" href="/"></data>
-
-  <div class="wrapper">
-
-    <!-- <h2 class="footer-heading">Cloud, DevOps &amp; AI Readiness Consulting | ImpactEng</h2> -->
-
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-        <ul class="contact-list">
-          <li class="p-name"><!--  Cloud, DevOps &amp; AI Readiness Consulting | ImpactEng  --></li><li><a class="u-email" href="mailto:hi@impacteng.com.au">hi@impacteng.com.au</a></li><li><a href="/privacy/">Privacy</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://www.linkedin.com/company/impactengx"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#linkedin"></use></svg> <span class="username">ImpactEngX</span></a></li></ul>
-</div>
-
-      <div class="footer-col footer-col-3">
-        <p>ImpactEng is Nitin Sharma&#39;s independent Cloud, Platform Engineering and AI readiness practice, based in Melbourne.</p>
-      </div>
-    </div>
 
   </div>
+</section>
+<section class="row essay-sec" id="s2">
+  <div class="margin"><span class="label">Section 02</span></div>
+  <div class="body">
+<h2>Section 1: AI Basics (Building Blocks)</h2>
+<p>Artificial Intelligence (AI) is essentially machines simulating human intelligence to perform tasks like learning, reasoning, and problem-solving. Think of it as evolving from rigid scripts (like early bash automation) to adaptive systems that learn from data.</p>
+<p>Historically, this marks an evolution from rule-based, deterministic systems, where outputs were predictable and explicitly coded, to modern AI systems that learn from data and are probabilistic and adaptive.</p>
 
+<h3>What is AI?</h3>
+<ul>
+<li><strong>Narrow AI (What We Have Today):</strong> Specialised for one task, like a microservice handling log parsing. Examples include spam filters or predictive autoscaling in AWS Auto Scaling groups.</li>
+<li><strong>General AI (The Future Horizon):</strong> Capable of any intellectual task, akin to a universal orchestrator managing your entire multi-cloud infrastructure seamlessly. We're not there yet, but progress is rapid.</li>
+</ul>
+
+<h3>Key Concepts: Machine Learning and Beyond</h3>
+<p><strong>Machine Learning (ML):</strong> The core of modern AI, where systems learn patterns from data without explicit coding. Analogy: Instead of hardcoding rules for alert thresholds, ML trains on historical data to predict failures.</p>
+<ul>
+<li><strong>Supervised Learning:</strong> Uses labelled data, like training on past incidents tagged "high CPU" or "normal." Real-world: Azure Machine Learning's classification models for predicting VM failures based on labelled telemetry.</li>
+<li><strong>Unsupervised Learning:</strong> Finds hidden patterns, such as clustering unusual traffic in GCP's Operations Suite for anomaly detection.</li>
+</ul>
+<p><strong>Deep Learning &amp; Neural Networks:</strong> A subset of ML using layered networks. Imagine nodes as containers in a Kubernetes cluster: inputs (data) flow through layers (transformations), with connections routing like network policies.</p>
+
+<h3>Essential Terminology:</h3>
+<ul>
+<li><strong>Dataset:</strong> Your training fuel. E.g., a collection of CloudWatch logs or Terraform configs.</li>
+<li><strong>Training:</strong> Feeding data to models so they can learn, similar to teaching a runbook to a new engineer.</li>
+<li><strong>Model:</strong> The output artifact, deployable via services like AWS SageMaker, Azure ML, or GCP Vertex AI. The learned logic is like an advanced runbook for patterns.</li>
+<li><strong>Inference:</strong> Using the trained model to make real-time predictions on new data, think of predictions like automated alert triage.</li>
+</ul>
+
+
+  </div>
+</section>
+<section class="row essay-sec" id="s3">
+  <div class="margin"><span class="label">Section 03</span></div>
+  <div class="body">
+<h2>Section 2: Diving into Large Language Models (LLMs)</h2>
+<p>LLMs are the stars of the AI show, massive neural networks trained on text corpora to understand and generate human-like language. Think GPT (OpenAI), Grok (xAI), Claude (Anthropic), or Gemini (Google).</p>
+
+<h3>How LLMs Work</h3>
+<p>LLMs use transformer architectures with attention mechanisms that allow the model to consider all parts of a prompt simultaneously. This lets the LLM understand context and dependencies across the entire input, much like how Terraform evaluates the complete dependency graph of resources before applying changes.</p>
+
+<h3>Key Terminology:</h3>
+<ul>
+<li><strong>Tokens:</strong> Basic text units (e.g., "Hello world!" = ~3 tokens).</li>
+<li><strong>Prompt Engineering:</strong> Crafting inputs for optimal outputs. Always specify role, context, and format. It's like writing precise Helm charts.
+<ul>
+<li>Poor: "Fix code."</li>
+<li>Good: "As an SRE, analyse this Azure ARM template for security flaws and suggest fixes."</li>
+</ul>
+</li>
+<li><strong>Fine-Tuning:</strong> customising models with your data, e.g., tuning Llama on internal runbooks via Hugging Face.</li>
+<li><strong>RAG (Retrieval-Augmented Generation):</strong> Pulls external knowledge to avoid hallucinations, like querying your Confluence docs before generating code.</li>
+<li><strong>MCP (Model Context Protocol):</strong> Standard for LLMs to interact with tools, e.g., querying Kubernetes APIs directly.</li>
+<li><strong>Agentic AI:</strong> Autonomous agents that take goal-oriented actions, like an agent creating PRs on GitHub.</li>
+</ul>
+
+<p><strong>LLMs vs. Traditional ML:</strong> LLMs are general-purpose (text-focused), while traditional ML is task-specific (e.g., regression for metrics). Real-world: Use GCP's Vertex AI for LLM fine-tuning on codebases, versus scikit-learn (Python) for simple predictions.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Traditional ML</th>
+<th>LLMs</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Input</td>
+<td>Structured data</td>
+<td>Unstructured text/cfg</td>
+</tr>
+<tr>
+<td>Output</td>
+<td>Classification</td>
+<td>Text, code, explanations</td>
+</tr>
+<tr>
+<td>Use</td>
+<td>Log anomaly, metrics</td>
+<td>Code, IaC, troubleshooting</td>
+</tr>
+</tbody>
+</table>
+
+
+  </div>
+</section>
+<section class="row essay-sec" id="s4">
+  <div class="margin"><span class="label">Section 04</span></div>
+  <div class="body">
+<h2>Section 3: Practical Applications (Where AI Meets Ops)</h2>
+<p>Here's where it gets exciting. LLMs automating your pain points across DevOps, SRE, and Cloud.</p>
+
+<h3>DevOps Use Cases</h3>
+<ul>
+<li><strong>Code Generation &amp; Debugging:</strong>
+<ul>
+<li>Generating <strong>CI/CD pipelines (e.g., GitLab YAML, AWS CodePipeline config)</strong> from natural language.
+<ul>
+<li><em>Example Prompt:</em> "Generate a GitLab CI/CD YAML for a Node.js application. It should have stages for build, test, and deploy. The build stage should install dependencies and build, test should run Jest tests, and deploy should push to an ECR repository and update an ECS service named 'my-nodejs-service'."</li>
+</ul>
+</li>
+<li>Debug <strong>Dockerfiles, Kubernetes YAML</strong>, or <strong>Terraform HCL</strong> by explaining errors.</li>
+</ul>
+</li>
+<li><strong>Configuration optimisation:</strong> "Suggest improvements to this Nginx config for performance."</li>
+<li><strong>Documentation Generation:</strong> Automatically create READMEs for repos, API documentation, or runbooks from code.</li>
+<li><strong>Dockerfile optimisation:</strong> LLM reviews for security. E.g., 'Harden my multi-stage Dockerfile for an Azure Container Instance deployment, catching exposed ports'.</li>
+<li><strong>MCP for Docker/K8s:</strong> Imagine an <strong>Agentic AI</strong> using <strong>MCP</strong> to:
+<ul>
+<li>Dynamically fetch <strong>Kubernetes manifests</strong> from your Git repo via an MCP resource server.</li>
+<li>Validate live <strong>Pod logs</strong> against best practices by connecting to a CloudWatch Logs MCP server.</li>
+<li>Troubleshoot a failing <strong>Docker container</strong> by querying its logs and then suggesting a <code>docker-compose</code> fix.</li>
+</ul>
+</li>
+</ul>
+
+<h3>SRE Applications</h3>
+<ul>
+<li><strong>Log Analysis &amp; Incident Response:</strong>
+<ul>
+<li>summarise complex CloudWatch/Sumo Logic logs: "Find critical errors and unusual patterns from the last hour in this log stream."</li>
+<li>Generate incident summaries or root cause analysis drafts from disparate log sources and alerts.</li>
+<li><em>AWS Tooling:</em> LLMs, especially via <strong>Amazon Q (for AWS professionals)</strong>, can analyse <strong>CloudWatch Logs Insights</strong> query results, identify patterns, and correlate events to accelerate debugging. You can feed Q your CloudWatch logs and ask for anomaly explanations.</li>
+</ul>
+</li>
+<li><strong>Troubleshooting Guides:</strong> "Generate a troubleshooting guide for high CPU on an EC2 instance."</li>
+<li><strong>Runbook Automation:</strong> Convert tribal knowledge to automation.</li>
+</ul>
+
+<h3>Cloud Engineering</h3>
+<ul>
+<li><strong>IaC optimisation:</strong> Change my terraform module from basic S3 to enabling versioning/encryption.</li>
+<li><strong>Cloud Resource optimisation:</strong> "Suggest cost optimisation for this AWS account based on its EC2 usage."</li>
+<li><strong>Resource Provisioning:</strong> Generate Lambda functions or VM scripts. Example: Create an Azure Function for log processing, including env vars.</li>
+<li><strong>Security Audits:</strong> Scan IaC for common security misconfigurations using prompts. "Review this CloudFormation template for IAM least privilege violations."</li>
+<li><strong>Compliance Checks:</strong> Validate configuration files against compliance standards (e.g., PCI DSS).</li>
+</ul>
+
+<h3>Integration Methods:</h3>
+<ul>
+<li><strong>Cloud Services:</strong> AWS Bedrock/SageMaker, Azure OpenAI, GCP Vertex AI.</li>
+<li><strong>Via APIs:</strong> OpenAI (ChatGPT), Anthropic (Claude), Gemini (Google), etc.</li>
+<li><strong>AI-Native Tools:</strong>
+<ul>
+<li><strong>Cursor:</strong> An AI-powered code editor (VS Code fork) that understands your entire codebase for smarter suggestions and edits.</li>
+<li><strong>Kiro (AWS offering):</strong> An <strong>Agentic AI IDE</strong> that uses 'spec-driven development' to turn high-level prompts into production-ready code across multiple files, integrating with <strong>MCP</strong> for secure enterprise access.</li>
+<li><strong>Windmill.dev:</strong> An open-source developer platform for turning scripts into auto-generated UIs, APIs, and cron jobs. Includes AI chat, code completion, and AI-powered flow building for automation.</li>
+</ul>
+</li>
+<li><strong>Frameworks:</strong> LangChain, LlamaIndex (for RAG orchestration).</li>
+</ul>
+
+<h3>Effective Prompting - Key to Success!</h3>
+<ul>
+<li><strong>Be Specific:</strong> Clearly define output format, role, and constraints.</li>
+<li><strong>Provide Context:</strong> Include relevant code, logs, and error messages.</li>
+<li><strong>Iterate:</strong> Refine prompts based on initial outputs.</li>
+<li><strong>Costs:</strong> Monitor costs</li>
+<li><em>Example:</em> "Act as an AWS Solutions Architect. Write a Terraform module for an S3 bucket with versioning enabled, block public access, and enforce encryption with KMS. Include a variable for the bucket name and an output for the ARN."</li>
+</ul>
+
+<h3>Enterprise Considerations</h3>
+<ul>
+<li><strong>Data Privacy:</strong> Don’t send sensitive code or production data to public LLMs.</li>
+<li><strong>Cost Control:</strong> Use APIs judiciously; local open-source LLMs for sensitive tasks.</li>
+<li><strong>Limitations:</strong> Hallucinations (LLMs may invent configs or facts), potential bias from training data, and unsuitable where automation accuracy is business-critical.</li>
+</ul>
+
+
+  </div>
+</section>
+<section class="row essay-sec" id="s5">
+  <div class="margin"><span class="label">Section 05</span></div>
+  <div class="body">
+<h2>Where to From Here</h2>
+<p>Understanding AI fundamentals is the first step. The next is knowing whether your organisation's Cloud and DevOps foundations are ready to support AI agents in production. Our <a href="/services/">Agentic AI Readiness Audit</a> evaluates exactly that, scoring your infrastructure, data pipelines, governance, and team capability across six dimensions.</p>
+<p>For a broader look at how we help engineering teams build AI-ready foundations, see our <a href="/services/">full list of services</a>. You may also find our case study on <a href="/blog/orchestrating-devops-dominance/">turning a $2.3M DevOps investment into $7.4M value</a> a useful example of what mature Cloud and DevOps practice looks like in an Australian enterprise.</p>
+
+  </div>
+</section>
+<section class="row">
+  <div class="margin"><span class="label">Related ideas</span><p class="muted">Same thread: Engineers working with AI</p></div>
+  <div class="body">
+<ul class="posts ideas"><li><time datetime="2026-10-19">19 Oct 2026</time><div><a href="/blog/separating-human-agent-ci-credentials/">Separating human, agent and CI credentials as a solo operator</a><p>How I split one GitHub login into separate credentials for me, my AI coding agents and CI, what the first attempt broke, and where it landed.</p></div></li><li><time datetime="2026-03-25">25 Mar 2026</time><div><a href="/blog/ai-session-resource-management/">Your AI Coding Session Is a Finite Resource. Manage It Like One.</a><p>Most developers treat AI coding sessions like a persistent collaborator. They are not. Here is the resource-management approach that stops you rebuilding context from scratch every time a session resets.</p></div></li><li><time datetime="2026-03-18">18 Mar 2026</time><div><a href="/blog/failed-aws-exam-soniccert/">So I Failed the AWS SA Pro Exam by 17 Points. Then I Built SonicCert Coach.</a><p>A post about failing the AWS Solutions Architect Professional exam, hitting a genuine SDK bug at a hackathon, and shipping a multi-agent AI tutor.</p></div></li></ul>
+<div><a class="more" href="/blog/#ideas">All posts, by thread</a></div>
+  </div>
+</section>
+</div>
+</article>
+
+</main><footer class="site-footer">
+  <div class="scale major"></div>
+  <div class="sheet" style="padding-block:28px 0">
+    <dl class="titleblock">
+      <div><dt>Practice</dt><dd>ImpactEng<br><span class="muted">Melbourne, Australia</span></dd></div>
+      <div><dt>Principal</dt><dd>Nitin Sharma<br><span class="muted">Principal, ImpactEng</span></dd></div>
+      <div><dt>Contact</dt><dd><a href="mailto:nitin@impacteng.com.au">nitin@impacteng.com.au</a><br><a href="https://calendar.app.google/RgJtyQVimhpUgbTE7">Book a 30-minute call</a></dd></div>
+      <div><dt>Elsewhere</dt><dd><a href="https://www.linkedin.com/company/impactengx">LinkedIn</a> · <a href="https://github.com/ns408">GitHub</a> · <a href="/feed.xml">RSS</a></dd></div>
+      <div><dt>Sheet</dt><dd>Idea<br><span class="muted mono">Rev 2026-10</span></dd></div>
+    </dl>
+    <div class="footer-line mono muted">
+      <span>© 2026 ImpactEng. Independent Cloud, Platform Engineering and AI readiness practice.</span>
+      <span><a href="/privacy/">Privacy</a></span>
+    </div>
+  </div>
 </footer>
-<script src="/assets/js/lightbox.js"></script>
-  </body>
+<nav class="tabbar" aria-label="Mobile"><a href="/"><svg viewBox="0 0 24 24"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/></svg><span>Home</span></a><a href="/services/"><svg viewBox="0 0 24 24"><path d="M12 3 3 8l9 5 9-5-9-5Z"/><path d="M3 13l9 5 9-5"/></svg><span>Services</span></a><a href="/work/"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13"/><path d="M9 7V4h6v3"/><path d="M3 12h18"/></svg><span>Work</span></a><a href="/blog/" aria-current="page"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M9 11h7M9 15h7M9 7h3"/></svg><span>Blog</span></a><button type="button" data-menu-open aria-haspopup="dialog" aria-controls="menu-sheet"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span>Menu</span></button>
+</nav>
+<div class="menu-sheet" id="menu-sheet" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+  <div class="top">
+    <a class="wordmark" href="/" aria-label="ImpactEng home"><svg viewBox="0 0 32 32" aria-hidden="true"><path class="m" d="M3 3h26v6H20v14h9v6H3v-6h9V9H3z"/></svg><span><b>Impact</b>Eng</span></a>
 
+    <button class="close-btn" type="button" data-menu-close aria-label="Close menu"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  </div>
+  <nav><a href="/">Home<small>Start</small></a><a href="/start/">A few questions<small>Where to start</small></a><a href="/about/">About<small>Who</small></a><a href="/services/">Services<small>How</small></a><a href="/work/">Work with me<small>Ways in</small></a><a href="/blog/">Blog<small>By date or by thread</small></a><a href="/tools/">Tools<small>Free diagnostics</small></a><a href="/contact/">Contact<small>Talk</small></a>
+  </nav>
+  <div class="foot">
+    <a class="btn" href="https://calendar.app.google/RgJtyQVimhpUgbTE7">Book a 30-minute call</a>
+    <span class="reply">I reply within one business day</span>
+    <span class="mono muted">nitin@impacteng.com.au</span>
+  </div>
+</div>
+
+<script src="/assets/site.js" defer></script>
+<script src="/assets/js/lightbox.js" defer></script>
+</body>
 </html>

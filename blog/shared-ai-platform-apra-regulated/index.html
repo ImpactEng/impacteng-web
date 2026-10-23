@@ -1,8 +1,7 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-AU"><head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>A shared AI platform for APRA-regulated organisations | Cloud, DevOps &amp; AI Readiness Consulting ImpactEng</title>
 <meta name="generator" content="Jekyll v3.10.0" />
 <meta property="og:title" content="A shared AI platform for APRA-regulated organisations" />
@@ -23,22 +22,37 @@
 {"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Nitin Sharma"},"dateModified":"2026-10-15T00:00:00+00:00","datePublished":"2026-10-15T00:00:00+00:00","description":"How to run a shared AI platform for every team in an APRA-regulated organisation: what to ask first, where data may go, and what I tested on AWS.","headline":"A shared AI platform for APRA-regulated organisations","image":"https://impacteng.com.au/assets/images/shared-ai-platform-apra-regulated-path-v2.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://impacteng.com.au/blog/shared-ai-platform-apra-regulated/"},"url":"https://impacteng.com.au/blog/shared-ai-platform-apra-regulated/"}</script>
 <!-- End Jekyll SEO tag -->
 <meta property="og:locale" content="en_AU"><meta property="article:author" content="Nitin Sharma">
-  <meta property="article:published_time" content="2026-10-15T00:00:00+00:00"><link rel="stylesheet" href="/assets/main.css">
-  <!-- Impact Eng customisation -->
-  <link rel="stylesheet" href="/assets/fontawesome-5.15.4/css/fontawesome.min.css">
-  <link rel="stylesheet" href="/assets/fontawesome-5.15.4/css/solid.min.css">
-  <link rel="stylesheet" href="/assets/fontawesome-5.15.4/css/brands.min.css"><link type="application/atom+xml" rel="alternate" href="https://impacteng.com.au/feed.xml" title="Cloud, DevOps &amp; AI Readiness Consulting | ImpactEng" /><!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-89R5ETTN6P"></script>
+  <meta property="article:published_time" content="2026-10-15T00:00:00+00:00">
+<meta name="theme-color" content="#EEF0EC" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121518" media="(prefers-color-scheme: dark)">
+<link rel="preload" href="/assets/fonts/bricolage-grotesque-normal-300-800-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/ibm-plex-sans-normal-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
+<link rel="stylesheet" href="/assets/brand.css">
+<link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
+<script>(function(){try{var t=localStorage.getItem('ie-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script><link type="application/atom+xml" rel="alternate" href="https://impacteng.com.au/feed.xml" title="Cloud, DevOps &amp; AI Readiness Consulting | ImpactEng" /><!-- Google tag (gtag.js). Not loaded for browsers that declare themselves automated
+     (navigator.webdriver): in October 2026, 425 of 446 users in 28 days were single-page-view
+     visits from data-centre addresses, which would drown the demand test. -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  if (!navigator.webdriver) {
+    (function () {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-89R5ETTN6P';
+      document.head.appendChild(s);
+    })();
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-  gtag('config', 'G-89R5ETTN6P');
+    gtag('config', 'G-89R5ETTN6P');
+  }
 </script>
 <script>
-  // Sends a GA4 event when gtag is loaded (production only); a no-op otherwise.
+  // Sends a GA4 event when gtag is loaded (production only); a no-op otherwise, and a no-op
+  // for browsers that declare themselves automated (navigator.webdriver), which never get gtag.
   window.ieTrack = function (name, params) {
+    if (navigator.webdriver) return;
     if (typeof window.gtag === 'function') window.gtag('event', name, params || {});
   };
   document.addEventListener('click', function (e) {
@@ -46,9 +60,12 @@
     if (link) window.ieTrack('booking_click', { page: window.location.pathname });
   });
 </script>
-<!-- Microsoft Clarity -->
+
+<script>(function(){var r=document.documentElement;if(r.getAttribute('data-exp')!=='home_e1')return;var a=null;try{a=localStorage.getItem('ie-exp-home');}catch(e){}if(a!=='q'&&a!=='d'){a=Math.random()<0.5?'q':'d';try{localStorage.setItem('ie-exp-home',a);}catch(e){a='none';}}r.setAttribute('data-exp-arm',a);if(a==='d'){r.setAttribute('data-exp-home','d');var s=document.createElement('style');s.textContent='[data-exp-home="d"] [data-questions-link]{display:none !important}';document.head.appendChild(s);}})();</script>
+<script src="/assets/measure.js" defer></script><!-- Microsoft Clarity. Not loaded for browsers that declare themselves automated
+     (navigator.webdriver); see google-analytics.html. -->
 <script>
-  (function (c, l, a, r, i, t, y) {
+  if (!navigator.webdriver) (function (c, l, a, r, i, t, y) {
     c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
     t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
     y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
@@ -62,7 +79,7 @@
   "@id": "https://impacteng.com.au/#organization",
   "name": "Impact Eng",
   "url": "https://impacteng.com.au",
-  "email": "hi@impacteng.com.au",
+  "email": "nitin@impacteng.com.au",
   "description": "ImpactEng is Nitin Sharma's independent Cloud, Platform Engineering and AI readiness practice, based in Melbourne.",
   "image": "https://impacteng.com.au/assets/images/og-image.jpg",
   "areaServed": {
@@ -76,9 +93,9 @@
   "founder": {
     "@type": "Person",
     "name": "Nitin Sharma",
-    "jobTitle": "Founder and Principal"
+    "jobTitle": "Principal, ImpactEng"
   },
-  "serviceType": ["Cloud Engineering", "DevOps Consulting", "AI Readiness Audit"],
+  "serviceType": ["Cloud Engineering", "DevOps Consulting", "AI Coding Assessment", "Cloud Architecture Assessment", "Software Delivery Assessment"],
   "knowsAbout": ["Cloud Infrastructure", "Cloud Architecture", "DevOps", "AI Readiness", "Platform Engineering", "Containers", "CI/CD", "Linux Systems"],
   "sameAs": ["https://www.linkedin.com/company/impactengx"
   ]
@@ -107,24 +124,30 @@
     }
   ]
 }
-</script><body><header class="site-header" role="banner">
+</script><body><header class="site-header">
+  <div class="sheet bar">
+    <a class="wordmark" href="/" aria-label="ImpactEng home"><svg viewBox="0 0 32 32" aria-hidden="true"><path class="m" d="M3 3h26v6H20v14h9v6H3v-6h9V9H3z"/></svg><span><b>Impact</b>Eng</span></a>
 
-  <div class="wrapper"><!-- <a class="site-title" rel="author" href="/">Cloud, DevOps &amp; AI Readiness Consulting | ImpactEng</a> --><nav class="site-nav">
-        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-        <label for="nav-trigger">
-          <span class="menu-icon">
-            <svg viewBox="0 0 18 15" width="18px" height="15px">
-              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
-            </svg>
-          </span>
-        </label>
-
-        <div class="trigger"><a class="page-link" href="/">Home</a><a class="page-link" href="/about/">About</a><a class="page-link" href="/services/">Services</a><a class="page-link" href="/tools/">Tools</a><a class="page-link" href="/blog/">Blog</a><a class="page-link" href="/contact/">Contact</a></div>
-      </nav></div>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/services/">Services</a>
+      <a href="/work/">Work with me</a>
+      <a href="/blog/" aria-current="page">Blog</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <a class="btn" href="https://calendar.app.google/RgJtyQVimhpUgbTE7">Book a call</a>
+      <button class="theme-btn" type="button" data-theme-toggle aria-label="Switch colour theme">
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+    </div>
+  </div>
 </header>
-<main class="page-content" aria-label="Content">
-      <div class="wrapper">
-        <script type="application/ld+json">
+
+<main id="main">
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
@@ -147,161 +170,219 @@
   }
 }
 </script>
-<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">A shared AI platform for APRA-regulated organisations</h1>
-    <p class="post-meta">
-      <time class="dt-published" datetime="2026-10-15T00:00:00+00:00" itemprop="datePublished">Oct 15, 2026
-      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">Nitin Sharma</span></span></p>
-  </header>
-
-  <div class="post-content e-content" itemprop="articleBody">
-    <section class="default-page">
-  <header class="page-section animate-fade-in">
-    <p>A team asks to put an AI assistant in the contact centre. It sounds like another pilot. In an organisation regulated by APRA (the Australian Prudential Regulation Authority) it isn't: under CPS 230, APRA's operational risk standard, it can make your shared AI platform part of a critical operation.</p>
-    <p>Over two weeks I wrote 14 LinkedIn posts on designing one AI platform for every team in a regulated organisation, and getting teams to use it. This is the whole path in one place, from the first request to the twentieth app, including what I tested along the way. Each section links the posts it comes from. Facts about Amazon Web Services (AWS) are as at October 2026.</p>
-    <ol class="phase-timeline">
-      <li>
-        <div>
-          <strong><a href="/blog/shared-ai-platform-apra-regulated/#not-every-request-is-a-pilot">A request arrives</a></strong><br />
-          Is it part of a critical operation? Then it may not be a pilot.
-        </div>
-      </li>
-      <li>
-        <div>
-          <strong><a href="/blog/shared-ai-platform-apra-regulated/#questions-at-the-door">The door</a></strong><br />
-          Six questions decide what gets built before a team gets access.
-        </div>
-      </li>
-      <li>
-        <div>
-          <strong><a href="/blog/shared-ai-platform-apra-regulated/#where-the-data-may-go">Where data goes</a></strong><br />
-          Set per type of data. Tested: the hole in my own residency policy.
-        </div>
-      </li>
-      <li>
-        <div>
-          <strong><a href="/blog/shared-ai-platform-apra-regulated/#one-way-in">One way in</a></strong><br />
-          No other path to a model, no emergency bypass. Fail closed.
-        </div>
-      </li>
-      <li>
-        <div>
-          <strong><a href="/blog/shared-ai-platform-apra-regulated/#who-spent-it">Who spent it</a></strong><br />
-          Tested: billing names the team, but only by the day. Meter every request.
-        </div>
-      </li>
-      <li>
-        <div>
-          <strong><a href="/blog/shared-ai-platform-apra-regulated/#the-twentieth-app">The twentieth app</a></strong><br />
-          Scale by triggers, not the calendar. Watch the queue before the route-around.
-        </div>
-      </li>
-    </ol>
-  </header>
+<article class="essay">
+<div class="sheet">
+<section class="row essay-head" style="border-top:0">
+  <div class="margin"><span class="label">Idea</span><p class="muted">One idea, in full</p></div>
+  <div class="body">
+    <h1>A shared AI platform for APRA-regulated organisations</h1>
+    <p class="lead measure">How to run a shared AI platform for every team in an APRA-regulated organisation: what to ask first, where data may go, and what I tested on AWS.</p>
+    <dl class="titleblock essay-meta">
+      <div><dt>Dated</dt><dd><time datetime="2026-10-15">15 Oct 2026</time></dd></div>
+      <div><dt>Thread</dt><dd><a href="/blog/#thread-regulated-ai">AI under regulation</a></dd></div>
+      <div><dt>Read</dt><dd class="num">8 min, 1,771 words</dd></div>
+    </dl>
+  </div>
+</section>
+<section class="row essay-sec">
+  <div class="margin"><span class="label">Opening</span></div>
+  <div class="body">
+<p>A team asks to put an AI assistant in the contact centre. It sounds like another pilot. In an organisation regulated by APRA (the Australian Prudential Regulation Authority) it isn't: under CPS 230, APRA's operational risk standard, it can make your shared AI platform part of a critical operation.</p>
+<p>Over two weeks I wrote 14 LinkedIn posts on designing one AI platform for every team in a regulated organisation, and getting teams to use it. This is the whole path in one place, from the first request to the twentieth app, including what I tested along the way. Each section links the posts it comes from. Facts about Amazon Web Services (AWS) are as at October 2026.</p>
+<ol class="phase-timeline">
+<li>
+<div>
+<strong><a href="/blog/shared-ai-platform-apra-regulated/#not-every-request-is-a-pilot">A request arrives</a></strong><br />
+Is it part of a critical operation? Then it may not be a pilot.
+</div>
+</li>
+<li>
+<div>
+<strong><a href="/blog/shared-ai-platform-apra-regulated/#questions-at-the-door">The door</a></strong><br />
+Six questions decide what gets built before a team gets access.
+</div>
+</li>
+<li>
+<div>
+<strong><a href="/blog/shared-ai-platform-apra-regulated/#where-the-data-may-go">Where data goes</a></strong><br />
+Set per type of data. Tested: the hole in my own residency policy.
+</div>
+</li>
+<li>
+<div>
+<strong><a href="/blog/shared-ai-platform-apra-regulated/#one-way-in">One way in</a></strong><br />
+No other path to a model, no emergency bypass. Fail closed.
+</div>
+</li>
+<li>
+<div>
+<strong><a href="/blog/shared-ai-platform-apra-regulated/#who-spent-it">Who spent it</a></strong><br />
+Tested: billing names the team, but only by the day. Meter every request.
+</div>
+</li>
+<li>
+<div>
+<strong><a href="/blog/shared-ai-platform-apra-regulated/#the-twentieth-app">The twentieth app</a></strong><br />
+Scale by triggers, not the calendar. Watch the queue before the route-around.
+</div>
+</li>
+</ol>
 
 <!--more-->
 
-  <section class="page-section animate-slide-up">
-    <h2><i class="fas fa-filter"></i> 1. Two filters</h2>
-    <p>My first instinct was a catalogue: every capability a shared AI platform could need. It told me nothing about what to build first, or what's expensive to get wrong. So I put two filters on it. Does most of the usage need this on day one? And if we get it wrong, how much do we rip up later? High on either, and it gets decided now.</p>
-    <p>The second filter earns its place. On usage alone you'd cut the audit trail and per-team telemetry, because hardly any traffic depends on them early. But you can't go back and collect what you never logged. Of 33 candidate capabilities, 18 are in from the start, nine are decided now and built later, and six are parked, each with a named trigger that brings it back. (<a href="https://www.linkedin.com/posts/ns408_platformengineering-aigovernance-apra-share-7510154456429174784-_n6L">Post 1</a>)</p>
-  </section>
-
-  <section class="page-section animate-slide-up">
-    <h2 id="not-every-request-is-a-pilot"><i class="fas fa-door-open"></i> 2. Not every request is a pilot</h2>
-    <p>CPS 230 lists customer enquiries as a critical operation unless you can justify otherwise, and the systems that support it come along too. So a summariser for an internal team is one thing; a staff assistant in the contact centre is another. When one of those comes through, the platform picks up tolerance levels for disruption approved by the Board, a 24-hour clock to tell APRA when a disruption goes beyond them, and a way for the business to keep going without the AI. None of it is hard if you've seen it coming. (<a href="https://www.linkedin.com/posts/ns408_platformengineering-aigovernance-apra-share-7510941831673671680-2gJo">Post 4</a>)</p>
-  </section>
-
-  <section class="page-section animate-slide-up">
-    <h2><i class="fas fa-drafting-compass"></i> 3. Decide the shape now, build it later</h2>
-    <p>Early in the design, I made up seven that might one day use the platform: a squad prototyping an idea, a staff assistant, back-office processing, a customer-facing assistant, decision support, an agent that calls other systems, and developers' coding tools. Each was a test: for every decision, would this have to change to serve one of the later ones? The customer-facing assistant bit. It needs to know which customer is behind a request, even if only by a pseudonym, and adding that later would change how every app calls the platform. So the field went in on day one. (<a href="https://www.linkedin.com/posts/ns408_platformengineering-aigovernance-apra-share-7510551628039577600-f3bX">Post 3</a>)</p>
-    <p>The simplest of the nine "decide now, build later" items is a cost centre on every request, even when nobody is charging anyone yet. Charging back can wait. The field goes in now, because adding it later means changing every app and tool already calling the platform. (<a href="https://www.linkedin.com/posts/ns408_platformengineering-aigovernance-apra-share-7510197631047053312-22Ga">Post 2</a>)</p>
-  </section>
-
-  <section class="page-section animate-slide-up">
-    <h2 id="questions-at-the-door"><i class="fas fa-clipboard-list"></i> 4. The questions at the door</h2>
-    <p>Six questions decide what gets built for a team before it gets access:</p>
-    <ol>
-      <li>Does it support a critical operation? Then it needs a fallback without the AI (section 6).</li>
-      <li>Does it make or feed decisions about people? Then the human check has to be real, and from 10 December 2026, under the Australian Privacy Principles (APP 1.7 to 1.9), if those decisions could significantly affect someone, your privacy policy has to say so.</li>
-      <li>Is it public-facing? Then it comes through its own backend, with stricter guardrails and limits per customer.</li>
-      <li>Does it search company knowledge? Then the platform has to know who's asking, so search returns only what they may see.</li>
-      <li>Will it call tools or take actions? Then it needs limits on steps, tokens and which tools.</li>
-      <li>Has your risk team cleared its data for offshore processing? The default answer is no.</li>
-    </ol>
-    <p>The first team to say yes to any of these builds that piece for everyone after them. Every team also names who owns it, how risky it is, how someone could challenge it, and when it gets looked at again. (<a href="https://www.linkedin.com/feed/update/urn:li:activity:7514438043311751168/">Post 13</a>)</p>
-  </section>
-
-  <section class="page-section animate-slide-up">
-    <h2 id="where-the-data-may-go"><i class="fas fa-globe-asia"></i> 5. Where the data may go</h2>
-    <p>Global cross-Region inference on Amazon Bedrock, AWS's managed model service, costs roughly 10 per cent less than keeping it in Australia. Whether you take it depends on what you're sending. Bedrock's Australian inference profile keeps processing in Sydney and Melbourne. If a use case supports a critical operation, sending it offshore is material offshoring, and APRA wants notice beforehand; the Privacy Act keeps you accountable for personal information you send overseas. So I set it per type of data, not once for the platform: synthetic or public data can go global and take the saving, anything personal or critical stays here until risk says otherwise. And if a check spots personal information in a prompt, it can only move the request somewhere stricter. (<a href="https://www.linkedin.com/posts/ns408_platformengineering-aigovernance-apra-share-7511425991592902656-7lwq">Post 5</a>)</p>
-    <p>The home Region matters too. Bedrock Guardrails' newer Standard tier runs through a cross-Region profile. From Sydney, the Australian profile keeps the checks in Sydney. From Melbourne, the only profile on offer is Asia Pacific, so the checks can go to several countries; Melbourne's other option is the Classic tier, which keeps the checks in Melbourne but has less robust protection, and a customer-facing app is where you want the stronger one. I'd pick Sydney. (<a href="https://www.linkedin.com/posts/ns408_platformengineering-aigovernance-apra-share-7512709250796916736-c74J">Post 9</a>)</p>
-    <blockquote><strong>What I tested: the hole in my own residency policy.</strong> On the AWS account where I test the design, I deny Bedrock model calls outside Australia. The policy named Bedrock's two invoke permissions. Then I found Bedrock has a second endpoint, <code>bedrock-mantle</code>, with its own permission, which a deny on those, or on <code>bedrock:*</code>, doesn't cover. The AWS IAM (Identity and Access Management) policy simulator confirmed it: <code>bedrock:InvokeModel</code> came back explicitDeny, <code>bedrock-mantle:CreateInference</code> allowed. Bedrock Guardrails don't run on that endpoint and model invocation logging doesn't capture it. CloudTrail records those calls only as data events, which are off by default. So a call through it gets past the residency policy, the guardrails and, by default, the logs. The fix was one extra statement denying <code>bedrock-mantle:*</code>. (<a href="https://www.linkedin.com/posts/ns408_platformengineering-aigovernance-apra-share-7512636617355063296-JuQA">Post 8</a>)</blockquote>
-  </section>
-
-  <section class="page-section animate-slide-up">
-    <h2 id="one-way-in"><i class="fas fa-shield-alt"></i> 6. One way in, and no bypass</h2>
-    <p>Who, apart from the platform's gateway, can call a model? If the answer is "a few teams, for now", every control on the gateway is optional for them. (<a href="https://www.linkedin.com/posts/ns408_platformengineering-aigovernance-apra-share-7511426849084698624-PesE">Post 7</a>)</p>
-    <p>A related request sounds reasonable: an emergency bypass for when the platform is down. The answer is no. The bypass is the path with no redaction and none of the platform's audit trail, used at exactly the moment nobody is watching closely. So the platform fails closed, with a clear error the app can handle, and the fallback lives with the app: a way to run the business process without the AI. Where the AI supports a critical operation, APRA expects that fallback to be credible. It has to meet a minimum standard I'm still defining, so it's shown to work. On the platform side, the answer is redundancy that keeps every control, including a second route to models that has been tested. (<a href="https://www.linkedin.com/posts/ns408_platformengineering-aigovernance-apra-share-7512722775262896128-NlET">Post 11</a>)</p>
-  </section>
-
-  <section class="page-section animate-slide-up">
-    <h2 id="who-spent-it"><i class="fas fa-receipt"></i> 7. Knowing who spent it</h2>
-    <blockquote><strong>What I tested: can AWS billing name the team?</strong> Claude on Bedrock is billed through AWS Marketplace, and AWS attributes cost by the day, not by the request. The documentation didn't say whether your own tags reach Claude's lines on the bill, so I tagged an application profile and a role as if they belonged to a team, made a handful of calls, and waited for the cost report. It cost less than a cent. The tags did reach the Claude charges, next to the role that made the calls. (<a href="https://www.linkedin.com/posts/ns408_platformengineering-aigovernance-apra-share-7512716677181075456-nnRP">Post 10</a>)</blockquote>
-    <p>That's good enough for a monthly showback (reporting spend by team, without charging it back), and no use for a quota that has to act in seconds. So the platform meters every request itself, keyed by the app and cost centre that made it, and the bill is what you reconcile against at the end of the month.</p>
-  </section>
-
-  <section class="page-section animate-slide-up">
-    <h2 id="the-twentieth-app"><i class="fas fa-layer-group"></i> 8. The twentieth app on a shared AI platform</h2>
-    <p>The twentieth app is the real test. I'd scale by triggers rather than by calendar: prove the path on made-up data, then first production (often a staff assistant), then many kinds of app at once, then isolate the group that needs its own limits. None of those triggers can fire unless each app has been measured from day one: tokens, throttling, latency, and how long onboarding takes. (<a href="https://www.linkedin.com/feed/update/urn:li:activity:7514075405046407168/">Post 12</a>)</p>
-    <p>Adoption fails in one of two ways. The platform team becomes the queue every team waits in, or teams tire of waiting and route around it, straight to a model with their own credentials. You see the queue first, in two numbers: how long onboarding takes and how many teams are waiting. My starting points are more than ten business days, or more than five teams; your own onboarding times will tell you the real ones. Cross either, and add these one at a time, moving on only if the last one didn't fix it: a paved road (a client library and working examples), then self-service onboarding, then a platform team that only looks at the exceptions. (<a href="https://www.linkedin.com/feed/update/urn:li:activity:7514800682902740992/">Post 14</a>)</p>
-  </section>
-
-  <section class="page-section animate-slide-up">
-    <h2><i class="fas fa-search"></i> 9. What I'd do the same way</h2>
-    <p>Most of this came from asking the questions. The second endpoint only turned up while I was working out how to make the platform the only way to reach a model. When the documentation didn't say whether a batch job would take the Australian profile, I ran one. It was accepted and completed, though I've only tried one Claude model. Cheap decisions get the simple option; expensive ones get tested before I trust them. (<a href="https://www.linkedin.com/posts/ns408_platformengineering-aigovernance-apra-share-7511426512458309633-1kh5">Post 6</a>)</p>
-  </section>
-
-  <section class="contact-cta animate-fade-in">
-    <h2>Talk to me</h2>
-    <p>If you're working through any of this, whether it's the six questions, your residency policy or the onboarding queue, I'd like to hear where you've got to.</p>
-    <a href="/contact/" class="button-primary">Get in Touch</a>
-    <a href="https://calendar.app.google/RgJtyQVimhpUgbTE7" class="button-primary" target="_blank" rel="noopener">Book a 30-Minute Call</a>
-  </section>
-</section>
-
-  </div><a class="u-url" href="/blog/shared-ai-platform-apra-regulated/" hidden></a>
-</article>
-
-      </div>
-    </main><footer class="site-footer h-card">
-  <data class="u-url" href="/"></data>
-
-  <div class="wrapper">
-
-    <!-- <h2 class="footer-heading">Cloud, DevOps &amp; AI Readiness Consulting | ImpactEng</h2> -->
-
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-        <ul class="contact-list">
-          <li class="p-name"><!--  Cloud, DevOps &amp; AI Readiness Consulting | ImpactEng  --></li><li><a class="u-email" href="mailto:hi@impacteng.com.au">hi@impacteng.com.au</a></li><li><a href="/privacy/">Privacy</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://www.linkedin.com/company/impactengx"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#linkedin"></use></svg> <span class="username">ImpactEngX</span></a></li></ul>
-</div>
-
-      <div class="footer-col footer-col-3">
-        <p>ImpactEng is Nitin Sharma&#39;s independent Cloud, Platform Engineering and AI readiness practice, based in Melbourne.</p>
-      </div>
-    </div>
 
   </div>
+</section>
+<section class="row essay-sec" id="s1">
+  <div class="margin"><span class="label">Section 01</span></div>
+  <div class="body">
+<h2>1. Two filters</h2>
+<p>My first instinct was a catalogue: every capability a shared AI platform could need. It told me nothing about what to build first, or what's expensive to get wrong. So I put two filters on it. Does most of the usage need this on day one? And if we get it wrong, how much do we rip up later? High on either, and it gets decided now.</p>
+<p>The second filter earns its place. On usage alone you'd cut the audit trail and per-team telemetry, because hardly any traffic depends on them early. But you can't go back and collect what you never logged. Of 33 candidate capabilities, 18 are in from the start, nine are decided now and built later, and six are parked, each with a named trigger that brings it back. (<a href="https://www.linkedin.com/posts/ns408_platformengineering-aigovernance-apra-share-7510154456429174784-_n6L">Post 1</a>)</p>
 
+
+  </div>
+</section>
+<section class="row essay-sec" id="s2">
+  <div class="margin"><span class="label">Section 02</span></div>
+  <div class="body">
+<h2 id="not-every-request-is-a-pilot">2. Not every request is a pilot</h2>
+<p>CPS 230 lists customer enquiries as a critical operation unless you can justify otherwise, and the systems that support it come along too. So a summariser for an internal team is one thing; a staff assistant in the contact centre is another. When one of those comes through, the platform picks up tolerance levels for disruption approved by the Board, a 24-hour clock to tell APRA when a disruption goes beyond them, and a way for the business to keep going without the AI. None of it is hard if you've seen it coming. (<a href="https://www.linkedin.com/posts/ns408_platformengineering-aigovernance-apra-share-7510941831673671680-2gJo">Post 4</a>)</p>
+
+
+  </div>
+</section>
+<section class="row essay-sec" id="s3">
+  <div class="margin"><span class="label">Section 03</span></div>
+  <div class="body">
+<h2>3. Decide the shape now, build it later</h2>
+<p>Early in the design, I made up seven that might one day use the platform: a squad prototyping an idea, a staff assistant, back-office processing, a customer-facing assistant, decision support, an agent that calls other systems, and developers' coding tools. Each was a test: for every decision, would this have to change to serve one of the later ones? The customer-facing assistant bit. It needs to know which customer is behind a request, even if only by a pseudonym, and adding that later would change how every app calls the platform. So the field went in on day one. (<a href="https://www.linkedin.com/posts/ns408_platformengineering-aigovernance-apra-share-7510551628039577600-f3bX">Post 3</a>)</p>
+<p>The simplest of the nine "decide now, build later" items is a cost centre on every request, even when nobody is charging anyone yet. Charging back can wait. The field goes in now, because adding it later means changing every app and tool already calling the platform. (<a href="https://www.linkedin.com/posts/ns408_platformengineering-aigovernance-apra-share-7510197631047053312-22Ga">Post 2</a>)</p>
+
+
+  </div>
+</section>
+<section class="row essay-sec" id="s4">
+  <div class="margin"><span class="label">Section 04</span></div>
+  <div class="body">
+<h2 id="questions-at-the-door">4. The questions at the door</h2>
+<p>Six questions decide what gets built for a team before it gets access:</p>
+<ol>
+<li>Does it support a critical operation? Then it needs a fallback without the AI (section 6).</li>
+<li>Does it make or feed decisions about people? Then the human check has to be real, and from 10 December 2026, under the Australian Privacy Principles (APP 1.7 to 1.9), if those decisions could significantly affect someone, your privacy policy has to say so.</li>
+<li>Is it public-facing? Then it comes through its own backend, with stricter guardrails and limits per customer.</li>
+<li>Does it search company knowledge? Then the platform has to know who's asking, so search returns only what they may see.</li>
+<li>Will it call tools or take actions? Then it needs limits on steps, tokens and which tools.</li>
+<li>Has your risk team cleared its data for offshore processing? The default answer is no.</li>
+</ol>
+<p>The first team to say yes to any of these builds that piece for everyone after them. Every team also names who owns it, how risky it is, how someone could challenge it, and when it gets looked at again. (<a href="https://www.linkedin.com/feed/update/urn:li:activity:7514438043311751168/">Post 13</a>)</p>
+
+
+  </div>
+</section>
+<section class="row essay-sec" id="s5">
+  <div class="margin"><span class="label">Section 05</span></div>
+  <div class="body">
+<h2 id="where-the-data-may-go">5. Where the data may go</h2>
+<p>Global cross-Region inference on Amazon Bedrock, AWS's managed model service, costs roughly 10 per cent less than keeping it in Australia. Whether you take it depends on what you're sending. Bedrock's Australian inference profile keeps processing in Sydney and Melbourne. If a use case supports a critical operation, sending it offshore is material offshoring, and APRA wants notice beforehand; the Privacy Act keeps you accountable for personal information you send overseas. So I set it per type of data, not once for the platform: synthetic or public data can go global and take the saving, anything personal or critical stays here until risk says otherwise. And if a check spots personal information in a prompt, it can only move the request somewhere stricter. (<a href="https://www.linkedin.com/posts/ns408_platformengineering-aigovernance-apra-share-7511425991592902656-7lwq">Post 5</a>)</p>
+<p>The home Region matters too. Bedrock Guardrails' newer Standard tier runs through a cross-Region profile. From Sydney, the Australian profile keeps the checks in Sydney. From Melbourne, the only profile on offer is Asia Pacific, so the checks can go to several countries; Melbourne's other option is the Classic tier, which keeps the checks in Melbourne but has less robust protection, and a customer-facing app is where you want the stronger one. I'd pick Sydney. (<a href="https://www.linkedin.com/posts/ns408_platformengineering-aigovernance-apra-share-7512709250796916736-c74J">Post 9</a>)</p>
+<blockquote><strong>What I tested: the hole in my own residency policy.</strong> On the AWS account where I test the design, I deny Bedrock model calls outside Australia. The policy named Bedrock's two invoke permissions. Then I found Bedrock has a second endpoint, <code>bedrock-mantle</code>, with its own permission, which a deny on those, or on <code>bedrock:*</code>, doesn't cover. The AWS IAM (Identity and Access Management) policy simulator confirmed it: <code>bedrock:InvokeModel</code> came back explicitDeny, <code>bedrock-mantle:CreateInference</code> allowed. Bedrock Guardrails don't run on that endpoint and model invocation logging doesn't capture it. CloudTrail records those calls only as data events, which are off by default. So a call through it gets past the residency policy, the guardrails and, by default, the logs. The fix was one extra statement denying <code>bedrock-mantle:*</code>. (<a href="https://www.linkedin.com/posts/ns408_platformengineering-aigovernance-apra-share-7512636617355063296-JuQA">Post 8</a>)</blockquote>
+
+
+  </div>
+</section>
+<section class="row essay-sec" id="s6">
+  <div class="margin"><span class="label">Section 06</span></div>
+  <div class="body">
+<h2 id="one-way-in">6. One way in, and no bypass</h2>
+<p>Who, apart from the platform's gateway, can call a model? If the answer is "a few teams, for now", every control on the gateway is optional for them. (<a href="https://www.linkedin.com/posts/ns408_platformengineering-aigovernance-apra-share-7511426849084698624-PesE">Post 7</a>)</p>
+<p>A related request sounds reasonable: an emergency bypass for when the platform is down. The answer is no. The bypass is the path with no redaction and none of the platform's audit trail, used at exactly the moment nobody is watching closely. So the platform fails closed, with a clear error the app can handle, and the fallback lives with the app: a way to run the business process without the AI. Where the AI supports a critical operation, APRA expects that fallback to be credible. It has to meet a minimum standard I'm still defining, so it's shown to work. On the platform side, the answer is redundancy that keeps every control, including a second route to models that has been tested. (<a href="https://www.linkedin.com/posts/ns408_platformengineering-aigovernance-apra-share-7512722775262896128-NlET">Post 11</a>)</p>
+
+
+  </div>
+</section>
+<section class="row essay-sec" id="s7">
+  <div class="margin"><span class="label">Section 07</span></div>
+  <div class="body">
+<h2 id="who-spent-it">7. Knowing who spent it</h2>
+<blockquote><strong>What I tested: can AWS billing name the team?</strong> Claude on Bedrock is billed through AWS Marketplace, and AWS attributes cost by the day, not by the request. The documentation didn't say whether your own tags reach Claude's lines on the bill, so I tagged an application profile and a role as if they belonged to a team, made a handful of calls, and waited for the cost report. It cost less than a cent. The tags did reach the Claude charges, next to the role that made the calls. (<a href="https://www.linkedin.com/posts/ns408_platformengineering-aigovernance-apra-share-7512716677181075456-nnRP">Post 10</a>)</blockquote>
+<p>That's good enough for a monthly showback (reporting spend by team, without charging it back), and no use for a quota that has to act in seconds. So the platform meters every request itself, keyed by the app and cost centre that made it, and the bill is what you reconcile against at the end of the month.</p>
+
+
+  </div>
+</section>
+<section class="row essay-sec" id="s8">
+  <div class="margin"><span class="label">Section 08</span></div>
+  <div class="body">
+<h2 id="the-twentieth-app">8. The twentieth app on a shared AI platform</h2>
+<p>The twentieth app is the real test. I'd scale by triggers rather than by calendar: prove the path on made-up data, then first production (often a staff assistant), then many kinds of app at once, then isolate the group that needs its own limits. None of those triggers can fire unless each app has been measured from day one: tokens, throttling, latency, and how long onboarding takes. (<a href="https://www.linkedin.com/feed/update/urn:li:activity:7514075405046407168/">Post 12</a>)</p>
+<p>Adoption fails in one of two ways. The platform team becomes the queue every team waits in, or teams tire of waiting and route around it, straight to a model with their own credentials. You see the queue first, in two numbers: how long onboarding takes and how many teams are waiting. My starting points are more than ten business days, or more than five teams; your own onboarding times will tell you the real ones. Cross either, and add these one at a time, moving on only if the last one didn't fix it: a paved road (a client library and working examples), then self-service onboarding, then a platform team that only looks at the exceptions. (<a href="https://www.linkedin.com/feed/update/urn:li:activity:7514800682902740992/">Post 14</a>)</p>
+
+
+  </div>
+</section>
+<section class="row essay-sec" id="s9">
+  <div class="margin"><span class="label">Section 09</span></div>
+  <div class="body">
+<h2>9. What I'd do the same way</h2>
+<p>Most of this came from asking the questions. The second endpoint only turned up while I was working out how to make the platform the only way to reach a model. When the documentation didn't say whether a batch job would take the Australian profile, I ran one. It was accepted and completed, though I've only tried one Claude model. Cheap decisions get the simple option; expensive ones get tested before I trust them. (<a href="https://www.linkedin.com/posts/ns408_platformengineering-aigovernance-apra-share-7511426512458309633-1kh5">Post 6</a>)</p>
+
+
+  </div>
+</section>
+<section class="row essay-sec" id="s10">
+  <div class="margin"><span class="label">Section 10</span></div>
+  <div class="body">
+<h2>Talk to me</h2>
+<p>If you're working through any of this, whether it's the six questions, your residency policy or the onboarding queue, I'd like to hear where you've got to.</p>
+<div class="actions"><a href="/contact/" class="btn">Get in Touch</a><a href="https://calendar.app.google/RgJtyQVimhpUgbTE7" class="btn" target="_blank" rel="noopener">Book a 30-Minute Call</a><span class="reply">I reply within one business day</span></div>
+
+  </div>
+</section>
+<section class="row">
+  <div class="margin"><span class="label">Related ideas</span><p class="muted">Same thread: AI under regulation</p></div>
+  <div class="body">
+<ul class="posts ideas"><li><time datetime="2026-03-12">12 Mar 2026</time><div><a href="/blog/ai-sovereignty-gap-australia/">The Sovereignty Gap: Why Cheap AI Comes With Real Risks for Australia</a><p>Australian teams are pasting sensitive data into frontier AI models without thinking through the sovereignty implications. Here&#39;s why we need a smarter national conversation.</p></div></li></ul>
+<div><a class="more" href="/blog/#ideas">All posts, by thread</a></div>
+  </div>
+</section>
+</div>
+</article>
+
+</main><footer class="site-footer">
+  <div class="scale major"></div>
+  <div class="sheet" style="padding-block:28px 0">
+    <dl class="titleblock">
+      <div><dt>Practice</dt><dd>ImpactEng<br><span class="muted">Melbourne, Australia</span></dd></div>
+      <div><dt>Principal</dt><dd>Nitin Sharma<br><span class="muted">Principal, ImpactEng</span></dd></div>
+      <div><dt>Contact</dt><dd><a href="mailto:nitin@impacteng.com.au">nitin@impacteng.com.au</a><br><a href="https://calendar.app.google/RgJtyQVimhpUgbTE7">Book a 30-minute call</a></dd></div>
+      <div><dt>Elsewhere</dt><dd><a href="https://www.linkedin.com/company/impactengx">LinkedIn</a> · <a href="https://github.com/ns408">GitHub</a> · <a href="/feed.xml">RSS</a></dd></div>
+      <div><dt>Sheet</dt><dd>Idea<br><span class="muted mono">Rev 2026-10</span></dd></div>
+    </dl>
+    <div class="footer-line mono muted">
+      <span>© 2026 ImpactEng. Independent Cloud, Platform Engineering and AI readiness practice.</span>
+      <span><a href="/privacy/">Privacy</a></span>
+    </div>
+  </div>
 </footer>
-<script src="/assets/js/lightbox.js"></script>
-  </body>
+<nav class="tabbar" aria-label="Mobile"><a href="/"><svg viewBox="0 0 24 24"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/></svg><span>Home</span></a><a href="/services/"><svg viewBox="0 0 24 24"><path d="M12 3 3 8l9 5 9-5-9-5Z"/><path d="M3 13l9 5 9-5"/></svg><span>Services</span></a><a href="/work/"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13"/><path d="M9 7V4h6v3"/><path d="M3 12h18"/></svg><span>Work</span></a><a href="/blog/" aria-current="page"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M9 11h7M9 15h7M9 7h3"/></svg><span>Blog</span></a><button type="button" data-menu-open aria-haspopup="dialog" aria-controls="menu-sheet"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span>Menu</span></button>
+</nav>
+<div class="menu-sheet" id="menu-sheet" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+  <div class="top">
+    <a class="wordmark" href="/" aria-label="ImpactEng home"><svg viewBox="0 0 32 32" aria-hidden="true"><path class="m" d="M3 3h26v6H20v14h9v6H3v-6h9V9H3z"/></svg><span><b>Impact</b>Eng</span></a>
 
+    <button class="close-btn" type="button" data-menu-close aria-label="Close menu"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  </div>
+  <nav><a href="/">Home<small>Start</small></a><a href="/start/">A few questions<small>Where to start</small></a><a href="/about/">About<small>Who</small></a><a href="/services/">Services<small>How</small></a><a href="/work/">Work with me<small>Ways in</small></a><a href="/blog/">Blog<small>By date or by thread</small></a><a href="/tools/">Tools<small>Free diagnostics</small></a><a href="/contact/">Contact<small>Talk</small></a>
+  </nav>
+  <div class="foot">
+    <a class="btn" href="https://calendar.app.google/RgJtyQVimhpUgbTE7">Book a 30-minute call</a>
+    <span class="reply">I reply within one business day</span>
+    <span class="mono muted">nitin@impacteng.com.au</span>
+  </div>
+</div>
+
+<script src="/assets/site.js" defer></script>
+<script src="/assets/js/lightbox.js" defer></script>
+</body>
 </html>

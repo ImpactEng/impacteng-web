@@ -1,14 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-AU"><head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Blog | Cloud, DevOps &amp; AI Readiness Consulting ImpactEng</title>
 <meta name="generator" content="Jekyll v3.10.0" />
 <meta property="og:title" content="Blog" />
 <meta property="og:locale" content="en_AU" />
-<meta name="description" content="Insights on Cloud infrastructure, DevOps, AI readiness, and building engineering teams that ship." />
-<meta property="og:description" content="Insights on Cloud infrastructure, DevOps, AI readiness, and building engineering teams that ship." />
+<meta name="description" content="Every post on Cloud, platform engineering and AI, by date or by thread." />
+<meta property="og:description" content="Every post on Cloud, platform engineering and AI, by date or by thread." />
 <link rel="canonical" href="https://impacteng.com.au/blog/" />
 <meta property="og:url" content="https://impacteng.com.au/blog/" />
 <meta property="og:site_name" content="Cloud, DevOps &amp; AI Readiness Consulting ImpactEng" />
@@ -16,24 +15,39 @@
 <meta name="twitter:card" content="summary" />
 <meta property="twitter:title" content="Blog" />
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"WebPage","description":"Insights on Cloud infrastructure, DevOps, AI readiness, and building engineering teams that ship.","headline":"Blog","url":"https://impacteng.com.au/blog/"}</script>
+{"@context":"https://schema.org","@type":"WebPage","description":"Every post on Cloud, platform engineering and AI, by date or by thread.","headline":"Blog","url":"https://impacteng.com.au/blog/"}</script>
 <!-- End Jekyll SEO tag -->
-<meta property="og:locale" content="en_AU"><link rel="stylesheet" href="/assets/main.css">
-  <!-- Impact Eng customisation -->
-  <link rel="stylesheet" href="/assets/fontawesome-5.15.4/css/fontawesome.min.css">
-  <link rel="stylesheet" href="/assets/fontawesome-5.15.4/css/solid.min.css">
-  <link rel="stylesheet" href="/assets/fontawesome-5.15.4/css/brands.min.css"><link type="application/atom+xml" rel="alternate" href="https://impacteng.com.au/feed.xml" title="Cloud, DevOps &amp; AI Readiness Consulting | ImpactEng" /><!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-89R5ETTN6P"></script>
+<meta property="og:locale" content="en_AU">
+<meta name="theme-color" content="#EEF0EC" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121518" media="(prefers-color-scheme: dark)">
+<link rel="preload" href="/assets/fonts/bricolage-grotesque-normal-300-800-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/ibm-plex-sans-normal-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
+<link rel="stylesheet" href="/assets/brand.css">
+<link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
+<script>(function(){try{var t=localStorage.getItem('ie-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script><link type="application/atom+xml" rel="alternate" href="https://impacteng.com.au/feed.xml" title="Cloud, DevOps &amp; AI Readiness Consulting | ImpactEng" /><!-- Google tag (gtag.js). Not loaded for browsers that declare themselves automated
+     (navigator.webdriver): in October 2026, 425 of 446 users in 28 days were single-page-view
+     visits from data-centre addresses, which would drown the demand test. -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  if (!navigator.webdriver) {
+    (function () {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-89R5ETTN6P';
+      document.head.appendChild(s);
+    })();
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-  gtag('config', 'G-89R5ETTN6P');
+    gtag('config', 'G-89R5ETTN6P');
+  }
 </script>
 <script>
-  // Sends a GA4 event when gtag is loaded (production only); a no-op otherwise.
+  // Sends a GA4 event when gtag is loaded (production only); a no-op otherwise, and a no-op
+  // for browsers that declare themselves automated (navigator.webdriver), which never get gtag.
   window.ieTrack = function (name, params) {
+    if (navigator.webdriver) return;
     if (typeof window.gtag === 'function') window.gtag('event', name, params || {});
   };
   document.addEventListener('click', function (e) {
@@ -41,9 +55,12 @@
     if (link) window.ieTrack('booking_click', { page: window.location.pathname });
   });
 </script>
-<!-- Microsoft Clarity -->
+
+<script>(function(){var r=document.documentElement;if(r.getAttribute('data-exp')!=='home_e1')return;var a=null;try{a=localStorage.getItem('ie-exp-home');}catch(e){}if(a!=='q'&&a!=='d'){a=Math.random()<0.5?'q':'d';try{localStorage.setItem('ie-exp-home',a);}catch(e){a='none';}}r.setAttribute('data-exp-arm',a);if(a==='d'){r.setAttribute('data-exp-home','d');var s=document.createElement('style');s.textContent='[data-exp-home="d"] [data-questions-link]{display:none !important}';document.head.appendChild(s);}})();</script>
+<script src="/assets/measure.js" defer></script><!-- Microsoft Clarity. Not loaded for browsers that declare themselves automated
+     (navigator.webdriver); see google-analytics.html. -->
 <script>
-  (function (c, l, a, r, i, t, y) {
+  if (!navigator.webdriver) (function (c, l, a, r, i, t, y) {
     c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
     t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
     y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
@@ -57,7 +74,7 @@
   "@id": "https://impacteng.com.au/#organization",
   "name": "Impact Eng",
   "url": "https://impacteng.com.au",
-  "email": "hi@impacteng.com.au",
+  "email": "nitin@impacteng.com.au",
   "description": "ImpactEng is Nitin Sharma's independent Cloud, Platform Engineering and AI readiness practice, based in Melbourne.",
   "image": "https://impacteng.com.au/assets/images/og-image.jpg",
   "areaServed": {
@@ -71,9 +88,9 @@
   "founder": {
     "@type": "Person",
     "name": "Nitin Sharma",
-    "jobTitle": "Founder and Principal"
+    "jobTitle": "Principal, ImpactEng"
   },
-  "serviceType": ["Cloud Engineering", "DevOps Consulting", "AI Readiness Audit"],
+  "serviceType": ["Cloud Engineering", "DevOps Consulting", "AI Coding Assessment", "Cloud Architecture Assessment", "Software Delivery Assessment"],
   "knowsAbout": ["Cloud Infrastructure", "Cloud Architecture", "DevOps", "AI Readiness", "Platform Engineering", "Containers", "CI/CD", "Linux Systems"],
   "sameAs": ["https://www.linkedin.com/company/impactengx"
   ]
@@ -97,345 +114,144 @@
     }
   ]
 }
-</script><body><header class="site-header" role="banner">
+</script><body><header class="site-header">
+  <div class="sheet bar">
+    <a class="wordmark" href="/" aria-label="ImpactEng home"><svg viewBox="0 0 32 32" aria-hidden="true"><path class="m" d="M3 3h26v6H20v14h9v6H3v-6h9V9H3z"/></svg><span><b>Impact</b>Eng</span></a>
 
-  <div class="wrapper"><!-- <a class="site-title" rel="author" href="/">Cloud, DevOps &amp; AI Readiness Consulting | ImpactEng</a> --><nav class="site-nav">
-        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-        <label for="nav-trigger">
-          <span class="menu-icon">
-            <svg viewBox="0 0 18 15" width="18px" height="15px">
-              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
-            </svg>
-          </span>
-        </label>
-
-        <div class="trigger"><a class="page-link" href="/">Home</a><a class="page-link" href="/about/">About</a><a class="page-link" href="/services/">Services</a><a class="page-link" href="/tools/">Tools</a><a class="page-link" href="/blog/">Blog</a><a class="page-link" href="/contact/">Contact</a></div>
-      </nav></div>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/services/">Services</a>
+      <a href="/work/">Work with me</a>
+      <a href="/blog/" aria-current="page">Blog</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <a class="btn" href="https://calendar.app.google/RgJtyQVimhpUgbTE7">Book a call</a>
+      <button class="theme-btn" type="button" data-theme-toggle aria-label="Switch colour theme">
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+    </div>
+  </div>
 </header>
-<main class="page-content" aria-label="Content">
-      <div class="wrapper">
-        <section class="default-page">
-  <header class="hero animate-fade-in">
-    <h1>Blog</h1>
-    <p class="lead">Insights on Cloud infrastructure, DevOps, AI readiness, and building engineering teams that ship.</p>
-  </header>
 
-  <section class="post-section animate-slide-up">
-    <h2><i class="fas fa-book"></i> Latest Posts</h2>
-    
-      <hr />
-      <br />
-      <article class="post-preview">
-        <h3><a href="/blog/separating-human-agent-ci-credentials/">Separating human, agent and CI credentials as a solo operator</a></h3>
-        <p class="post-meta">Posted on Oct 19, 2026</p>
-        <p><section class="default-page">
-  <header class="page-section animate-fade-in">
-    <h2>One login, three actors: separating human, agent and CI credentials when AI agents do the work</h2>
-    <p>I run <a href="/services/">ImpactEng</a> on my own, and a lot of the hands-on work now goes through AI coding agents. From mid-September I started bringing the pieces together. Most already followed the same conventions. They just didn't share one way in. In October I set out to make that one governed path for deploying infrastructure to every provider I use. One rule sits at the centre: I approve every production deploy.</p>
-  </header>
+<main id="main">
 
-
-
+<div class="sheet" data-views="">
+<section class="row" style="border-top:0">
+  <div class="margin"><span class="label">Blog</span><p class="muted">13 posts, 4 threads</p></div>
+  <div class="body">
+    <h1 style="font-size:var(--step-3)">Notes from the <span class="flag-word">work</span>.</h1>
+    <p class="lead measure">Every post, newest first, or the same posts grouped by the thread each one pulls on.</p>
+    <nav class="views" aria-label="View"><a class="btn ghost" role="button" href="#dated" data-view="dated" aria-pressed="true">By date</a><a class="btn ghost" role="button" href="#ideas" data-view="ideas" aria-pressed="false">By thread</a></nav>
+  </div>
 </section>
-</p>
-        <a href="/blog/separating-human-agent-ci-credentials/" class="button-primary">Read More</a>
-      </article>
-    
-      <hr />
-      <br />
-      <article class="post-preview">
-        <h3><a href="/blog/shared-ai-platform-apra-regulated/">A shared AI platform for APRA-regulated organisations</a></h3>
-        <p class="post-meta">Posted on Oct 15, 2026</p>
-        <p><section class="default-page">
-  <header class="page-section animate-fade-in">
-    <p>A team asks to put an AI assistant in the contact centre. It sounds like another pilot. In an organisation regulated by APRA (the Australian Prudential Regulation Authority) it isn't: under CPS 230, APRA's operational risk standard, it can make your shared AI platform part of a critical operation.</p>
-    <p>Over two weeks I wrote 14 LinkedIn posts on designing one AI platform for every team in a regulated organisation, and getting teams to use it. This is the whole path in one place, from the first request to the twentieth app, including what I tested along the way. Each section links the posts it comes from. Facts about Amazon Web Services (AWS) are as at October 2026.</p>
-    <ol class="phase-timeline">
-      <li>
-        <div>
-          <strong><a href="/blog/shared-ai-platform-apra-regulated/#not-every-request-is-a-pilot">A request arrives</a></strong><br />
-          Is it part of a critical operation? Then it may not be a pilot.
-        </div>
-      </li>
-      <li>
-        <div>
-          <strong><a href="/blog/shared-ai-platform-apra-regulated/#questions-at-the-door">The door</a></strong><br />
-          Six questions decide what gets built before a team gets access.
-        </div>
-      </li>
-      <li>
-        <div>
-          <strong><a href="/blog/shared-ai-platform-apra-regulated/#where-the-data-may-go">Where data goes</a></strong><br />
-          Set per type of data. Tested: the hole in my own residency policy.
-        </div>
-      </li>
-      <li>
-        <div>
-          <strong><a href="/blog/shared-ai-platform-apra-regulated/#one-way-in">One way in</a></strong><br />
-          No other path to a model, no emergency bypass. Fail closed.
-        </div>
-      </li>
-      <li>
-        <div>
-          <strong><a href="/blog/shared-ai-platform-apra-regulated/#who-spent-it">Who spent it</a></strong><br />
-          Tested: billing names the team, but only by the day. Meter every request.
-        </div>
-      </li>
-      <li>
-        <div>
-          <strong><a href="/blog/shared-ai-platform-apra-regulated/#the-twentieth-app">The twentieth app</a></strong><br />
-          Scale by triggers, not the calendar. Watch the queue before the route-around.
-        </div>
-      </li>
-    </ol>
-  </header>
-
-
-
+<div class="view" id="ideas" data-view-panel="ideas">
+<section class="row">
+  <div class="margin"><span class="label">By thread</span><p class="muted">4 threads</p></div>
+  <div class="body">
+    <!-- status: rough -->
+    <!-- PROVISIONAL THREADS (2026-10-22): the four thread labels below were derived from the
+         existing posts' topics by the design lane. The owner has not decided the threads.
+         On this site: _data/threads.yml and each post's `thread`. -->
+    <p class="lead measure">Read a thread end to end, or start with the newest.</p>
+    <nav class="chips" aria-label="Threads"><a class="chip" href="#thread-platform">Platform as a product <span class="num">&nbsp;3</span></a><a class="chip" href="#thread-regulated-ai">AI under regulation <span class="num">&nbsp;2</span></a><a class="chip" href="#thread-cloud-value">Cloud spend and value <span class="num">&nbsp;4</span></a><a class="chip" href="#thread-engineers-ai">Engineers working with AI <span class="num">&nbsp;4</span></a></nav>
+  </div>
 </section>
-</p>
-        <a href="/blog/shared-ai-platform-apra-regulated/" class="button-primary">Read More</a>
-      </article>
-    
-      <hr />
-      <br />
-      <article class="post-preview">
-        <h3><a href="/blog/platform-teams-ai-problem/">Your Platform Team Is About to Inherit the AI Problem. Most Aren&#39;t Ready.</a></h3>
-        <p class="post-meta">Posted on Apr 27, 2026</p>
-        <p><section class="default-page">
-  <header class="page-section animate-fade-in">
-    <p>Gartner forecast in 2024 that 80% of large software engineering organisations would have dedicated platform teams by 2026, up from 45% in 2022. The 2025 <a href="https://dora.dev/dora-report-2025/">DORA (DevOps Research and Assessment) report</a> puts current adoption at nearly 90%. The teams exist. What they're being asked to absorb on top of that is a different question.</p>
-    <p>AI workloads.</p>
-    <p>Not as a side project. Not as a prototype sitting on someone's laptop or a sandpit cloud account. As a core platform capability, governed, deployed, and maintained with the same rigour as your CI/CD pipeline or your container orchestration layer. Platform engineering and AI are fusing in 2026, and most teams are unprepared for what that actually requires.</p>
-  </header>
-
-
-
+<section class="row" id="thread-platform">
+  <div class="margin"><span class="label">Platform as a product</span><p class="muted">3 posts · provisional thread</p></div>
+  <div class="body">
+<!-- status: rough (thread line) -->
+<p class="measure muted">Why a platform works when engineers choose it, and what lands on the platform team next.</p>
+<ul class="posts ideas"><li><time datetime="2026-04-27">27 Apr 2026</time><div><a href="/blog/platform-teams-ai-problem/">Your Platform Team Is About to Inherit the AI Problem. Most Aren&#39;t Ready.</a><p>AI workloads are landing on platform teams that weren&#39;t built for them. Here&#39;s what the dual mandate requires, and where Australian teams stand.</p></div></li><li><time datetime="2026-03-19">19 Mar 2026</time><div><a href="/blog/platform-engineering-australia/">The Platform Engineering Trap: Why Mandating Your Platform Makes Things Worse</a><p>Most platform engineering initiatives focus on tooling and adoption targets. Two years of DORA data shows mandated adoption actively reduces delivery performance, and AI makes it worse. Here is what that means for Australian engineering leaders.</p></div></li><li><time datetime="2026-03-09">09 Mar 2026</time><div><a href="/blog/where-ai-agents-break-your-cicd-pipeline/">Where AI Agents Break Your CI/CD Pipeline</a><p>Most CI/CD pipelines were built for humans. AI agents expose five critical failure points that enterprises need to fix before agentic workloads hit production.</p></div></li></ul>
+  </div>
 </section>
-</p>
-        <a href="/blog/platform-teams-ai-problem/" class="button-primary">Read More</a>
-      </article>
-    
-      <hr />
-      <br />
-      <article class="post-preview">
-        <h3><a href="/blog/ai-session-resource-management/">Your AI Coding Session Is a Finite Resource. Manage It Like One.</a></h3>
-        <p class="post-meta">Posted on Mar 25, 2026</p>
-        <p><section class="default-page">
-  <header class="page-section animate-fade-in">
-    <p>You are forty minutes into a refactor. The model has read the relevant files, understands the architecture, and is tracking changes across five modules. Then something shifts. It starts repeating suggestions you already rejected. It re-reads files it loaded twenty minutes ago. The responses get vaguer. The session is rotting, and you have no useful signal about it.</p>
-    <p>I would restart at this point, paste in a quick summary of where I am, and lose twenty to thirty minutes rebuilding context. It might happen three or four times a day, and I would accept it as the cost of using these tools. It does not have to work this way.</p>
-    <p><em>A note on scope: when I first outlined this, I was thinking about the broader problem of dependency on a single session, single tool, or provider. That is a real problem but too large for one post. This one focuses on AI session management specifically. The deeper idea is picking up exactly where you left off in a completely different tool (and provider), not just a fresh session of the same one. That comes later. The protocol I describe here is designed with that portability in mind.</em></p>
-  </header>
-
-
-
+<section class="row" id="thread-regulated-ai">
+  <div class="margin"><span class="label">AI under regulation</span><p class="muted">2 posts · provisional thread</p></div>
+  <div class="body">
+<!-- status: rough (thread line) -->
+<p class="measure muted">Running AI where residency, sovereignty and operational risk rules apply.</p>
+<ul class="posts ideas"><li><time datetime="2026-10-15">15 Oct 2026</time><div><a href="/blog/shared-ai-platform-apra-regulated/">A shared AI platform for APRA-regulated organisations</a><p>How to run a shared AI platform for every team in an APRA-regulated organisation: what to ask first, where data may go, and what I tested on AWS.</p></div></li><li><time datetime="2026-03-12">12 Mar 2026</time><div><a href="/blog/ai-sovereignty-gap-australia/">The Sovereignty Gap: Why Cheap AI Comes With Real Risks for Australia</a><p>Australian teams are pasting sensitive data into frontier AI models without thinking through the sovereignty implications. Here&#39;s why we need a smarter national conversation.</p></div></li></ul>
+  </div>
 </section>
-</p>
-        <a href="/blog/ai-session-resource-management/" class="button-primary">Read More</a>
-      </article>
-    
-      <hr />
-      <br />
-      <article class="post-preview">
-        <h3><a href="/blog/platform-engineering-australia/">The Platform Engineering Trap: Why Mandating Your Platform Makes Things Worse</a></h3>
-        <p class="post-meta">Posted on Mar 19, 2026</p>
-        <p><section class="default-page">
-  <header class="page-section animate-fade-in">
-    <p>The DORA research programme has now tracked platform engineering across multiple years. The pattern is consistent: good platforms, freely adopted, improve performance. Mandated platforms reduce it. In 2024, across 39,000 practitioners, teams required to exclusively use their internal developer platform saw throughput fall by 8% and change stability fall by 14%.</p>
-    <p>The 2025 report did not reverse that finding. It added a sharper edge: when platforms are poorly designed, AI adoption does not offset the damage. It amplifies it.</p>
-    <p>This is the trap a significant number of Australian engineering teams are building their way into right now.</p>
-  </header>
-
-
-
+<section class="row" id="thread-cloud-value">
+  <div class="margin"><span class="label">Cloud spend and value</span><p class="muted">4 posts · provisional thread</p></div>
+  <div class="body">
+<!-- status: rough (thread line) -->
+<p class="measure muted">Whether Cloud spend shows up as value, and where the quick wins are.</p>
+<ul class="posts ideas"><li><time datetime="2025-08-02">02 Aug 2025</time><div><a href="/blog/orchestrating-devops-dominance/">Orchestrating DevOps Dominance</a><p>How I Turned a $2.3M Setup into $7.4M Value in an Aussie Enterprise.</p></div></li><li><time datetime="2025-06-13">13 Jun 2025</time><div><a href="/blog/cloud-engineering-targeting-the-lowest-hanging-fruit/">Cloud Engineering - Targeting the Lowest-Hanging Fruit</a><p>Learn how to identify and execute quick wins in your cloud infrastructure for immediate cost savings and efficiency gains.</p></div></li><li><time datetime="2025-05-04">04 May 2025</time><div><a href="/blog/is-your-cloud-strategy-working/">Is Your Cloud Strategy Working?</a><p>Learn how to evaluate your Cloud Engineering department&#39;s effectiveness through strategic assessment and discover why it matters for your business success.</p></div></li><li><time datetime="2025-04-15">15 Apr 2025</time><div><a href="/blog/unlocking-business-value-with-cloud-engineering/">Unlocking Business Value with Cloud Engineering</a><p>Discover how Cloud Engineering drives measurable business value through automation, cost optimisation, and engineering excellence.</p></div></li></ul>
+  </div>
 </section>
-</p>
-        <a href="/blog/platform-engineering-australia/" class="button-primary">Read More</a>
-      </article>
-    
-      <hr />
-      <br />
-      <article class="post-preview">
-        <h3><a href="/blog/failed-aws-exam-soniccert/">So I Failed the AWS SA Pro Exam by 17 Points. Then I Built SonicCert Coach.</a></h3>
-        <p class="post-meta">Posted on Mar 18, 2026</p>
-        <p><section class="default-page">
-  <header class="page-section animate-fade-in">
-    <p>I failed the AWS Solutions Architect Professional exam by 17 points. Not 50 points. Not "I didn't study." Seventeen points, after a few months of preparation.</p>
-    <p>The root cause wasn't effort. The problem was where that effort went. I kept going deep on the domains I found interesting and avoided drilling the ones which mattered more. The exam does not care what you find interesting. It weights domains. I didn't respect those weights. So I ate dirt.</p>
-    <p>A few months later, I went through a run of certification exams across AWS, Azure, GCP, and Oracle, eight or nine over about two to three months. Again, I failed the OCI Data Science Professional exam too, by a small margin. Same mistake, different exam. WTH!</p>
-  </header>
-
-
-
+<section class="row" id="thread-engineers-ai">
+  <div class="margin"><span class="label">Engineers working with AI</span><p class="muted">4 posts · provisional thread</p></div>
+  <div class="body">
+<!-- status: rough (thread line) -->
+<p class="measure muted">What an engineer needs to know about AI, and how to work with it day to day.</p>
+<ul class="posts ideas"><li><time datetime="2026-10-19">19 Oct 2026</time><div><a href="/blog/separating-human-agent-ci-credentials/">Separating human, agent and CI credentials as a solo operator</a><p>How I split one GitHub login into separate credentials for me, my AI coding agents and CI, what the first attempt broke, and where it landed.</p></div></li><li><time datetime="2026-03-25">25 Mar 2026</time><div><a href="/blog/ai-session-resource-management/">Your AI Coding Session Is a Finite Resource. Manage It Like One.</a><p>Most developers treat AI coding sessions like a persistent collaborator. They are not. Here is the resource-management approach that stops you rebuilding context from scratch every time a session resets.</p></div></li><li><time datetime="2026-03-18">18 Mar 2026</time><div><a href="/blog/failed-aws-exam-soniccert/">So I Failed the AWS SA Pro Exam by 17 Points. Then I Built SonicCert Coach.</a><p>A post about failing the AWS Solutions Architect Professional exam, hitting a genuine SDK bug at a hackathon, and shipping a multi-agent AI tutor.</p></div></li><li><time datetime="2025-06-28">28 Jun 2025</time><div><a href="/blog/demystifying-ai-for-devops-sre-and-cloud-engineers/">Demystifying AI for DevOps, SRE, and Cloud Engineers: From Basics to Practical LLM Applications</a><p>A guide to AI fundamentals, terminology, and LLM usage tailored for DevOps, SRE, and Cloud professionals with limited AI experience.</p></div></li></ul>
+  </div>
 </section>
-</p>
-        <a href="/blog/failed-aws-exam-soniccert/" class="button-primary">Read More</a>
-      </article>
-    
-      <hr />
-      <br />
-      <article class="post-preview">
-        <h3><a href="/blog/ai-sovereignty-gap-australia/">The Sovereignty Gap: Why Cheap AI Comes With Real Risks for Australia</a></h3>
-        <p class="post-meta">Posted on Mar 12, 2026</p>
-        <p><section class="default-page">
-  <header class="page-section animate-fade-in">
-    <p>I've been full-time in the AI space since last year, working with Australian tech teams. We've all seen the toggle: "Do not use my data for training." We click it, breathe a sigh of relief, and keep building.</p>
-    <p>But here's the uncomfortable truth: every major model provider still captures and retains request/response data for legal, safety, and compliance reasons. Anonymised datasets can still be re-identified through modern AI mosaic attacks. And in the process of learning patterns of malicious behaviour, edge-case IP and sensitive ideas can quietly migrate into internal models.</p>
-  </header>
-
-
-
+</div>
+<div class="view" id="dated" data-view-panel="dated">
+<section class="row" id="y2026">
+  <div class="margin"><span class="label">2026</span><p class="muted">8 posts</p></div>
+  <div class="body">
+<ul class="posts"><li><time datetime="2026-10-19">19 Oct 2026</time><div><a href="/blog/separating-human-agent-ci-credentials/">Separating human, agent and CI credentials as a solo operator</a><p>How I split one GitHub login into separate credentials for me, my AI coding agents and CI, what the first attempt broke, and where it landed.</p></div></li><li><time datetime="2026-10-15">15 Oct 2026</time><div><a href="/blog/shared-ai-platform-apra-regulated/">A shared AI platform for APRA-regulated organisations</a><p>How to run a shared AI platform for every team in an APRA-regulated organisation: what to ask first, where data may go, and what I tested on AWS.</p></div></li><li><time datetime="2026-04-27">27 Apr 2026</time><div><a href="/blog/platform-teams-ai-problem/">Your Platform Team Is About to Inherit the AI Problem. Most Aren&#39;t Ready.</a><p>AI workloads are landing on platform teams that weren&#39;t built for them. Here&#39;s what the dual mandate requires, and where Australian teams stand.</p></div></li><li><time datetime="2026-03-25">25 Mar 2026</time><div><a href="/blog/ai-session-resource-management/">Your AI Coding Session Is a Finite Resource. Manage It Like One.</a><p>Most developers treat AI coding sessions like a persistent collaborator. They are not. Here is the resource-management approach that stops you rebuilding context from scratch every time a session resets.</p></div></li><li><time datetime="2026-03-19">19 Mar 2026</time><div><a href="/blog/platform-engineering-australia/">The Platform Engineering Trap: Why Mandating Your Platform Makes Things Worse</a><p>Most platform engineering initiatives focus on tooling and adoption targets. Two years of DORA data shows mandated adoption actively reduces delivery performance, and AI makes it worse. Here is what that means for Australian engineering leaders.</p></div></li><li><time datetime="2026-03-18">18 Mar 2026</time><div><a href="/blog/failed-aws-exam-soniccert/">So I Failed the AWS SA Pro Exam by 17 Points. Then I Built SonicCert Coach.</a><p>A post about failing the AWS Solutions Architect Professional exam, hitting a genuine SDK bug at a hackathon, and shipping a multi-agent AI tutor.</p></div></li><li><time datetime="2026-03-12">12 Mar 2026</time><div><a href="/blog/ai-sovereignty-gap-australia/">The Sovereignty Gap: Why Cheap AI Comes With Real Risks for Australia</a><p>Australian teams are pasting sensitive data into frontier AI models without thinking through the sovereignty implications. Here&#39;s why we need a smarter national conversation.</p></div></li><li><time datetime="2026-03-09">09 Mar 2026</time><div><a href="/blog/where-ai-agents-break-your-cicd-pipeline/">Where AI Agents Break Your CI/CD Pipeline</a><p>Most CI/CD pipelines were built for humans. AI agents expose five critical failure points that enterprises need to fix before agentic workloads hit production.</p></div></li></ul>
+  </div>
 </section>
-</p>
-        <a href="/blog/ai-sovereignty-gap-australia/" class="button-primary">Read More</a>
-      </article>
-    
-      <hr />
-      <br />
-      <article class="post-preview">
-        <h3><a href="/blog/where-ai-agents-break-your-cicd-pipeline/">Where AI Agents Break Your CI/CD Pipeline</a></h3>
-        <p class="post-meta">Posted on Mar 9, 2026</p>
-        <p><section class="default-page">
-  <header class="page-section animate-fade-in">
-    <p>Everyone is talking about AI agents in CI/CD. GitHub shipped Agentic Workflows. AWS announced frontier agents at re:Invent 2025. Deloitte's latest State of AI report says 74% of companies plan to use agentic AI at least moderately within two years.</p>
-    <p>Here is the part nobody is talking about: most CI/CD pipelines were designed for a human clicking "merge" a few times a day. Not for an autonomous agent generating hundreds of commits per hour.</p>
-    <p>I spent the better part of a decade running CI/CD platforms at scale, including a <a href="/blog/orchestrating-devops-dominance/">migration from Bamboo to GitLab</a> serving 650+ users across hundreds of microservices. That experience taught me exactly where pipelines buckle under pressure. Agents apply that same pressure, only faster and less predictably.</p>
-  </header>
-
-
-
+<section class="row" id="y2025">
+  <div class="margin"><span class="label">2025</span><p class="muted">5 posts</p></div>
+  <div class="body">
+<ul class="posts"><li><time datetime="2025-08-02">02 Aug 2025</time><div><a href="/blog/orchestrating-devops-dominance/">Orchestrating DevOps Dominance</a><p>How I Turned a $2.3M Setup into $7.4M Value in an Aussie Enterprise.</p></div></li><li><time datetime="2025-06-28">28 Jun 2025</time><div><a href="/blog/demystifying-ai-for-devops-sre-and-cloud-engineers/">Demystifying AI for DevOps, SRE, and Cloud Engineers: From Basics to Practical LLM Applications</a><p>A guide to AI fundamentals, terminology, and LLM usage tailored for DevOps, SRE, and Cloud professionals with limited AI experience.</p></div></li><li><time datetime="2025-06-13">13 Jun 2025</time><div><a href="/blog/cloud-engineering-targeting-the-lowest-hanging-fruit/">Cloud Engineering - Targeting the Lowest-Hanging Fruit</a><p>Learn how to identify and execute quick wins in your cloud infrastructure for immediate cost savings and efficiency gains.</p></div></li><li><time datetime="2025-05-04">04 May 2025</time><div><a href="/blog/is-your-cloud-strategy-working/">Is Your Cloud Strategy Working?</a><p>Learn how to evaluate your Cloud Engineering department&#39;s effectiveness through strategic assessment and discover why it matters for your business success.</p></div></li><li><time datetime="2025-04-15">15 Apr 2025</time><div><a href="/blog/unlocking-business-value-with-cloud-engineering/">Unlocking Business Value with Cloud Engineering</a><p>Discover how Cloud Engineering drives measurable business value through automation, cost optimisation, and engineering excellence.</p></div></li></ul>
+  </div>
 </section>
-</p>
-        <a href="/blog/where-ai-agents-break-your-cicd-pipeline/" class="button-primary">Read More</a>
-      </article>
-    
-      <hr />
-      <br />
-      <article class="post-preview">
-        <h3><a href="/blog/orchestrating-devops-dominance/">Orchestrating DevOps Dominance</a></h3>
-        <p class="post-meta">Posted on Aug 2, 2025</p>
-        <p><section class="default-page">
-  <header class="page-section animate-fade-in">
-    <h2>How I Turned a $2.3M Setup into $7.4M Value in an Aussie Enterprise</h2>
-    <p>Fair dinkum, leading a DevOps function in a large enterprise can feel like herding cats at times. You've got the business folks talking strategy (often vaguely), the developers wanting the latest and greatest tech, and your own team striving to keep the lights on and build for the future.</p>
-    <p>My 2024 was precisely that: a whirlwind of bridging these worlds at a significant Australian enterprise. The business objectives were not clear. But the business needed speed, stability, and security. As the Cloud Product Engineering Manager, I saw my role as the orchestrator, the one bringing harmony to this chaos, ultimately delivering some pretty impressive return on investment.</p>
-  </header>
-
-
-
-</section>
-</p>
-        <a href="/blog/orchestrating-devops-dominance/" class="button-primary">Read More</a>
-      </article>
-    
-      <hr />
-      <br />
-      <article class="post-preview">
-        <h3><a href="/blog/demystifying-ai-for-devops-sre-and-cloud-engineers/">Demystifying AI for DevOps, SRE, and Cloud Engineers: From Basics to Practical LLM Applications</a></h3>
-        <p class="post-meta">Posted on Jun 28, 2025</p>
-        <p><section class="default-page">
-  <header class="page-section animate-fade-in">
-    <h2>Introduction: Why Artificial Intelligence (AI) Matters</h2>
-    <p>If you're a DevOps pro automating CI/CD pipelines, an SRE ensuring site reliability, or a Cloud engineer provisioning resources across AWS, Azure, or GCP, this post is for you.</p>
-    <p>My goal is to demystify AI from the ground up using familiar analogies and share examples of practical application. No prior AI knowledge required, just curiosity.</p>
-  </header>
-
-
-
-</section>
-</p>
-        <a href="/blog/demystifying-ai-for-devops-sre-and-cloud-engineers/" class="button-primary">Read More</a>
-      </article>
-    
-      <hr />
-      <br />
-      <article class="post-preview">
-        <h3><a href="/blog/cloud-engineering-targeting-the-lowest-hanging-fruit/">Cloud Engineering - Targeting the Lowest-Hanging Fruit</a></h3>
-        <p class="post-meta">Posted on Jun 13, 2025</p>
-        <p><section class="default-page">
-  <header class="page-section animate-fade-in">
-    <h2>Quick Wins for Cost Savings Without Major Time or Money</h2>
-    <p>Want to make a positive impact in your tech environment without sinking huge time or budget?</p>
-    <p>Focus on quick, high-value actions that save costs, streamline operations, or free up engineering effort. By regularly identifying and acting on these opportunities, you can uncover patterns to prevent waste and build leaner, more efficient systems.</p>
-  </header>
-
-
-
-</section>
-</p>
-        <a href="/blog/cloud-engineering-targeting-the-lowest-hanging-fruit/" class="button-primary">Read More</a>
-      </article>
-    
-      <hr />
-      <br />
-      <article class="post-preview">
-        <h3><a href="/blog/is-your-cloud-strategy-working/">Is Your Cloud Strategy Working?</a></h3>
-        <p class="post-meta">Posted on May 4, 2025</p>
-        <p><section class="default-page">
-  <header class="hero animate-fade-in">
-    <p class="lead">Cloud engineering drives modern businesses, enabling cost efficiency, scalability, and innovation. Yet, many companies struggle to measure its true impact. Here's how to evaluate your strategy and why it matters.</p>
-  </header>
-
-
-</section>
-</p>
-        <a href="/blog/is-your-cloud-strategy-working/" class="button-primary">Read More</a>
-      </article>
-    
-      <hr />
-      <br />
-      <article class="post-preview">
-        <h3><a href="/blog/unlocking-business-value-with-cloud-engineering/">Unlocking Business Value with Cloud Engineering</a></h3>
-        <p class="post-meta">Posted on Apr 15, 2025</p>
-        <p><section class="default-page">
-  <section class="page-section">
-    <h2>Introduction</h2>
-    <p>Cloud engineering is the driving force behind modern business agility, enabling scalable, secure, and innovative solutions. As a dedicated function, it designs and manages cloud systems on platforms like AWS or Azure. By aligning with business objectives and leveraging mature practices, businesses can extract transformative value from their cloud engineering teams. Here’s how.</p>
-  </section>
-
-
-</section>
-</p>
-        <a href="/blog/unlocking-business-value-with-cloud-engineering/" class="button-primary">Read More</a>
-      </article>
-    
-  </section>
-
-  <section class="contact-cta animate-fade-in">
-    <h2>Want to talk about what you are working on?</h2>
-    <p>I am always happy to discuss Cloud, DevOps, and AI readiness challenges. No obligation.</p>
-    <a href="/contact/" class="button-primary">Get in Touch</a>
-  </section>
+</div>
+</div>
+<section class="band-ink">
+  <div class="sheet" style="padding-block:clamp(48px,8vw,112px)">
+    <div style="display:grid;gap:20px;max-width:720px">
+      <span class="label">Next step</span>
+      <h2>Something here close to what your team is facing?</h2>
+      <p class="lead">Tell me where you have got to. A 30-minute conversation, no obligation.</p>
+      <div class="actions"><a class="btn" href="https://calendar.app.google/RgJtyQVimhpUgbTE7">Book a 30-minute call</a><a class="btn ghost" href="/work/">Ways to work with me</a><span class="reply">I reply within one business day</span></div>
+    </div>
+  </div>
 </section>
 
-      </div>
-    </main><footer class="site-footer h-card">
-  <data class="u-url" href="/"></data>
+</main><footer class="site-footer">
+  <div class="scale major"></div>
+  <div class="sheet" style="padding-block:28px 0">
+    <dl class="titleblock">
+      <div><dt>Practice</dt><dd>ImpactEng<br><span class="muted">Melbourne, Australia</span></dd></div>
+      <div><dt>Principal</dt><dd>Nitin Sharma<br><span class="muted">Principal, ImpactEng</span></dd></div>
+      <div><dt>Contact</dt><dd><a href="mailto:nitin@impacteng.com.au">nitin@impacteng.com.au</a><br><a href="https://calendar.app.google/RgJtyQVimhpUgbTE7">Book a 30-minute call</a></dd></div>
+      <div><dt>Elsewhere</dt><dd><a href="https://www.linkedin.com/company/impactengx">LinkedIn</a> · <a href="https://github.com/ns408">GitHub</a> · <a href="/feed.xml">RSS</a></dd></div>
+      <div><dt>Sheet</dt><dd>Blog<br><span class="muted mono">Rev 2026-10</span></dd></div>
+    </dl>
+    <div class="footer-line mono muted">
+      <span>© 2026 ImpactEng. Independent Cloud, Platform Engineering and AI readiness practice.</span>
+      <span><a href="/privacy/">Privacy</a></span>
+    </div>
+  </div>
+</footer>
+<nav class="tabbar" aria-label="Mobile"><a href="/"><svg viewBox="0 0 24 24"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/></svg><span>Home</span></a><a href="/services/"><svg viewBox="0 0 24 24"><path d="M12 3 3 8l9 5 9-5-9-5Z"/><path d="M3 13l9 5 9-5"/></svg><span>Services</span></a><a href="/work/"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13"/><path d="M9 7V4h6v3"/><path d="M3 12h18"/></svg><span>Work</span></a><a href="/blog/" aria-current="page"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M9 11h7M9 15h7M9 7h3"/></svg><span>Blog</span></a><button type="button" data-menu-open aria-haspopup="dialog" aria-controls="menu-sheet"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span>Menu</span></button>
+</nav>
+<div class="menu-sheet" id="menu-sheet" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+  <div class="top">
+    <a class="wordmark" href="/" aria-label="ImpactEng home"><svg viewBox="0 0 32 32" aria-hidden="true"><path class="m" d="M3 3h26v6H20v14h9v6H3v-6h9V9H3z"/></svg><span><b>Impact</b>Eng</span></a>
 
-  <div class="wrapper">
-
-    <!-- <h2 class="footer-heading">Cloud, DevOps &amp; AI Readiness Consulting | ImpactEng</h2> -->
-
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-        <ul class="contact-list">
-          <li class="p-name"><!--  Cloud, DevOps &amp; AI Readiness Consulting | ImpactEng  --></li><li><a class="u-email" href="mailto:hi@impacteng.com.au">hi@impacteng.com.au</a></li><li><a href="/privacy/">Privacy</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://www.linkedin.com/company/impactengx"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#linkedin"></use></svg> <span class="username">ImpactEngX</span></a></li></ul>
+    <button class="close-btn" type="button" data-menu-close aria-label="Close menu"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  </div>
+  <nav><a href="/">Home<small>Start</small></a><a href="/start/">A few questions<small>Where to start</small></a><a href="/about/">About<small>Who</small></a><a href="/services/">Services<small>How</small></a><a href="/work/">Work with me<small>Ways in</small></a><a href="/blog/" aria-current="page">Blog<small>By date or by thread</small></a><a href="/tools/">Tools<small>Free diagnostics</small></a><a href="/contact/">Contact<small>Talk</small></a>
+  </nav>
+  <div class="foot">
+    <a class="btn" href="https://calendar.app.google/RgJtyQVimhpUgbTE7">Book a 30-minute call</a>
+    <span class="reply">I reply within one business day</span>
+    <span class="mono muted">nitin@impacteng.com.au</span>
+  </div>
 </div>
 
-      <div class="footer-col footer-col-3">
-        <p>ImpactEng is Nitin Sharma&#39;s independent Cloud, Platform Engineering and AI readiness practice, based in Melbourne.</p>
-      </div>
-    </div>
-
-  </div>
-
-</footer>
-<script src="/assets/js/lightbox.js"></script>
-  </body>
-
+<script src="/assets/site.js" defer></script>
+<script src="/assets/js/lightbox.js" defer></script>
+</body>
 </html>

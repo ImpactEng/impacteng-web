@@ -1,8 +1,7 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en-AU"><head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1"><!-- Begin Jekyll SEO tag v2.8.0 -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><!-- Begin Jekyll SEO tag v2.8.0 -->
 <title>Separating human, agent and CI credentials as a solo operator | Cloud, DevOps &amp; AI Readiness Consulting ImpactEng</title>
 <meta name="generator" content="Jekyll v3.10.0" />
 <meta property="og:title" content="Separating human, agent and CI credentials as a solo operator" />
@@ -23,22 +22,37 @@
 {"@context":"https://schema.org","@type":"BlogPosting","author":{"@type":"Person","name":"Nitin Sharma"},"dateModified":"2026-10-19T01:00:00+00:00","datePublished":"2026-10-19T01:00:00+00:00","description":"How I split one GitHub login into separate credentials for me, my AI coding agents and CI, what the first attempt broke, and where it landed.","headline":"Separating human, agent and CI credentials as a solo operator","image":"https://impacteng.com.au/assets/images/separating-human-agent-ci-credentials-card.png","mainEntityOfPage":{"@type":"WebPage","@id":"https://impacteng.com.au/blog/separating-human-agent-ci-credentials/"},"url":"https://impacteng.com.au/blog/separating-human-agent-ci-credentials/"}</script>
 <!-- End Jekyll SEO tag -->
 <meta property="og:locale" content="en_AU"><meta property="article:author" content="Nitin Sharma">
-  <meta property="article:published_time" content="2026-10-19T01:00:00+00:00"><link rel="stylesheet" href="/assets/main.css">
-  <!-- Impact Eng customisation -->
-  <link rel="stylesheet" href="/assets/fontawesome-5.15.4/css/fontawesome.min.css">
-  <link rel="stylesheet" href="/assets/fontawesome-5.15.4/css/solid.min.css">
-  <link rel="stylesheet" href="/assets/fontawesome-5.15.4/css/brands.min.css"><link type="application/atom+xml" rel="alternate" href="https://impacteng.com.au/feed.xml" title="Cloud, DevOps &amp; AI Readiness Consulting | ImpactEng" /><!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-89R5ETTN6P"></script>
+  <meta property="article:published_time" content="2026-10-19T01:00:00+00:00">
+<meta name="theme-color" content="#EEF0EC" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121518" media="(prefers-color-scheme: dark)">
+<link rel="preload" href="/assets/fonts/bricolage-grotesque-normal-300-800-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/ibm-plex-sans-normal-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
+<link rel="stylesheet" href="/assets/brand.css">
+<link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
+<script>(function(){try{var t=localStorage.getItem('ie-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script><link type="application/atom+xml" rel="alternate" href="https://impacteng.com.au/feed.xml" title="Cloud, DevOps &amp; AI Readiness Consulting | ImpactEng" /><!-- Google tag (gtag.js). Not loaded for browsers that declare themselves automated
+     (navigator.webdriver): in October 2026, 425 of 446 users in 28 days were single-page-view
+     visits from data-centre addresses, which would drown the demand test. -->
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+  if (!navigator.webdriver) {
+    (function () {
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-89R5ETTN6P';
+      document.head.appendChild(s);
+    })();
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
 
-  gtag('config', 'G-89R5ETTN6P');
+    gtag('config', 'G-89R5ETTN6P');
+  }
 </script>
 <script>
-  // Sends a GA4 event when gtag is loaded (production only); a no-op otherwise.
+  // Sends a GA4 event when gtag is loaded (production only); a no-op otherwise, and a no-op
+  // for browsers that declare themselves automated (navigator.webdriver), which never get gtag.
   window.ieTrack = function (name, params) {
+    if (navigator.webdriver) return;
     if (typeof window.gtag === 'function') window.gtag('event', name, params || {});
   };
   document.addEventListener('click', function (e) {
@@ -46,9 +60,12 @@
     if (link) window.ieTrack('booking_click', { page: window.location.pathname });
   });
 </script>
-<!-- Microsoft Clarity -->
+
+<script>(function(){var r=document.documentElement;if(r.getAttribute('data-exp')!=='home_e1')return;var a=null;try{a=localStorage.getItem('ie-exp-home');}catch(e){}if(a!=='q'&&a!=='d'){a=Math.random()<0.5?'q':'d';try{localStorage.setItem('ie-exp-home',a);}catch(e){a='none';}}r.setAttribute('data-exp-arm',a);if(a==='d'){r.setAttribute('data-exp-home','d');var s=document.createElement('style');s.textContent='[data-exp-home="d"] [data-questions-link]{display:none !important}';document.head.appendChild(s);}})();</script>
+<script src="/assets/measure.js" defer></script><!-- Microsoft Clarity. Not loaded for browsers that declare themselves automated
+     (navigator.webdriver); see google-analytics.html. -->
 <script>
-  (function (c, l, a, r, i, t, y) {
+  if (!navigator.webdriver) (function (c, l, a, r, i, t, y) {
     c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
     t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
     y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
@@ -62,7 +79,7 @@
   "@id": "https://impacteng.com.au/#organization",
   "name": "Impact Eng",
   "url": "https://impacteng.com.au",
-  "email": "hi@impacteng.com.au",
+  "email": "nitin@impacteng.com.au",
   "description": "ImpactEng is Nitin Sharma's independent Cloud, Platform Engineering and AI readiness practice, based in Melbourne.",
   "image": "https://impacteng.com.au/assets/images/og-image.jpg",
   "areaServed": {
@@ -76,9 +93,9 @@
   "founder": {
     "@type": "Person",
     "name": "Nitin Sharma",
-    "jobTitle": "Founder and Principal"
+    "jobTitle": "Principal, ImpactEng"
   },
-  "serviceType": ["Cloud Engineering", "DevOps Consulting", "AI Readiness Audit"],
+  "serviceType": ["Cloud Engineering", "DevOps Consulting", "AI Coding Assessment", "Cloud Architecture Assessment", "Software Delivery Assessment"],
   "knowsAbout": ["Cloud Infrastructure", "Cloud Architecture", "DevOps", "AI Readiness", "Platform Engineering", "Containers", "CI/CD", "Linux Systems"],
   "sameAs": ["https://www.linkedin.com/company/impactengx"
   ]
@@ -107,24 +124,30 @@
     }
   ]
 }
-</script><body><header class="site-header" role="banner">
+</script><body><header class="site-header">
+  <div class="sheet bar">
+    <a class="wordmark" href="/" aria-label="ImpactEng home"><svg viewBox="0 0 32 32" aria-hidden="true"><path class="m" d="M3 3h26v6H20v14h9v6H3v-6h9V9H3z"/></svg><span><b>Impact</b>Eng</span></a>
 
-  <div class="wrapper"><!-- <a class="site-title" rel="author" href="/">Cloud, DevOps &amp; AI Readiness Consulting | ImpactEng</a> --><nav class="site-nav">
-        <input type="checkbox" id="nav-trigger" class="nav-trigger" />
-        <label for="nav-trigger">
-          <span class="menu-icon">
-            <svg viewBox="0 0 18 15" width="18px" height="15px">
-              <path d="M18,1.484c0,0.82-0.665,1.484-1.484,1.484H1.484C0.665,2.969,0,2.304,0,1.484l0,0C0,0.665,0.665,0,1.484,0 h15.032C17.335,0,18,0.665,18,1.484L18,1.484z M18,7.516C18,8.335,17.335,9,16.516,9H1.484C0.665,9,0,8.335,0,7.516l0,0 c0-0.82,0.665-1.484,1.484-1.484h15.032C17.335,6.031,18,6.696,18,7.516L18,7.516z M18,13.516C18,14.335,17.335,15,16.516,15H1.484 C0.665,15,0,14.335,0,13.516l0,0c0-0.82,0.665-1.483,1.484-1.483h15.032C17.335,12.031,18,12.695,18,13.516L18,13.516z"/>
-            </svg>
-          </span>
-        </label>
-
-        <div class="trigger"><a class="page-link" href="/">Home</a><a class="page-link" href="/about/">About</a><a class="page-link" href="/services/">Services</a><a class="page-link" href="/tools/">Tools</a><a class="page-link" href="/blog/">Blog</a><a class="page-link" href="/contact/">Contact</a></div>
-      </nav></div>
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/services/">Services</a>
+      <a href="/work/">Work with me</a>
+      <a href="/blog/" aria-current="page">Blog</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <a class="btn" href="https://calendar.app.google/RgJtyQVimhpUgbTE7">Book a call</a>
+      <button class="theme-btn" type="button" data-theme-toggle aria-label="Switch colour theme">
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+    </div>
+  </div>
 </header>
-<main class="page-content" aria-label="Content">
-      <div class="wrapper">
-        <script type="application/ld+json">
+
+<main id="main">
+<script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Article",
@@ -147,116 +170,165 @@
   }
 }
 </script>
-<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
-
-  <header class="post-header">
-    <h1 class="post-title p-name" itemprop="name headline">Separating human, agent and CI credentials as a solo operator</h1>
-    <p class="post-meta">
-      <time class="dt-published" datetime="2026-10-19T01:00:00+00:00" itemprop="datePublished">Oct 19, 2026
-      </time>• <span itemprop="author" itemscope itemtype="http://schema.org/Person"><span class="p-author h-card" itemprop="name">Nitin Sharma</span></span></p>
-  </header>
-
-  <div class="post-content e-content" itemprop="articleBody">
-    <section class="default-page">
-  <header class="page-section animate-fade-in">
-    <h2>One login, three actors: separating human, agent and CI credentials when AI agents do the work</h2>
-    <p>I run <a href="/services/">ImpactEng</a> on my own, and a lot of the hands-on work now goes through AI coding agents. From mid-September I started bringing the pieces together. Most already followed the same conventions. They just didn't share one way in. In October I set out to make that one governed path for deploying infrastructure to every provider I use. One rule sits at the centre: I approve every production deploy.</p>
-  </header>
+<article class="essay">
+<div class="sheet">
+<section class="row essay-head" style="border-top:0">
+  <div class="margin"><span class="label">Idea</span><p class="muted">One idea, in full</p></div>
+  <div class="body">
+    <h1>Separating human, agent and CI credentials as a solo operator</h1>
+    <p class="lead measure">How I split one GitHub login into separate credentials for me, my AI coding agents and CI, what the first attempt broke, and where it landed.</p>
+    <dl class="titleblock essay-meta">
+      <div><dt>Dated</dt><dd><time datetime="2026-10-19">19 Oct 2026</time></dd></div>
+      <div><dt>Thread</dt><dd><a href="/blog/#thread-engineers-ai">Engineers working with AI</a></dd></div>
+      <div><dt>Read</dt><dd class="num">6 min, 1,312 words</dd></div>
+    </dl>
+  </div>
+</section>
+<section class="row essay-sec" id="s1">
+  <div class="margin"><span class="label">Section 01</span></div>
+  <div class="body">
+<h2>One login, three actors: separating human, agent and CI credentials when AI agents do the work</h2>
+<p>I run <a href="/services/">ImpactEng</a> on my own, and a lot of the hands-on work now goes through AI coding agents. From mid-September I started bringing the pieces together. Most already followed the same conventions. They just didn't share one way in. In October I set out to make that one governed path for deploying infrastructure to every provider I use. One rule sits at the centre: I approve every production deploy.</p>
 
 <!--more-->
 
-  <section class="page-section animate-slide-up">
-    <p>This post follows an earlier piece, <a href="/blog/where-ai-agents-break-your-cicd-pipeline/">Where AI Agents Break Your CI/CD Pipeline</a>, which looked at the pipeline itself. This one covers the credentials behind it.</p>
-  </section>
+<p>This post follows an earlier piece, <a href="/blog/where-ai-agents-break-your-cicd-pipeline/">Where AI Agents Break Your CI/CD Pipeline</a>, which looked at the pipeline itself. This one covers the credentials behind it.</p>
 
-  <section class="page-section animate-slide-up">
-    <h2><i class="fas fa-flag"></i> Where it started</h2>
-    <p>The path covers more ground than a one-person business might suggest. Deploys go to AWS, Cloudflare, GitHub Pages and Google Apps Script. Code lives on GitHub and on a self-hosted Git forge, secrets sit in a password manager, and CI (continuous integration) does the deploying. Several AI coding agents do much of the preparation, Claude Code among them. I wanted one way in, so that at any time I could say what was deployed where, and by whom.</p>
-    <p><img src="/assets/images/separating-credentials-path.svg" alt="The path to production: agents prepare branches, I push and merge, and CI deploys separately to AWS, Cloudflare, GitHub Pages, Google Apps Script and other providers, with credentials from a password manager and my approval on every production deploy." class="blog-image" width="760" height="498" loading="lazy" /></p>
-    <p><em>The path as it stands now.</em></p>
-    <p>The approval rule matters most to me. An agent can prepare a change; only I let it reach production.</p>
-  </section>
-
-  <section class="page-section animate-slide-up">
-    <h2><i class="fas fa-exclamation-triangle"></i> Why it changed</h2>
-    <p>Then I looked at what the one GitHub login on my machine could do. Everything: push to any repository and start runs. And every agent session used it, because the agents ran as me.</p>
-    <p>So in principle an agent could edit the deploy workflow, remove the check that enforced my approval, and start a run. My approval gate meant poop while the agents held the trigger.</p>
-  </section>
-
-  <section class="page-section animate-slide-up">
-    <h2><i class="fas fa-cut"></i> The first fix: split the login</h2>
-    <p>It looked like an easy fix. Give each actor its own root of trust: me, CI and the agents. My own GitHub login has always lived in my password manager; now the command-line token goes through it too, so using it needs my fingerprint (and a little patience). The agents got a narrow token of their own. CI was planned around short-lived federated credentials through OIDC (OpenID Connect) wherever a provider supports them, so that no long-lived Cloud key has to sit in a repository.</p>
-    <p>The problem was real, and splitting the login was the right call. The way I did it caused most of what came next. Good intentions, road to hell, you know the rest.</p>
-  </section>
-
-  <section class="page-section animate-slide-up">
-    <h2><i class="fas fa-bug"></i> What it broke</h2>
-    <p>I removed access without first listing what it was used for. Within days the agents could no longer read CI results or open pull requests. My own login lost access I still need now and then, such as organisation settings. And my tests checked each token's settings. None of them ran a real task, such as an agent opening a pull request.</p>
-    <p>One gap I knew of and left open. A push over SSH (Secure Shell) doesn't care about token permissions, and I had written that down at the start. It stayed a note until an agent session pushed a branch as me. 🤦</p>
-  </section>
-
-  <section class="page-section animate-slide-up">
-    <h2><i class="fas fa-clipboard-list"></i> Doing it again, from an inventory</h2>
-    <p>Second time round, I started with what we actually used. I went through what the old login had been used for, by me and by the agents, and listed every workflow that touched GitHub: reading CI, opening a pull request, creating a repository, merging, settings. For each one I wrote down how it worked before, after, and how it should work. That table became my test plan.</p>
-    <p>I also added a guard at the git level so that an agent session doesn't push as me by accident. Its first version rewrote push addresses, and a git setting I hadn't accounted for got round it. The second, which replaced it, refuses the push itself.</p>
-    <p>GitHub helped with one of the losses. In October it added a narrow Repository creation permission, so I can create repositories again without the wider permission, and the agents still can't. I covered that step in <a href="https://www.linkedin.com/posts/ns408_github-leastprivilege-aiagents-share-7517228965535698944-14ei/">a short LinkedIn post</a>.</p>
-    <p>One thing I'd recommend: commits made in an agent session are now authored and signed as the agents, under their own name and signing key, but they keep my GitHub noreply email address. The history shows the work as the agents', and by GitHub's rule it should still count on my contribution graph, because GitHub credits a commit by its email address, and the noreply address counts (<a href="https://docs.github.com/en/account-and-profile/reference/why-are-my-contributions-not-showing-up-on-my-profile">GitHub Docs</a>).</p>
-    <p><img src="/assets/images/separating-credentials-timeline.svg" alt="Timeline of the change, from one shared login through a first split and its fixes to agents that only read and prepare." class="blog-image" width="760" height="470" loading="lazy" /></p>
-  </section>
-
-  <section class="page-section animate-slide-up">
-    <h2><i class="fas fa-lightbulb"></i> What changed my mind</h2>
-    <p>There was still a gap GitHub couldn't see. The agents' token sat on my own account, so as far as GitHub could tell, everything done with it was done by me. Merging a pull request needed no permission beyond what an agent already held to push a branch. So GitHub couldn't tell an agent's merge from mine. "Agents never merge" only held because the agents behaved.</p>
-    <p>Turns out this is a known mistake. AWS lists it for IAM (Identity and Access Management) in its guidance for agentic AI: reusing human user credentials or roles for agent authentication, which makes it "impossible to distinguish agent actions from human actions in audit logs" (<a href="https://docs.aws.amazon.com/wellarchitected/latest/agentic-ai-lens/agentsec03-bp02.html">AWS Well-Architected, Agentic AI Lens</a>).</p>
-    <p>The pattern I found in vendor docs and in other solo operators' write-ups has three actors and three credentials. The agent works under its own identity and can at most push a branch. The human approves and merges as a different identity. CI holds the deploy credential, through short-lived federation where the provider offers it.</p>
-    <p><img src="/assets/images/separating-credentials-before-after.svg" alt="Before, one GitHub login served me, my agents and CI. After, agents only read and prepare; I push and merge." class="blog-image" width="760" height="500" loading="lazy" /></p>
-  </section>
-
-  <section class="page-section animate-slide-up">
-    <h2><i class="fas fa-map-marker-alt"></i> Where it landed, for now</h2>
-    <p>By that pattern, the agent needs its own identity. Its commits already carried one, but GitHub's own logs still saw only me. I also started on the shape other solo operators describe: a free machine account as a collaborator with write access, and a main-branch rule requiring a review the agents can't give. Then the merge decision would sit with GitHub.</p>
-    <p>Setting it up, I had to change the plan twice. The token I meant to give the machine account couldn't be made: a fine-grained token on that account could reach only repositories it owned, and it owns none. And on GitHub's free plans, rulesets are available only on public repositories (<a href="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets">GitHub Docs</a>), so on a private repository the review rule isn't enforced. There, any credential that can push a branch can also merge it. Both facts were cheap to check, and I should have checked them before deciding.</p>
-    <p>So I went with the simplest option, one GitHub doesn't have to enforce: the agents hold no write credential on GitHub, and their old token is revoked. They prepare branches under their own identity, and I push them and merge the pull requests. Read-only access will give them back most of what they lost, since most of what they did on GitHub was reading. If pushing by hand becomes a chore, there is a researched way to split the permissions across two GitHub Apps, so that the one able to open a pull request can't merge it. I haven't tested it yet.</p>
-    <p>Two things I'm still working out. The first is an operating system boundary for agent sessions, a microVM (a lightweight virtual machine) or a second user account. The second is providers without OIDC. Cloudflare's guide for deploying from CI still asks for an API token stored as a secret (<a href="https://developers.cloudflare.com/workers/ci-cd/external-cicd/github-actions/">Cloudflare Docs</a>), so for providers like that the plan is to keep the deploy token behind the same approval gate, out of the agents' reach.</p>
-  </section>
-
-  <section class="contact-cta animate-fade-in">
-    <h2>Over to you</h2>
-    <p>How have you separated human, agent and CI credentials? I'm most interested in solo operators and small teams, and in anyone doing it across several providers at once, where each one has its own idea of identity.</p>
-    <p>If you've solved this, or you're partway through, I'd like to hear how. <a href="/contact/">Get in touch</a> or <a href="https://calendar.app.google/RgJtyQVimhpUgbTE7" target="_blank" rel="noopener">book a time to talk</a>.</p>
-  </section>
-</section>
-
-  </div><a class="u-url" href="/blog/separating-human-agent-ci-credentials/" hidden></a>
-</article>
-
-      </div>
-    </main><footer class="site-footer h-card">
-  <data class="u-url" href="/"></data>
-
-  <div class="wrapper">
-
-    <!-- <h2 class="footer-heading">Cloud, DevOps &amp; AI Readiness Consulting | ImpactEng</h2> -->
-
-    <div class="footer-col-wrapper">
-      <div class="footer-col footer-col-1">
-        <ul class="contact-list">
-          <li class="p-name"><!--  Cloud, DevOps &amp; AI Readiness Consulting | ImpactEng  --></li><li><a class="u-email" href="mailto:hi@impacteng.com.au">hi@impacteng.com.au</a></li><li><a href="/privacy/">Privacy</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-col footer-col-2"><ul class="social-media-list"><li><a href="https://www.linkedin.com/company/impactengx"><svg class="svg-icon"><use xlink:href="/assets/minima-social-icons.svg#linkedin"></use></svg> <span class="username">ImpactEngX</span></a></li></ul>
-</div>
-
-      <div class="footer-col footer-col-3">
-        <p>ImpactEng is Nitin Sharma&#39;s independent Cloud, Platform Engineering and AI readiness practice, based in Melbourne.</p>
-      </div>
-    </div>
 
   </div>
+</section>
+<section class="row essay-sec" id="s2">
+  <div class="margin"><span class="label">Section 02</span></div>
+  <div class="body">
+<h2>Where it started</h2>
+<p>The path covers more ground than a one-person business might suggest. Deploys go to AWS, Cloudflare, GitHub Pages and Google Apps Script. Code lives on GitHub and on a self-hosted Git forge, secrets sit in a password manager, and CI (continuous integration) does the deploying. Several AI coding agents do much of the preparation, Claude Code among them. I wanted one way in, so that at any time I could say what was deployed where, and by whom.</p>
+<p><img src="/assets/images/separating-credentials-path.svg" alt="The path to production: agents prepare branches, I push and merge, and CI deploys separately to AWS, Cloudflare, GitHub Pages, Google Apps Script and other providers, with credentials from a password manager and my approval on every production deploy." class="blog-image" width="760" height="498" loading="lazy" /></p>
+<p><em>The path as it stands now.</em></p>
+<p>The approval rule matters most to me. An agent can prepare a change; only I let it reach production.</p>
 
+
+  </div>
+</section>
+<section class="row essay-sec" id="s3">
+  <div class="margin"><span class="label">Section 03</span></div>
+  <div class="body">
+<h2>Why it changed</h2>
+<p>Then I looked at what the one GitHub login on my machine could do. Everything: push to any repository and start runs. And every agent session used it, because the agents ran as me.</p>
+<p>So in principle an agent could edit the deploy workflow, remove the check that enforced my approval, and start a run. My approval gate meant poop while the agents held the trigger.</p>
+
+
+  </div>
+</section>
+<section class="row essay-sec" id="s4">
+  <div class="margin"><span class="label">Section 04</span></div>
+  <div class="body">
+<h2>The first fix: split the login</h2>
+<p>It looked like an easy fix. Give each actor its own root of trust: me, CI and the agents. My own GitHub login has always lived in my password manager; now the command-line token goes through it too, so using it needs my fingerprint (and a little patience). The agents got a narrow token of their own. CI was planned around short-lived federated credentials through OIDC (OpenID Connect) wherever a provider supports them, so that no long-lived Cloud key has to sit in a repository.</p>
+<p>The problem was real, and splitting the login was the right call. The way I did it caused most of what came next. Good intentions, road to hell, you know the rest.</p>
+
+
+  </div>
+</section>
+<section class="row essay-sec" id="s5">
+  <div class="margin"><span class="label">Section 05</span></div>
+  <div class="body">
+<h2>What it broke</h2>
+<p>I removed access without first listing what it was used for. Within days the agents could no longer read CI results or open pull requests. My own login lost access I still need now and then, such as organisation settings. And my tests checked each token's settings. None of them ran a real task, such as an agent opening a pull request.</p>
+<p>One gap I knew of and left open. A push over SSH (Secure Shell) doesn't care about token permissions, and I had written that down at the start. It stayed a note until an agent session pushed a branch as me. 🤦</p>
+
+
+  </div>
+</section>
+<section class="row essay-sec" id="s6">
+  <div class="margin"><span class="label">Section 06</span></div>
+  <div class="body">
+<h2>Doing it again, from an inventory</h2>
+<p>Second time round, I started with what we actually used. I went through what the old login had been used for, by me and by the agents, and listed every workflow that touched GitHub: reading CI, opening a pull request, creating a repository, merging, settings. For each one I wrote down how it worked before, after, and how it should work. That table became my test plan.</p>
+<p>I also added a guard at the git level so that an agent session doesn't push as me by accident. Its first version rewrote push addresses, and a git setting I hadn't accounted for got round it. The second, which replaced it, refuses the push itself.</p>
+<p>GitHub helped with one of the losses. In October it added a narrow Repository creation permission, so I can create repositories again without the wider permission, and the agents still can't. I covered that step in <a href="https://www.linkedin.com/posts/ns408_github-leastprivilege-aiagents-share-7517228965535698944-14ei/">a short LinkedIn post</a>.</p>
+<p>One thing I'd recommend: commits made in an agent session are now authored and signed as the agents, under their own name and signing key, but they keep my GitHub noreply email address. The history shows the work as the agents', and by GitHub's rule it should still count on my contribution graph, because GitHub credits a commit by its email address, and the noreply address counts (<a href="https://docs.github.com/en/account-and-profile/reference/why-are-my-contributions-not-showing-up-on-my-profile">GitHub Docs</a>).</p>
+<p><img src="/assets/images/separating-credentials-timeline.svg" alt="Timeline of the change, from one shared login through a first split and its fixes to agents that only read and prepare." class="blog-image" width="760" height="470" loading="lazy" /></p>
+
+
+  </div>
+</section>
+<section class="row essay-sec" id="s7">
+  <div class="margin"><span class="label">Section 07</span></div>
+  <div class="body">
+<h2>What changed my mind</h2>
+<p>There was still a gap GitHub couldn't see. The agents' token sat on my own account, so as far as GitHub could tell, everything done with it was done by me. Merging a pull request needed no permission beyond what an agent already held to push a branch. So GitHub couldn't tell an agent's merge from mine. "Agents never merge" only held because the agents behaved.</p>
+<p>Turns out this is a known mistake. AWS lists it for IAM (Identity and Access Management) in its guidance for agentic AI: reusing human user credentials or roles for agent authentication, which makes it "impossible to distinguish agent actions from human actions in audit logs" (<a href="https://docs.aws.amazon.com/wellarchitected/latest/agentic-ai-lens/agentsec03-bp02.html">AWS Well-Architected, Agentic AI Lens</a>).</p>
+<p>The pattern I found in vendor docs and in other solo operators' write-ups has three actors and three credentials. The agent works under its own identity and can at most push a branch. The human approves and merges as a different identity. CI holds the deploy credential, through short-lived federation where the provider offers it.</p>
+<p><img src="/assets/images/separating-credentials-before-after.svg" alt="Before, one GitHub login served me, my agents and CI. After, agents only read and prepare; I push and merge." class="blog-image" width="760" height="500" loading="lazy" /></p>
+
+
+  </div>
+</section>
+<section class="row essay-sec" id="s8">
+  <div class="margin"><span class="label">Section 08</span></div>
+  <div class="body">
+<h2>Where it landed, for now</h2>
+<p>By that pattern, the agent needs its own identity. Its commits already carried one, but GitHub's own logs still saw only me. I also started on the shape other solo operators describe: a free machine account as a collaborator with write access, and a main-branch rule requiring a review the agents can't give. Then the merge decision would sit with GitHub.</p>
+<p>Setting it up, I had to change the plan twice. The token I meant to give the machine account couldn't be made: a fine-grained token on that account could reach only repositories it owned, and it owns none. And on GitHub's free plans, rulesets are available only on public repositories (<a href="https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/about-rulesets">GitHub Docs</a>), so on a private repository the review rule isn't enforced. There, any credential that can push a branch can also merge it. Both facts were cheap to check, and I should have checked them before deciding.</p>
+<p>So I went with the simplest option, one GitHub doesn't have to enforce: the agents hold no write credential on GitHub, and their old token is revoked. They prepare branches under their own identity, and I push them and merge the pull requests. Read-only access will give them back most of what they lost, since most of what they did on GitHub was reading. If pushing by hand becomes a chore, there is a researched way to split the permissions across two GitHub Apps, so that the one able to open a pull request can't merge it. I haven't tested it yet.</p>
+<p>Two things I'm still working out. The first is an operating system boundary for agent sessions, a microVM (a lightweight virtual machine) or a second user account. The second is providers without OIDC. Cloudflare's guide for deploying from CI still asks for an API token stored as a secret (<a href="https://developers.cloudflare.com/workers/ci-cd/external-cicd/github-actions/">Cloudflare Docs</a>), so for providers like that the plan is to keep the deploy token behind the same approval gate, out of the agents' reach.</p>
+
+
+  </div>
+</section>
+<section class="row essay-sec" id="s9">
+  <div class="margin"><span class="label">Section 09</span></div>
+  <div class="body">
+<h2>Over to you</h2>
+<p>How have you separated human, agent and CI credentials? I'm most interested in solo operators and small teams, and in anyone doing it across several providers at once, where each one has its own idea of identity.</p>
+<p>If you've solved this, or you're partway through, I'd like to hear how. <a href="/contact/">Get in touch</a> or <a href="https://calendar.app.google/RgJtyQVimhpUgbTE7" target="_blank" rel="noopener">book a time to talk</a>.</p>
+
+  </div>
+</section>
+<section class="row">
+  <div class="margin"><span class="label">Related ideas</span><p class="muted">Same thread: Engineers working with AI</p></div>
+  <div class="body">
+<ul class="posts ideas"><li><time datetime="2026-03-25">25 Mar 2026</time><div><a href="/blog/ai-session-resource-management/">Your AI Coding Session Is a Finite Resource. Manage It Like One.</a><p>Most developers treat AI coding sessions like a persistent collaborator. They are not. Here is the resource-management approach that stops you rebuilding context from scratch every time a session resets.</p></div></li><li><time datetime="2026-03-18">18 Mar 2026</time><div><a href="/blog/failed-aws-exam-soniccert/">So I Failed the AWS SA Pro Exam by 17 Points. Then I Built SonicCert Coach.</a><p>A post about failing the AWS Solutions Architect Professional exam, hitting a genuine SDK bug at a hackathon, and shipping a multi-agent AI tutor.</p></div></li><li><time datetime="2025-06-28">28 Jun 2025</time><div><a href="/blog/demystifying-ai-for-devops-sre-and-cloud-engineers/">Demystifying AI for DevOps, SRE, and Cloud Engineers: From Basics to Practical LLM Applications</a><p>A guide to AI fundamentals, terminology, and LLM usage tailored for DevOps, SRE, and Cloud professionals with limited AI experience.</p></div></li></ul>
+<div><a class="more" href="/blog/#ideas">All posts, by thread</a></div>
+  </div>
+</section>
+</div>
+</article>
+
+</main><footer class="site-footer">
+  <div class="scale major"></div>
+  <div class="sheet" style="padding-block:28px 0">
+    <dl class="titleblock">
+      <div><dt>Practice</dt><dd>ImpactEng<br><span class="muted">Melbourne, Australia</span></dd></div>
+      <div><dt>Principal</dt><dd>Nitin Sharma<br><span class="muted">Principal, ImpactEng</span></dd></div>
+      <div><dt>Contact</dt><dd><a href="mailto:nitin@impacteng.com.au">nitin@impacteng.com.au</a><br><a href="https://calendar.app.google/RgJtyQVimhpUgbTE7">Book a 30-minute call</a></dd></div>
+      <div><dt>Elsewhere</dt><dd><a href="https://www.linkedin.com/company/impactengx">LinkedIn</a> · <a href="https://github.com/ns408">GitHub</a> · <a href="/feed.xml">RSS</a></dd></div>
+      <div><dt>Sheet</dt><dd>Idea<br><span class="muted mono">Rev 2026-10</span></dd></div>
+    </dl>
+    <div class="footer-line mono muted">
+      <span>© 2026 ImpactEng. Independent Cloud, Platform Engineering and AI readiness practice.</span>
+      <span><a href="/privacy/">Privacy</a></span>
+    </div>
+  </div>
 </footer>
-<script src="/assets/js/lightbox.js"></script>
-  </body>
+<nav class="tabbar" aria-label="Mobile"><a href="/"><svg viewBox="0 0 24 24"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/></svg><span>Home</span></a><a href="/services/"><svg viewBox="0 0 24 24"><path d="M12 3 3 8l9 5 9-5-9-5Z"/><path d="M3 13l9 5 9-5"/></svg><span>Services</span></a><a href="/work/"><svg viewBox="0 0 24 24"><rect x="3" y="7" width="18" height="13"/><path d="M9 7V4h6v3"/><path d="M3 12h18"/></svg><span>Work</span></a><a href="/blog/" aria-current="page"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M9 11h7M9 15h7M9 7h3"/></svg><span>Blog</span></a><button type="button" data-menu-open aria-haspopup="dialog" aria-controls="menu-sheet"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span>Menu</span></button>
+</nav>
+<div class="menu-sheet" id="menu-sheet" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+  <div class="top">
+    <a class="wordmark" href="/" aria-label="ImpactEng home"><svg viewBox="0 0 32 32" aria-hidden="true"><path class="m" d="M3 3h26v6H20v14h9v6H3v-6h9V9H3z"/></svg><span><b>Impact</b>Eng</span></a>
 
+    <button class="close-btn" type="button" data-menu-close aria-label="Close menu"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  </div>
+  <nav><a href="/">Home<small>Start</small></a><a href="/start/">A few questions<small>Where to start</small></a><a href="/about/">About<small>Who</small></a><a href="/services/">Services<small>How</small></a><a href="/work/">Work with me<small>Ways in</small></a><a href="/blog/">Blog<small>By date or by thread</small></a><a href="/tools/">Tools<small>Free diagnostics</small></a><a href="/contact/">Contact<small>Talk</small></a>
+  </nav>
+  <div class="foot">
+    <a class="btn" href="https://calendar.app.google/RgJtyQVimhpUgbTE7">Book a 30-minute call</a>
+    <span class="reply">I reply within one business day</span>
+    <span class="mono muted">nitin@impacteng.com.au</span>
+  </div>
+</div>
+
+<script src="/assets/site.js" defer></script>
+<script src="/assets/js/lightbox.js" defer></script>
+</body>
 </html>
