@@ -90,7 +90,7 @@
     try {
       var p = {}, k;
       for (k in utm) if (Object.prototype.hasOwnProperty.call(utm, k)) p[k] = utm[k];
-      if (arm) { p.exp_id = EXP_ID; p.exp_arm = arm; }
+      if (expOn && arm) { p.exp_id = EXP_ID; p.exp_arm = arm; } /* only while a page runs the experiment (paused since 2026-10-24) */
       if (params) for (k in params) if (Object.prototype.hasOwnProperty.call(params, k)) p[k] = params[k];
       if (!p.product && name === 'booking_click' && clickProduct) p.product = clickProduct;
       if (!p.product && name === 'generate_lead' && formProduct) p.product = formProduct;

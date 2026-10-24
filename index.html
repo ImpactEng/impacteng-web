@@ -25,16 +25,23 @@
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
 <link rel="stylesheet" href="/assets/brand.css">
 <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
+<script>document.documentElement.classList.add('js');</script>
 <script>(function(){try{var t=localStorage.getItem('ie-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script><link type="application/atom+xml" rel="alternate" href="https://impacteng.com.au/feed.xml" title="ImpactEng" /><!-- Google tag (gtag.js). Not loaded for browsers that declare themselves automated
      (navigator.webdriver): in October 2026, 425 of 446 users in 28 days were single-page-view
      visits from data-centre addresses, which would drown the demand test. -->
 <script>
   if (!navigator.webdriver) {
+    /* The tag itself loads after the page has (owner, 2026-10-24: it cost the home page about 2 s of
+       main thread); gtag() below only queues, so the page view and early events are kept. */
     (function () {
-      var s = document.createElement('script');
-      s.async = true;
-      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-89R5ETTN6P';
-      document.head.appendChild(s);
+      function add() {
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-89R5ETTN6P';
+        document.head.appendChild(s);
+      }
+      if (document.readyState === 'complete') setTimeout(add, 0);
+      else window.addEventListener('load', function () { setTimeout(add, 0); });
     })();
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -62,8 +69,10 @@
 <script>
   if (!navigator.webdriver) (function (c, l, a, r, i, t, y) {
     c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
-    t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
-    y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+    /* Loads after the page has (owner, 2026-10-24); clarity() calls queue until then. */
+    var add = function () { t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+      y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y); };
+    if (l.readyState === "complete") setTimeout(add, 0); else c.addEventListener("load", function () { setTimeout(add, 0); });
   })(window, document, "clarity", "script", "yth23cop4q");
 </script>
 </head>
@@ -160,7 +169,7 @@
 <div class="scale major"></div>
 <div class="sheet">
 <section class="row " id="doors">
-  <div class="margin"><span class="label">Pick a door</span><p class="muted">Three doors</p></div>
+  <div class="margin"><h2 class="label">Pick a door</h2><p class="muted">Three doors</p></div>
   <div class="body">
 <!-- buyer-problem x3, drawn as the doors. Who they are and their problems: ns-work
      context/identity/spine.md, "Who: the doors" (decided 2026-10-22). Change the spine first, then DOORS.
@@ -209,7 +218,7 @@
   </div>
 </section>
 <section class="row " id="how-i-work" data-how-i-work="">
-  <div class="margin"><span class="label">How I work</span><p class="muted">Three principles</p></div>
+  <div class="margin"><h2 class="label">How I work</h2><p class="muted">Three principles</p></div>
   <div class="body">
 <!-- principles 1 to 3: ns-work context/identity/spine.md, "Why: principles" (settled 2026-10-22), as
      written, one cell each. Principle 4 is shown, not stated (spine). Principles 2 and 3 are the owner's words of 2026-10-24
@@ -220,7 +229,7 @@
   </div>
 </section>
 <section class="row ">
-  <div class="margin"><span class="label">Writing</span><p class="muted">From the ideas</p></div>
+  <div class="margin"><h2 class="label">Writing</h2><p class="muted">From the ideas</p></div>
   <div class="body">
 <h2 class="measure">Recent notes from the work.</h2>
 <ul class="posts"><li><time datetime="2026-10-19">19 Oct 2026</time><div><a href="/blog/separating-human-agent-ci-credentials/">Separating human, agent and CI credentials as a solo operator</a><p>How I split one GitHub login into separate credentials for me, my AI coding agents and CI, what the first attempt broke, and where it landed.</p></div></li><li><time datetime="2026-10-15">15 Oct 2026</time><div><a href="/blog/shared-ai-platform-apra-regulated/">A shared AI platform for APRA-regulated organisations</a><p>How to run a shared AI platform for every team in an APRA-regulated organisation: what to ask first, where data may go, and what I tested on AWS.</p></div></li><li><time datetime="2026-04-27">27 Apr 2026</time><div><a href="/blog/platform-teams-ai-problem/">Your platform team is about to inherit the AI problem. Most aren&#39;t ready.</a><p>AI workloads are landing on platform teams that weren&#39;t built for them. Here&#39;s what the dual mandate requires, and where Australian teams stand.</p></div></li></ul>
@@ -231,7 +240,7 @@
 <section class="band" id="diagnostics">
   <div class="sheet">
 <section class="row ">
-  <div class="margin"><span class="label">Free diagnostics</span><p class="muted">In your browser</p></div>
+  <div class="margin"><h2 class="label">Free diagnostics</h2><p class="muted">In your browser</p></div>
   <div class="body">
 <h2 class="measure">Two free diagnostics. Both run in your browser, and neither needs a sales call first.</h2>
 <div class="cards">

@@ -681,3 +681,18 @@ a.chip { display: inline-flex; align-items: center; min-height: 44px; padding: 0
 }
 .product-foot { display: grid; gap: 14px; margin-top: 8px; }
 .product-foot .product-terms { margin: 0; }
+/* Optimisations of 2026-10-24 (baseline record, H1 and M1). */
+/* No jump on /services/: with scripts on, only the default tab shows before who-tabs.js runs. */
+.js .who:not(.is-tabbed) .who-tabs { display: flex; flex-wrap: wrap; border: 1px solid var(--line); background: var(--surface); width: fit-content; max-width: 100%; }
+.js .who:not(.is-tabbed) .who-panel:not([data-door-panel="mid"]) { display: none; }
+.js .who:not(.is-tabbed) .who-panel + .who-panel { margin-top: 0; }
+/* Contact cards are h2 now (heading order); keep their size. */
+.card-head h2 { font-size: var(--step-2); font-variation-settings: "opsz" 36; }
+/* Muted text on the dark band read 3.01:1; paper on ink passes. */
+.band-ink .muted { color: var(--paper); opacity: .8; }
+.js .who:not(.is-tabbed) .who-eg { display: none; } /* examples start off; hide them before the script runs */
+/* Related offer and tool at the foot of each post (2026-10-24, traffic plan: wire posts to offers). */
+.post-related { display: grid; gap: 10px; border: 1px solid var(--line); background: var(--surface); padding: clamp(16px, 3vw, 24px); }
+.post-related ul { margin: 0; padding: 0; list-style: none; display: grid; gap: 10px; }
+.post-related li { display: grid; gap: 2px; }
+.post-related .q { color: var(--slate); font-size: var(--step--1); }

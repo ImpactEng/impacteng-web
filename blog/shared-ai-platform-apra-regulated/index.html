@@ -30,16 +30,23 @@
 <link rel="stylesheet" href="/assets/fonts/fonts.css">
 <link rel="stylesheet" href="/assets/brand.css">
 <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
+<script>document.documentElement.classList.add('js');</script>
 <script>(function(){try{var t=localStorage.getItem('ie-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script><link type="application/atom+xml" rel="alternate" href="https://impacteng.com.au/feed.xml" title="ImpactEng" /><!-- Google tag (gtag.js). Not loaded for browsers that declare themselves automated
      (navigator.webdriver): in October 2026, 425 of 446 users in 28 days were single-page-view
      visits from data-centre addresses, which would drown the demand test. -->
 <script>
   if (!navigator.webdriver) {
+    /* The tag itself loads after the page has (owner, 2026-10-24: it cost the home page about 2 s of
+       main thread); gtag() below only queues, so the page view and early events are kept. */
     (function () {
-      var s = document.createElement('script');
-      s.async = true;
-      s.src = 'https://www.googletagmanager.com/gtag/js?id=G-89R5ETTN6P';
-      document.head.appendChild(s);
+      function add() {
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-89R5ETTN6P';
+        document.head.appendChild(s);
+      }
+      if (document.readyState === 'complete') setTimeout(add, 0);
+      else window.addEventListener('load', function () { setTimeout(add, 0); });
     })();
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
@@ -67,8 +74,10 @@
 <script>
   if (!navigator.webdriver) (function (c, l, a, r, i, t, y) {
     c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
-    t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
-    y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y);
+    /* Loads after the page has (owner, 2026-10-24); clarity() calls queue until then. */
+    var add = function () { t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+      y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y); };
+    if (l.readyState === "complete") setTimeout(add, 0); else c.addEventListener("load", function () { setTimeout(add, 0); });
   })(window, document, "clarity", "script", "yth23cop4q");
 </script>
 </head>
@@ -344,6 +353,14 @@ Scale by triggers, not the calendar. Watch the queue before the route-around.
   <div class="body">
 <ul class="posts ideas"><li><time datetime="2026-03-12">12 Mar 2026</time><div><a href="/blog/ai-sovereignty-gap-australia/">The sovereignty gap: why cheap AI comes with real risks for Australia</a><p>Australian teams are pasting sensitive data into frontier AI models without thinking through the sovereignty implications. Here&#39;s why we need a smarter national conversation.</p></div></li></ul>
 <div><a class="more" href="/blog/#ideas">All posts, by thread</a></div>
+  </div>
+</section>
+<!-- Related offer and tool (front matter offer: and tool:, names in _data/offers.yml; 2026-10-24). -->
+<section class="row ">
+  <div class="margin"><h2 class="label">Next step</h2></div>
+  <div class="body">
+    <div class="post-related measure"><ul><li><a href="/services/#beyond"><strong>Set direction, or build it with your team</strong></a><span class="q">Need the strategy set, or the foundation built?</span></li><li><a href="/tools/ai-readiness/"><strong>Try the AI Readiness Assessment</strong></a><span class="q">Free, in your browser.</span></li>
+    </ul></div>
   </div>
 </section>
 </div>
