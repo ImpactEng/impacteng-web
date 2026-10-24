@@ -94,8 +94,8 @@
     "name": "Nitin Sharma",
     "jobTitle": "Principal, ImpactEng"
   },
-  "serviceType": ["Cloud Engineering", "DevOps Consulting", "AI Coding Assessment", "Cloud Architecture Assessment", "Software Delivery Assessment"],
-  "knowsAbout": ["Cloud Infrastructure", "Cloud Architecture", "DevOps", "AI", "Platform Engineering", "Containers", "CI/CD", "Linux Systems"],
+  "serviceType": ["Cloud Engineering", "DevOps Consulting", "AI Coding Tools Assessment", "Cloud Architecture Assessment", "Software Delivery Assessment"],
+  "knowsAbout": ["Cloud Infrastructure", "Cloud Architecture", "Platform Engineering", "DevOps", "AI", "Containers", "CI/CD", "Linux Systems"],
   "sameAs": ["https://www.linkedin.com/company/impactengx"
   ]
 }
@@ -178,7 +178,7 @@
     <dl class="titleblock essay-meta">
       <div><dt>Dated</dt><dd><time datetime="2026-03-09">09 Mar 2026</time></dd></div>
       <div><dt>Thread</dt><dd><a href="/blog/#thread-platform">Platform as a product</a></dd></div>
-      <div><dt>Read</dt><dd class="num">7 min, 1,625 words</dd></div>
+      <div><dt>Read</dt><dd class="num">7 min, 1,623 words</dd></div>
     </dl>
   </div>
 </section>
@@ -197,7 +197,7 @@
 <section class="row essay-sec" id="s1">
   <div class="margin"><span class="label">Section 01</span></div>
   <div class="body">
-<h2>Five Ways Your Pipeline Breaks</h2>
+<h2>Five ways your pipeline breaks</h2>
 
 <h3>1. Pipeline triggers assume human cadence</h3>
 <p>Most pipeline configurations assume a human-paced workflow. A developer pushes a branch, opens a merge request, waits for review. The system handles a handful of concurrent runs per project.</p>
@@ -231,7 +231,7 @@
 <section class="row essay-sec" id="s2">
   <div class="margin"><span class="label">Section 02</span></div>
   <div class="body">
-<h2>The Industry Is Responding, But Most Enterprises Are Not</h2>
+<h2>The industry is responding, but most enterprises are not</h2>
 <p>The vendors are moving. GitHub's Agentic Workflows embed agent runners directly into the CI/CD execution model. AWS shipped dedicated DevOps agents that maintain state, log actions, and operate within policy guardrails. These are not proof-of-concept demos. They are infrastructure-grade primitives designed for agent workloads.</p>
 <p>But the vendors being ready does not mean enterprises are ready. Deloitte surveyed 3,235 business and IT leaders globally and found that technology infrastructure preparedness is actually declining: 43% rate themselves highly prepared, down four percentage points from the previous year. Strategy confidence is rising. Operational readiness is falling. That gap is exactly where AI agent failures will happen.</p>
 <p>The Australian picture is sharper. Nutanix's Enterprise Cloud Index found 90% of Australian respondents say AI is accelerating their container adoption. That is encouraging. But adopting containers and having a CI/CD pipeline that can handle autonomous agent workloads are very different things. You can be running everything on EKS and still have a GitLab pipeline that breaks the moment an agent starts committing code at machine speed.</p>
@@ -243,7 +243,7 @@
 <section class="row essay-sec" id="s3">
   <div class="margin"><span class="label">Section 03</span></div>
   <div class="body">
-<h2>What Your Pipeline Actually Needs</h2>
+<h2>What your pipeline actually needs</h2>
 <p>If you are planning to introduce AI agents anywhere near your CI/CD system, here is what to address first.</p>
 <ul>
 <li><strong>Isolation per agent run:</strong> Every agent-triggered pipeline run should execute in an isolated, reproducible environment. No shared state between runs. No assumptions about what the previous run left behind. This is the same principle as hermetic builds, applied to agent workloads.</li>
@@ -253,7 +253,7 @@
 <li><strong>Secrets with agent-scoped identity:</strong> Provision short-lived, narrowly scoped credentials for each agent session. Use your Cloud provider's identity federation (AWS IAM Roles Anywhere, GCP Workload Identity) to bind agent identity to pipeline credentials. Audit every secret access against agent identity, not just service identity.</li>
 </ul>
 <p>None of this requires ripping out your existing pipeline. It requires extending it with agent-aware controls. If you are already running a mature CI/CD platform, the foundations are there. The work is in adapting them for a new class of consumer that is faster, less predictable, and does not read your runbooks.</p>
-<p>Our <a href="/services/">Agentic AI Readiness Audit</a> assesses DevOps maturity as one of six weighted dimensions. Pipeline readiness for agent workloads is a core part of that assessment, and it is where we see the biggest gaps between what organisations think they are ready for and what they actually are.</p>
+<p>My <a href="/services/#software-delivery">Software Delivery Assessment</a> maps how you build, test and ship, which is where agent workloads land first. Pipeline readiness for agent workloads is where I see the biggest gaps between what organisations think they are ready for and what they actually are.</p>
 
 
   </div>
@@ -261,10 +261,10 @@
 <section class="row essay-sec" id="s4">
   <div class="margin"><span class="label">Section 04</span></div>
   <div class="body">
-<h2>The Bottom Line</h2>
+<h2>The bottom line</h2>
 <p>AI agents in CI/CD are not hype. They are coming, and for some organisations they are already here. But the infrastructure most teams are running was not built for them.</p>
 <p>The companies that will adopt agentic workflows successfully are not the ones with the most advanced AI models. They are the ones with CI/CD pipelines that can handle non-deterministic, high-concurrency, machine-speed workloads without falling over. That is an infrastructure problem, not an AI problem.</p>
-<p>If you are new to the AI and DevOps intersection, our <a href="/blog/demystifying-ai-for-devops-sre-and-cloud-engineers/">guide to AI fundamentals for DevOps engineers</a> covers the building blocks. If you already know the basics and want to assess where your pipeline stands, <a href="/contact/">start a conversation</a>.</p>
+<p>If you are new to the AI and DevOps intersection, my <a href="/blog/demystifying-ai-for-devops-sre-and-cloud-engineers/">guide to AI fundamentals for DevOps engineers</a> covers the building blocks. If you already know the basics and want to assess where your pipeline stands, read on.</p>
 
 
   </div>
@@ -272,8 +272,9 @@
 <section class="row essay-sec" id="s5">
   <div class="margin"><span class="label">Section 05</span></div>
   <div class="body">
-<h2>Ready to Assess Your Pipeline?</h2>
-<p>Our Agentic AI Readiness Audit scores your organisation across six dimensions: Cloud Infrastructure, DevOps and MLOps, Data Quality and Pipelines, Team Capability, Governance, and Strategic Alignment. <a href="/contact/">Get in touch</a> to find out where you stand.</p>
+<h2>Ready to assess your pipeline?</h2>
+<p>My <a href="/services/#software-delivery">Software Delivery Assessment</a> gives you one map of how you build, test and ship: what overlaps, what's missing and what to fix first. Start with a call to find out where you stand.</p>
+<div class="actions"><a href="https://calendar.app.google/RgJtyQVimhpUgbTE7" class="btn">Book a free 30-minute call</a></div>
 
   </div>
 </section>

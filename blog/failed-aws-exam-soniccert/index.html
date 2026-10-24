@@ -94,8 +94,8 @@
     "name": "Nitin Sharma",
     "jobTitle": "Principal, ImpactEng"
   },
-  "serviceType": ["Cloud Engineering", "DevOps Consulting", "AI Coding Assessment", "Cloud Architecture Assessment", "Software Delivery Assessment"],
-  "knowsAbout": ["Cloud Infrastructure", "Cloud Architecture", "DevOps", "AI", "Platform Engineering", "Containers", "CI/CD", "Linux Systems"],
+  "serviceType": ["Cloud Engineering", "DevOps Consulting", "AI Coding Tools Assessment", "Cloud Architecture Assessment", "Software Delivery Assessment"],
+  "knowsAbout": ["Cloud Infrastructure", "Cloud Architecture", "Platform Engineering", "DevOps", "AI", "Containers", "CI/CD", "Linux Systems"],
   "sameAs": ["https://www.linkedin.com/company/impactengx"
   ]
 }
@@ -178,7 +178,7 @@
     <dl class="titleblock essay-meta">
       <div><dt>Dated</dt><dd><time datetime="2026-03-18">18 Mar 2026</time></dd></div>
       <div><dt>Thread</dt><dd><a href="/blog/#thread-engineers-ai">Engineers working with AI</a></dd></div>
-      <div><dt>Read</dt><dd class="num">4 min, 913 words</dd></div>
+      <div><dt>Read</dt><dd class="num">4 min, 914 words</dd></div>
     </dl>
   </div>
 </section>
@@ -197,7 +197,7 @@
 <section class="row essay-sec" id="s1">
   <div class="margin"><span class="label">Section 01</span></div>
   <div class="body">
-<h2>A Note on Why I Bother</h2>
+<h2>A note on why I bother</h2>
 <p>I get it. Some engineers think certs are noise. I don't fully disagree. But for me, right now, they serve a real purpose. They give structure to a learning path and a clear target when I'm running a business. And they provide an external credibility signal for clients who don't know me yet. I'll take that tool.</p>
 <p>The problem isn't certs. The problem was how I was studying for them. Going deep on interesting topics feels productive. It isn't, when the exam has a blueprint and you're ignoring it.</p>
 
@@ -207,7 +207,7 @@
 <section class="row essay-sec" id="s2">
   <div class="margin"><span class="label">Section 02</span></div>
   <div class="body">
-<h2>Why a Hackathon</h2>
+<h2>Why a hackathon</h2>
 <p>When this Amazon Nova AI Hackathon came up, I signed up for a few reasons. I wanted to build something. I've spent a long time in roles where I admired the people who shipped things, and I'm at a point in my career where I want to be one of those people, not just the person who knows how to run the infrastructure underneath it.</p>
 <p>I also wanted to stretch deliberately. Cloud, Infrastructure, Developer tooling come naturally to me. That's not enough for me anymore. Python proficiency, product thinking, solid software engineering chops, building for an end user: these are skills I'm consciously developing. A hackathon with a real deadline felt like the right constraint to force it.</p>
 <p>And I had a specific problem to solve.</p>
@@ -218,7 +218,7 @@
 <section class="row essay-sec" id="s3">
   <div class="margin"><span class="label">Section 03</span></div>
   <div class="body">
-<h2>The Nova Sonic Problem</h2>
+<h2>The Nova Sonic problem</h2>
 <p>The original vision for SonicCert Coach was voice-first. Real-time bidirectional audio: speak to it like a tutor, have it quiz you back, evaluate your answer out loud, and push you toward your weak spots. The name comes from Amazon Nova Sonic, AWS's new audio model.</p>
 <p>I spent the first couple of days trying to make that work. The experimental AWS SDK has a method called <code>invoke_model_with_bidirectional_stream</code>. It hangs. Indefinitely. I tried multiple SDK versions and reproduced it on official AWS sample code. My conclusion: boto3 doesn't support bidirectional streaming yet. It is a genuine bug in early-access infrastructure, or at least that's what I found. I'd be happy to be corrected.</p>
 <p>At some point you have to decide: keep fighting or ship something that works. I pivoted the architecture entirely. The name stayed.</p>
@@ -229,7 +229,7 @@
 <section class="row essay-sec" id="s4">
   <div class="margin"><span class="label">Section 04</span></div>
   <div class="body">
-<h2>What I Built</h2>
+<h2>What I built</h2>
 <p>SonicCert Coach is a multi-agent AI tutoring system on Amazon Bedrock. Nova Pro runs as the orchestrator: multi-turn reasoning, tool-use routing, session memory. Three specialist agents run on Nova Lite, which is fast and cheap for focused single-shot tasks:</p>
 <ul>
 <li><strong>Question Generator</strong>: creates domain-targeted questions weighted to the real exam blueprint</li>
@@ -238,7 +238,7 @@
 </ul>
 <p>Grading logic and session memory are plain Python. Deterministic problems don't need a language model. Bedrock's tool-use pattern handles routing: the orchestrator decides which specialist to call, passes the context, gets the result back. It never tries to do everything itself.</p>
 <p>One orchestrator. Three specialists. Two Python tools. Every component has a clear job.</p>
-<p>If you're new to AI, our <a href="/blog/demystifying-ai-for-devops-sre-and-cloud-engineers/">primer on AI fundamentals for DevOps and Cloud engineers</a> covers the building blocks.</p>
+<p>If you're new to AI, my <a href="/blog/demystifying-ai-for-devops-sre-and-cloud-engineers/">primer on AI fundamentals for DevOps and Cloud engineers</a> covers the building blocks.</p>
 
 
   </div>
@@ -246,7 +246,7 @@
 <section class="row essay-sec" id="s5">
   <div class="margin"><span class="label">Section 05</span></div>
   <div class="body">
-<h2>What Using It Looks Like</h2>
+<h2>What using it looks like</h2>
 <p>It's a CLI. You pick a target exam (say, AIF-C01 AWS AI Practitioner), set your proficiency level, and choose batch or interactive mode. The system pulls your prior session data, targets your weakest domains first aligned to the exam's actual weightings, quizzes you, evaluates your answers with explanation, and gives you a domain-by-domain breakdown at the end.</p>
 <p>The <code>weak</code> command cuts to it: here is what you are getting wrong, and here is how that maps to exam weightings. Not what you find interesting. What the exam tests.</p>
 <p>That's the thing I needed and didn't have when I sat that exam.</p>
@@ -257,7 +257,7 @@
 <section class="row essay-sec" id="s6">
   <div class="margin"><span class="label">Section 06</span></div>
   <div class="body">
-<h2>Where This Goes</h2>
+<h2>Where this goes</h2>
 <p>I plan to keep working on it. It's not where it needs to be yet. The voice layer is still on the list: I haven't given up on Nova Sonic, I've just parked it until the SDK is actually usable. Session persistence works but it's JSON-based and won't scale if this ever becomes something more than a personal tool. There are product decisions I haven't made yet.</p>
 <p>But it already does the thing I built it to do. It has helped me see where my knowledge has actual gaps. That's worth something on its own.</p>
 <p>No promises on timeline. But I'm not putting it down.</p>
@@ -270,8 +270,9 @@
 <section class="row essay-sec" id="s7">
   <div class="margin"><span class="label">Section 07</span></div>
   <div class="body">
-<h2>Building Something on Bedrock?</h2>
-<p>Whether you're exploring multi-agent patterns for a personal project or assessing what agentic AI means for your team, <a href="/contact/">get in touch</a> and let's talk through it.</p>
+<h2>Building something on Bedrock?</h2>
+<p>Whether you're exploring multi-agent patterns for a personal project or assessing what agentic AI means for your team, let's talk it through.</p>
+<div class="actions"><a href="https://calendar.app.google/RgJtyQVimhpUgbTE7" class="btn">Book a free 30-minute call</a></div>
 
   </div>
 </section>

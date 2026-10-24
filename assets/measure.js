@@ -18,7 +18,14 @@
                                  (a form's hidden input name="product" wins for generate_lead)
      data-covered                wraps a product's "What's covered" toggletip; covered_open when
                                  a control inside it gets aria-expanded="true"
-     data-door="key"             a door; door_click on click
+     data-door="key"             a door; door_click on click, and the door is remembered for the tab's
+                                 session (sessionStorage ie-door)
+     data-door-panel="key"       a services "Who it's for" panel; a booking_click from inside it carries
+                                 that door
+     events ie:door-tab, ie:examples   from assets/who-tabs.js: door_tab (door, via: link, click or
+                                 key; the tab shown by default sends nothing) remembers the door too;
+                                 examples_toggle (state: on or off)
+     input type=hidden name=door  filled on submit with the remembered door
      data-questions-link         the home page's questions link; questions_click on click, and
                                  hidden in the experiment's "d" arm
      data-questions              the questions page's container, holding:
@@ -76,7 +83,9 @@
   var base = typeof window.ieTrack === 'function' ? window.ieTrack : function (name, params) {
     if (typeof window.gtag === 'function') window.gtag('event', name, params || {});
   };
-  var clickProduct = null, formProduct = null;
+  var clickProduct = null, formProduct = null, clickDoor = null;
+  function door() { var d = load('sessionStorage', 'ie-door'); return d && /^[a-z]{1,20}$/.test(d) ? d : null; }
+  function remember(d) { if (d && /^[a-z]{1,20}$/.test(d)) save('sessionStorage', 'ie-door', d); }
   window.ieTrack = function (name, params) {
     try {
       var p = {}, k;
@@ -85,6 +94,7 @@
       if (params) for (k in params) if (Object.prototype.hasOwnProperty.call(params, k)) p[k] = params[k];
       if (!p.product && name === 'booking_click' && clickProduct) p.product = clickProduct;
       if (!p.product && name === 'generate_lead' && formProduct) p.product = formProduct;
+      if (!p.door && (name === 'booking_click' || name === 'generate_lead')) { var d = (name === 'booking_click' && clickDoor) || door(); if (d) p.door = d; }
       base(name, p);
     } catch (e) {}
   };
@@ -98,9 +108,10 @@
       var t = e.target;
       if (!t || !t.closest) return;
       clickProduct = key(t.closest('[data-product]'), 'data-product');
-      setTimeout(function () { clickProduct = null; }, 0);
-      var door = t.closest('[data-door]');
-      if (door) send('door_click', { door: key(door, 'data-door') });
+      clickDoor = key(t.closest('[data-door-panel]'), 'data-door-panel');
+      setTimeout(function () { clickProduct = null; clickDoor = null; }, 0);
+      var dEl = t.closest('[data-door]');
+      if (dEl) { var dk = key(dEl, 'data-door'); remember(dk); send('door_click', { door: dk }); }
       if (t.closest('[data-questions-link]')) send('questions_click');
       var view = t.closest('[data-view]');
       if (view && view.getAttribute('aria-pressed') !== 'true') send('view_switch', { view: key(view, 'data-view') });
@@ -117,11 +128,21 @@
     try {
       var f = e.target;
       if (!f || !f.closest) return;
+      var df = f.querySelector('input[name="door"]'), dv = door();
+      if (df && !df.value && dv) df.value = dv;
       var field = f.querySelector('input[name="product"]');
       formProduct = (field && field.value ? String(field.value).slice(0, 100) : null) ||
         key(f.closest('[data-product]'), 'data-product');
     } catch (err) {}
   }, true);
+
+  /* The services tabs and the examples switch (assets/who-tabs.js). */
+  document.addEventListener('ie:door-tab', function (e) {
+    try { var d = e.detail || {}; if (!d.door) return; remember(d.door); send('door_tab', { door: String(d.door).slice(0, 20), via: String(d.via || '').slice(0, 10) }); } catch (err) {}
+  });
+  document.addEventListener('ie:examples', function (e) {
+    try { var s = e.detail && e.detail.state; if (s === 'on' || s === 'off') send('examples_toggle', { state: s }); } catch (err) {}
+  });
 
   function ready(fn) {
     if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', fn);

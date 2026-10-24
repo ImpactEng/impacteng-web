@@ -91,8 +91,8 @@
     "name": "Nitin Sharma",
     "jobTitle": "Principal, ImpactEng"
   },
-  "serviceType": ["Cloud Engineering", "DevOps Consulting", "AI Coding Assessment", "Cloud Architecture Assessment", "Software Delivery Assessment"],
-  "knowsAbout": ["Cloud Infrastructure", "Cloud Architecture", "DevOps", "AI", "Platform Engineering", "Containers", "CI/CD", "Linux Systems"],
+  "serviceType": ["Cloud Engineering", "DevOps Consulting", "AI Coding Tools Assessment", "Cloud Architecture Assessment", "Software Delivery Assessment"],
+  "knowsAbout": ["Cloud Infrastructure", "Cloud Architecture", "Platform Engineering", "DevOps", "AI", "Containers", "CI/CD", "Linux Systems"],
   "sameAs": ["https://www.linkedin.com/company/impactengx"
   ]
 }
@@ -122,11 +122,13 @@
 
 <section class="sheet hero door-hero">
   <div class="copy">
-    <div class="eyebrow"><span class="label">Cloud</span><span class="label">Platform Engineering</span><span class="label">DevOps</span><span class="label">AI</span></div>
+    <!-- Eyebrow icons, approved by the owner 2026-10-24: one small emoji per discipline, decorative and hidden
+         from screen readers; a 3-pixel staggered bob, off under reduced motion. Fallback if they jar: a small shape. -->
+    <div class="eyebrow"><span class="label"><span class="eb-ico" aria-hidden="true">☁️</span>Cloud</span><span class="label"><span class="eb-ico" aria-hidden="true">🧱</span>Platform Engineering</span><span class="label"><span class="eb-ico" aria-hidden="true">♾️</span>DevOps</span><span class="label"><span class="eb-ico" aria-hidden="true">✨</span>AI</span></div>
     <!-- Headline: the owner's own wording (2026-10-22), not agent copy. Keep it exactly. -->
     <h1>The engineering <span class="flag-word">foundation</span> that your business runs on.</h1>
     <!-- Lead: principle 1 and its hover line, ns-work context/identity/spine.md, "Why: principles" 1 -->
-    <p class="lead measure tt-line">Impact for you, your team and your business. That's what I engineer. <span class="tt" data-tt=""><button type="button" class="tt-btn" aria-expanded="false" aria-controls="p1-tip">What I mean</button><span class="tt-tip" id="p1-tip" hidden=""><span>Less cost, risk and overhead. More delivered, on a roadmap that holds.</span><button type="button" class="tt-x">Close</button></span></span></p>
+    <p class="lead measure tt-line">Impact for you, your team and your business. That's what I engineer. <span class="tt" data-tt=""><button type="button" class="tt-btn" aria-expanded="false" aria-controls="p1-tip">What I mean</button><span class="tt-tip" id="p1-tip" hidden=""><span class="tt-list"><span>Less cost: spend you can explain.</span><span>Less risk: fewer surprises in security and outages.</span><span>Less overhead: less time lost to work nobody needs.</span><span>More delivered: on a roadmap that holds.</span></span><button type="button" class="tt-x">Close</button></span></span></p>
   </div>
   <figure><svg class="fdn" viewBox="0 0 520 370" role="img" aria-labelledby="fdn-title fdn-desc">
   <title id="fdn-title">Foundation section</title>
@@ -169,35 +171,52 @@
      the questions page routed everyone to the same products and the call). /start/ was retired the
      same day and redirects to /contact/. lead-events.html counts booking_click on this link. -->
 <p>Not sure where to start? <a class="more" href="https://calendar.app.google/RgJtyQVimhpUgbTE7">Book a free 30-minute call.</a></p>
-<div data-doors=""><div class="routes"><!-- buyer-problem as a door. segment: Mid-market tech leaders. line and destination: ns-work spine, "Site line per door" (2026-10-22), as written. Link labels: rough, except product names. -->
-<a class="route-card" href="/services/#products" data-door="mid">
-  <svg class="elev" viewBox="0 0 160 96" aria-hidden="true"><rect class="b" x="46" y="26" width="68" height="58" /><path class="b" d="M46 45H114" /><path class="b" d="M46 64H114" /><rect class="w" x="56" y="32" width="8" height="8" /><rect class="w" x="70" y="32" width="8" height="8" /><rect class="w" x="84" y="32" width="8" height="8" /><rect class="w" x="98" y="32" width="8" height="8" /><rect class="w" x="56" y="51" width="8" height="8" /><rect class="w" x="70" y="51" width="8" height="8" /><rect class="w" x="84" y="51" width="8" height="8" /><rect class="w" x="98" y="51" width="8" height="8" /><rect class="w" x="56" y="70" width="8" height="8" /><rect class="w" x="70" y="70" width="8" height="8" /><rect class="w" x="84" y="70" width="8" height="8" /><rect class="w" x="98" y="70" width="8" height="8" /><path class="g" d="M8 84H152" /><path class="t" d="M16 84l-6 7M26 84l-6 7M36 84l-6 7M46 84l-6 7M56 84l-6 7M66 84l-6 7M76 84l-6 7M86 84l-6 7M96 84l-6 7M106 84l-6 7M116 84l-6 7M126 84l-6 7M136 84l-6 7M146 84l-6 7" /><path class="d" d="M134 26V84M130 26H138M130 84H138" /></svg>
-  <span class="label">Door 1</span>
-  <h3>Mid-market tech leader</h3>
-  <span class="go">See the three assessments</span>
-</a><!-- buyer-problem as a door. segment: Small business owners. Destination since 2026-10-24: /contact/ (owner; "How I can help" was withdrawn and the call is already offered above the doors). Link label: rough. -->
-<a class="route-card" href="/contact/" data-door="small">
+<!-- Door names, role then mode (owner, 2026-10-24), with "What I think matters to you": four points each from
+     research of the same day, one
+     point each for money, time, risk and growth, in that order on every door (sources in the session's
+     research notes; ns-work to hold them). Order: business owner, technology leader,
+     large organisation executive; the technology leader shows as selected until another door is
+     hovered (owner, 2026-10-24). Each door links to its own tab on /services/ (owner, 2026-10-24); the
+     line above the doors is the call. measure.js still sends door_click when a card is clicked.
+     Labels per door (owner, 2026-10-24): "Questions I hear" (the owner's own questions), "What I have seen"
+     (observed problems), "What I have learnt" (lessons); same money, time, risk, growth slots.
+     status: rough, under test. -->
+<div data-doors=""><div class="routes"><!-- buyer-problem as a door. segment: Business owners. Destination since 2026-10-24: /services/#for-business-owners (was /contact/ earlier the same day) (owner; "How I can help" was withdrawn and the call is already offered above the doors). Link label: rough. -->
+<a href="/services/#for-business-owners" class="route-card" data-door="small">
   <svg class="elev" viewBox="0 0 160 96" aria-hidden="true"><rect class="b" x="40" y="40" width="80" height="44" /><path class="b" d="M40 62H120" /><rect class="w" x="50" y="47" width="8" height="8" /><rect class="w" x="66" y="47" width="8" height="8" /><rect class="w" x="82" y="47" width="8" height="8" /><rect class="w" x="98" y="47" width="8" height="8" /><rect class="w" x="50" y="69" width="8" height="8" /><rect class="w" x="66" y="69" width="8" height="8" /><rect class="w" x="82" y="69" width="8" height="8" /><rect class="w" x="98" y="69" width="8" height="8" /><path class="g" d="M8 84H152" /><path class="t" d="M16 84l-6 7M26 84l-6 7M36 84l-6 7M46 84l-6 7M56 84l-6 7M66 84l-6 7M76 84l-6 7M86 84l-6 7M96 84l-6 7M106 84l-6 7M116 84l-6 7M126 84l-6 7M136 84l-6 7M146 84l-6 7" /><path class="d" d="M134 40V84M130 40H138M130 84H138" /></svg>
+  <span class="label">Door 1</span>
+  <h3>Business owner</h3>
+  <p class="door-mode">Fix and automate</p>
+  <div class="door-matters"><span class="label">Questions I hear</span><ul><li>Can I get more customers?</li><li>What am I getting for what I pay?</li><li>Can I spend less time on paperwork and chasing people?</li><li>How do I avoid being scammed or hacked?</li></ul></div>
+  <span class="go">What I do about it</span>
+</a><!-- buyer-problem as a door. segment: Technology leaders (was Mid-market tech leaders). line and destination: ns-work spine, "Site line per door" (2026-10-22), as written. Link labels: rough, except product names. -->
+<a href="/services/#for-technology-leaders" class="route-card is-default" data-door="mid">
+  <svg class="elev" viewBox="0 0 160 96" aria-hidden="true"><rect class="b" x="46" y="26" width="68" height="58" /><path class="b" d="M46 45H114" /><path class="b" d="M46 64H114" /><rect class="w" x="56" y="32" width="8" height="8" /><rect class="w" x="70" y="32" width="8" height="8" /><rect class="w" x="84" y="32" width="8" height="8" /><rect class="w" x="98" y="32" width="8" height="8" /><rect class="w" x="56" y="51" width="8" height="8" /><rect class="w" x="70" y="51" width="8" height="8" /><rect class="w" x="84" y="51" width="8" height="8" /><rect class="w" x="98" y="51" width="8" height="8" /><rect class="w" x="56" y="70" width="8" height="8" /><rect class="w" x="70" y="70" width="8" height="8" /><rect class="w" x="84" y="70" width="8" height="8" /><rect class="w" x="98" y="70" width="8" height="8" /><path class="g" d="M8 84H152" /><path class="t" d="M16 84l-6 7M26 84l-6 7M36 84l-6 7M46 84l-6 7M56 84l-6 7M66 84l-6 7M76 84l-6 7M86 84l-6 7M96 84l-6 7M106 84l-6 7M116 84l-6 7M126 84l-6 7M136 84l-6 7M146 84l-6 7" /><path class="d" d="M134 26V84M130 26H138M130 84H138" /></svg>
   <span class="label">Door 2</span>
-  <h3>Small business owner</h3>
-  <span class="go">Tell me what you need</span>
-</a><!-- buyer-problem as a door. segment: Leaders in large organisations. line and destination: ns-work spine, "Site line per door" (2026-10-22), as written. Site line v2 (spine.md line 79, commit 3eb0ea0). Link labels: rough, except product names. -->
-<div class="route-card door-multi" data-door="large">
+  <h3>Technology leader</h3>
+  <p class="door-mode">Assess and build</p>
+  <div class="door-matters"><span class="label">What I have seen</span><ul><li>Cloud and AI spend with no clear return</li><li>Pressure to ship more with the same team</li><li>Code and data sent to unvetted AI tools</li><li>Platforms sprawling faster than teams can run them</li></ul></div>
+  <span class="go">What I do about it</span>
+</a><!-- buyer-problem as a door. segment: Enterprise leaders (was Leaders in large organisations). line and destination: ns-work spine, "Site line per door" (2026-10-22), as written. Site line v2 (spine.md line 79, commit 3eb0ea0). Link labels: rough, except product names. -->
+<a href="/services/#for-enterprise-leaders" class="route-card" data-door="large">
   <svg class="elev" viewBox="0 0 160 96" aria-hidden="true"><rect class="b" x="60" y="10" width="40" height="74" /><path class="b" d="M60 19H100" /><path class="b" d="M60 28H100" /><path class="b" d="M60 37H100" /><path class="b" d="M60 46H100" /><path class="b" d="M60 55H100" /><path class="b" d="M60 64H100" /><path class="b" d="M60 73H100" /><path class="b" d="M60 82H100" /><path class="g" d="M8 84H152" /><path class="t" d="M16 84l-6 7M26 84l-6 7M36 84l-6 7M46 84l-6 7M56 84l-6 7M66 84l-6 7M76 84l-6 7M86 84l-6 7M96 84l-6 7M106 84l-6 7M116 84l-6 7M126 84l-6 7M136 84l-6 7M146 84l-6 7" /><path class="d" d="M134 10V84M130 10H138M130 84H138" /></svg>
   <span class="label">Door 3</span>
-  <h3>Large organisation leader</h3>
-  <div class="gos"><a class="go" href="/services/#software-delivery">Software Delivery Assessment</a><a class="go" href="/services/#cloud-architecture">Cloud Architecture Assessment</a></div>
-</div></div></div>
+  <h3>Enterprise leader</h3>
+  <p class="door-mode">Advise and align</p>
+  <div class="door-matters"><span class="label">What I have learnt</span><ul><li>Small early results win more backing than big plans</li><li>Dates hold when the people delivering set them</li><li>Approvals go faster when risk and security join early</li><li>Change sticks when business and technology own one plan</li></ul></div>
+  <span class="go">What I do about it</span>
+</a></div></div>
   </div>
 </section>
 <section class="row " id="how-i-work" data-how-i-work="">
   <div class="margin"><span class="label">How I work</span><p class="muted">Three principles</p></div>
   <div class="body">
 <!-- principles 1 to 3: ns-work context/identity/spine.md, "Why: principles" (settled 2026-10-22), as
-     written, one cell each. Principle 4 is shown, not stated (spine). Principle 1's hover line is in
+     written, one cell each. Principle 4 is shown, not stated (spine). Principles 2 and 3 are the owner's words of 2026-10-24
+     (2 exactly as written; 3 with its grammar fixed), replacing the spine's settled lines. Principle 1's hover line is in
      the hero above, so it is not repeated here. Why this row and where: impacteng-redesign
      docs/research/2026-10-24-round-2.md s4 (owner, 2026-10-24). status: rough (the margin note) -->
-<div class="defs"><div><p>Impact for you, your team and your business. That's what I engineer.</p></div><div><p>I make your people more effective. I don't make them redundant.</p></div><div><p>I aim to create far more value than I cost, and to be paid fairly for it.</p></div></div>
+<div class="defs"><div><p>Impact for you, your team and your business. That's what I engineer.</p></div><div><p>I augment (/amplify) what humans do and not replace them.</p></div><div><p>I create a shit-ton of value, and get paid in the process.</p></div></div>
   </div>
 </section>
 <section class="row ">
@@ -212,7 +231,7 @@
 <section class="band" id="diagnostics">
   <div class="sheet">
 <section class="row ">
-  <div class="margin"><span class="label">Start here</span><p class="muted">Free, in your browser</p></div>
+  <div class="margin"><span class="label">Free diagnostics</span><p class="muted">In your browser</p></div>
   <div class="body">
 <h2 class="measure">Two free diagnostics. Both run in your browser, and neither needs a sales call first.</h2>
 <div class="cards">
