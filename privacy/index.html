@@ -32,7 +32,8 @@
 <script>
   if (!navigator.webdriver) {
     /* The tag itself loads after the page has (owner, 2026-10-24: it cost the home page about 2 s of
-       main thread); gtag() below only queues, so the page view and early events are kept. */
+       main thread); gtag() below only queues until then. A visitor who leaves or clicks away before
+       the page has loaded is not counted: an accepted cost, checked at the monthly read. */
     (function () {
       function add() {
         var s = document.createElement('script');
@@ -43,11 +44,20 @@
       if (document.readyState === 'complete') setTimeout(add, 0);
       else window.addEventListener('load', function () { setTimeout(add, 0); });
     })();
+    /* The owner's own browsers (owner, 2026-10-25): visit any page once with ?internal=1 and this
+       browser is tagged traffic_type=internal, which GA4's "Internal Traffic" data filter excludes;
+       ?internal=0 clears it. No address is recorded anywhere. Clarity skips these browsers too. */
+    window.ieInternal = false;
+    try {
+      if (/[?&]internal=1(&|$)/.test(location.search)) localStorage.setItem('ie-internal', '1');
+      if (/[?&]internal=0(&|$)/.test(location.search)) localStorage.removeItem('ie-internal');
+      window.ieInternal = localStorage.getItem('ie-internal') === '1';
+    } catch (e) {}
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'G-89R5ETTN6P');
+    gtag('config', 'G-89R5ETTN6P', window.ieInternal ? { traffic_type: 'internal' } : {});
   }
 </script>
 <script>
@@ -65,11 +75,12 @@
 
 <script>(function(){var r=document.documentElement;if(r.getAttribute('data-exp')!=='home_e1')return;var a=null;try{a=localStorage.getItem('ie-exp-home');}catch(e){}if(a!=='q'&&a!=='d'){a=Math.random()<0.5?'q':'d';try{localStorage.setItem('ie-exp-home',a);}catch(e){a='none';}}r.setAttribute('data-exp-arm',a);if(a==='d'){r.setAttribute('data-exp-home','d');var s=document.createElement('style');s.textContent='[data-exp-home="d"] [data-questions-link]{display:none !important}';document.head.appendChild(s);}})();</script>
 <script src="/assets/measure.js" defer></script><!-- Microsoft Clarity. Not loaded for browsers that declare themselves automated
-     (navigator.webdriver); see google-analytics.html. -->
+     (navigator.webdriver), nor for the owner's browsers (window.ieInternal); see google-analytics.html. -->
 <script>
-  if (!navigator.webdriver) (function (c, l, a, r, i, t, y) {
+  if (!navigator.webdriver && !window.ieInternal) (function (c, l, a, r, i, t, y) {
     c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
-    /* Loads after the page has (owner, 2026-10-24); clarity() calls queue until then. */
+    /* Loads after the page has (owner, 2026-10-24); clarity() calls queue until then, and a visit
+       that ends before the page has loaded is not recorded. */
     var add = function () { t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
       y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y); };
     if (l.readyState === "complete") setTimeout(add, 0); else c.addEventListener("load", function () { setTimeout(add, 0); });

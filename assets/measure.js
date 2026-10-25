@@ -70,7 +70,8 @@
      browser. The arm is drawn by the inline script in _includes/head.html, before the body
      renders, so the "d" arm never sees the link flash; it is left on <html data-exp-arm>
      ("none" when storage is blocked: the link shows, and the analysis leaves the browser out).
-     Other pages only read a stored arm, so their events carry it too. */
+     Since 2026-10-24 only a page running the experiment tags its events with the arm (below), so
+     the stored-arm fallback here does nothing until that changes; experiments.md, Experiment 1. */
   var expOn = root.getAttribute('data-exp') === EXP_ID;
   var arm = root.getAttribute('data-exp-arm');
   if (arm !== 'q' && arm !== 'd' && arm !== 'none') {
@@ -78,8 +79,8 @@
     if (arm !== 'q' && arm !== 'd') arm = null;
   }
 
-  /* Every event through ieTrack gains the campaign tags and the arm; booking_click and
-     generate_lead gain the product they came from. */
+  /* Every event through ieTrack gains the campaign tags (and the arm, on a page running the
+     experiment); booking_click and generate_lead gain the product and door they came from. */
   var base = typeof window.ieTrack === 'function' ? window.ieTrack : function (name, params) {
     if (typeof window.gtag === 'function') window.gtag('event', name, params || {});
   };

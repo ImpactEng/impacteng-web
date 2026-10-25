@@ -87,6 +87,7 @@ p + p { margin-top: 1em; }
 .muted { color: var(--slate); }
 .mono, .label { font-family: var(--font-mono); font-size: var(--step--1); letter-spacing: .02em; }
 .label { text-transform: uppercase; letter-spacing: .12em; color: var(--slate); font-weight: 500; }
+h2.label { line-height: inherit; text-wrap: wrap; font-variation-settings: normal; } /* margin labels as headings keep label spacing */
 .num { font-variant-numeric: tabular-nums; }
 .flag-word { display: inline-block; transform: rotate(-1.2deg); background: linear-gradient(transparent 60%, var(--flag) 60%, var(--flag) 86%, transparent 86%); padding: 0 .06em; }
 ul.plain { list-style: none; margin: 0; padding: 0; }
@@ -698,7 +699,10 @@ a.chip { display: inline-flex; align-items: center; min-height: 44px; padding: 0
 /* Optimisations of 2026-10-24 (baseline record, H1 and M1). */
 /* No jump on /services/: with scripts on, only the default tab shows before who-tabs.js runs. */
 .js .who:not(.is-tabbed) .who-tabs { display: flex; flex-wrap: wrap; border: 1px solid var(--line); background: var(--surface); width: fit-content; max-width: 100%; }
-.js .who:not(.is-tabbed) .who-panel:not([data-door-panel="mid"]) { display: none; }
+.js .who:not(.is-tabbed):not(:has(.who-panel:target)) .who-panel:not([data-door-panel="mid"]) { display: none; }
+/* A home page door links to its own panel (#for-...): show that one, not the default. */
+.js .who:not(.is-tabbed):has(.who-panel:target) .who-panel:not(:target) { display: none; }
+.js .who:not(.is-tabbed):has(.who-panel:target) [role="tab"][aria-selected="true"] { color: var(--slate); background: transparent; box-shadow: none; }
 .js .who:not(.is-tabbed) .who-panel + .who-panel { margin-top: 0; }
 /* Contact cards are h2 now (heading order); keep their size. */
 .card-head h2 { font-size: var(--step-2); font-variation-settings: "opsz" 36; }

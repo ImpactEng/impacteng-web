@@ -8,10 +8,11 @@
   var tabs = Array.prototype.slice.call(root.querySelectorAll('[role="tab"]'));
   var panels = tabs.map(function (t) { return document.getElementById(t.getAttribute('aria-controls')); });
   /* The path walks once per panel, the first time that panel's steps come into view. */
-  var walked = {};
+  var walked = {}, watched = {};
   function walk(panel) {
     var ol = panel && panel.querySelector('.who-steps');
-    if (!ol || walked[panel.id] || panel.hidden) return;
+    if (!ol || walked[panel.id] || watched[panel.id] || panel.hidden) return;
+    watched[panel.id] = true;
     if (!('IntersectionObserver' in window)) { walked[panel.id] = true; ol.classList.add('is-walking'); return; }
     var io = new IntersectionObserver(function (es) {
       es.forEach(function (e) {
