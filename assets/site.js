@@ -65,6 +65,15 @@
     window.addEventListener('hashchange', function () { showView(viewFromHash()); });
   }
 
+  /* Post tables: each cell gets its column heading as data-label, which brand.css shows above the
+     cell when a narrow screen stacks the rows as cards. */
+  document.querySelectorAll('.essay-sec table').forEach(function (t) {
+    var heads = Array.prototype.map.call(t.querySelectorAll('thead th'), function (th) { return th.textContent.trim(); });
+    t.querySelectorAll('tbody tr').forEach(function (tr) {
+      Array.prototype.forEach.call(tr.children, function (td, i) { if (heads[i]) td.setAttribute('data-label', heads[i]); });
+    });
+  });
+
   /* copy buttons */
   document.querySelectorAll('[data-copy]').forEach(function (btn) {
     btn.addEventListener('click', function () {

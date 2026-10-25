@@ -1,4 +1,166 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-AU"><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://impacteng.com.au/feed.xml" rel="self" type="application/atom+xml" /><link href="https://impacteng.com.au/" rel="alternate" type="text/html" hreflang="en-AU" /><updated>2026-10-24T12:29:29+00:00</updated><id>https://impacteng.com.au/feed.xml</id><title type="html">ImpactEng</title><subtitle>Nitin Sharma&apos;s Cloud, Platform Engineering, DevOps and AI practice in Melbourne.</subtitle><entry><title type="html">Separating human, agent and CI credentials as a solo operator</title><link href="https://impacteng.com.au/blog/separating-human-agent-ci-credentials/" rel="alternate" type="text/html" title="Separating human, agent and CI credentials as a solo operator" /><published>2026-10-19T01:00:00+00:00</published><updated>2026-10-19T01:00:00+00:00</updated><id>https://impacteng.com.au/blog/separating-human-agent-ci-credentials</id><content type="html" xml:base="https://impacteng.com.au/blog/separating-human-agent-ci-credentials/"><![CDATA[<h2>One login, three actors: separating human, agent and CI credentials when AI agents do the work</h2>
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en-AU"><generator uri="https://jekyllrb.com/" version="3.10.0">Jekyll</generator><link href="https://impacteng.com.au/feed.xml" rel="self" type="application/atom+xml" /><link href="https://impacteng.com.au/" rel="alternate" type="text/html" hreflang="en-AU" /><updated>2026-10-25T00:50:30+00:00</updated><id>https://impacteng.com.au/feed.xml</id><title type="html">ImpactEng</title><subtitle>Nitin Sharma&apos;s Cloud, Platform Engineering, DevOps and AI practice in Melbourne.</subtitle><entry><title type="html">Is your website caught up in October’s security problems?</title><link href="https://impacteng.com.au/blog/october-2026-website-security-checks/" rel="alternate" type="text/html" title="Is your website caught up in October’s security problems?" /><published>2026-10-25T00:00:00+00:00</published><updated>2026-10-25T00:00:00+00:00</updated><id>https://impacteng.com.au/blog/october-2026-website-security-checks</id><content type="html" xml:base="https://impacteng.com.au/blog/october-2026-website-security-checks/"><![CDATA[<p>I worked on PHP and LAMP sites years ago, so I’ve seen both sides of PHP. It’s a big part of why so
+many small businesses could get online cheaply. It’s also why one flaw can reach so many of them at
+once.</p>
+
+<p>October brought one of those flaws, plus two certificate problems. There have been plenty of
+headlines and not much plain advice for the people who actually own these websites. So here’s what
+I’d check if I ran a small business or a community group in Australia or New Zealand.</p>
+
+<p>Most of you will find you’re fine. It takes about ten minutes, and you don’t need to be technical.
+Facts are as at 25 October 2026.</p>
+
+<h2 id="check-1-who-issued-your-websites-certificate">Check 1: who issued your website’s certificate?</h2>
+
+<p>Your certificate is what puts the padlock in a visitor’s browser. Two certificate problems came up
+this month, and one has a deadline of 27 October.</p>
+
+<p>To see who issued yours, go to <a href="https://www.ssllabs.com/ssltest/">ssllabs.com/ssltest</a> (free, run by the security company Qualys), tick
+“Do not show the results on the boards”, and enter your web address. After a minute or two (if you
+see a list of servers, click any one), look at the certificate’s “Issuer” and “Revocation status”
+lines. “Good (not revoked)” is what you want to see.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>If you see</th>
+      <th>What it means</th>
+      <th>What to do</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Starfield or Go Daddy, and the status says revoked</td>
+      <td>GoDaddy revoked about 380,000 certificates this month because the paperwork behind them didn’t match GoDaddy’s own published rules. Nothing was hacked, but a revoked certificate no longer works properly</td>
+      <td>Log in to GoDaddy and reissue and install the certificate, or ask whoever set up your site</td>
+    </tr>
+    <tr>
+      <td>Starfield or Go Daddy, not revoked</td>
+      <td>Not affected. GoDaddy has finished revoking every certificate caught up in this</td>
+      <td>Nothing to do</td>
+    </tr>
+    <tr>
+      <td>emSign, or EM DV, EM OV or EM EV</td>
+      <td>That certificate company’s signing keys were weak enough for anyone to recover. Chrome has already blocked the worst of them, and on 27 October (US time, so 27 or 28 October here) it stops trusting the whole emSign ECC Root CA - G3 family. The company has since said it is leaving the website certificate business</td>
+      <td>Get a replacement from a different certificate company now, before 27 October</td>
+    </tr>
+    <tr>
+      <td>Anything else</td>
+      <td>Neither problem applies to you</td>
+      <td>Nothing to do</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>When I checked on 25 October, neither Australia’s ACSC (Australian Cyber Security Centre) nor New
+Zealand’s NCSC (National Cyber Security Centre) had published anything on either certificate problem. Both have published on PHP.</p>
+
+<h2 id="check-2-does-your-website-run-on-php">Check 2: does your website run on PHP?</h2>
+
+<p>On 21 October PHP got an urgent fix for two flaws that let someone take over a website without a
+password. Attackers started trying them on 17 October, before the fix was out. As at 25 October,
+no successful break-ins had been confirmed, and Australia’s ACSC said it knew of none here, but
+this is the one to act on.</p>
+
+<p>Your site almost certainly runs PHP if it’s built with WordPress (WooCommerce shops included),
+Joomla, Drupal or Magento, or if your hosting account has a cPanel or Plesk control panel. If it’s
+on Squarespace, Wix or Shopify, the platform runs the servers, so this one is their job.</p>
+
+<p>If your site does run PHP, you almost certainly can’t fix it yourself. Your host can, and most will
+already be on it. What you want is a clear answer in writing. This is the email I’d send:</p>
+
+<blockquote>
+  <p><strong>Subject:</strong> PHP security update for CVE-2026-109618 and CVE-2026-109619</p>
+
+  <p>Hi, my website [your web address] is hosted with you. PHP released urgent security fixes on
+21 October 2026 for CVE-2026-109618 and CVE-2026-109619. Could you please confirm in writing:</p>
+
+  <ol>
+    <li>Which PHP version runs my website, and does it include the fixes for these two flaws?</li>
+    <li>On what date was the update installed and PHP restarted?</li>
+    <li>If my website runs an older PHP version (8.1 or earlier), what is your plan for it?</li>
+    <li>Did you check my website for signs of a break-in before you installed the fix?</li>
+  </ol>
+</blockquote>
+
+<p>Keep the reply, and don’t judge it by the version number alone. Hosts often fix older-looking
+versions without changing the number. Ubuntu’s fixed build, for example, still reads 8.3.6, which
+looks a long way behind PHP’s own fixed 8.3.36. If your control panel shows PHP information, the
+build date is a better sign: Hostinger tells customers that a build dated 21 October 2026 or later
+has the fix, and VentraIP also points to the build date.</p>
+
+<p>If your plan is a “VPS” or “unmanaged”, your host probably expects you, or whoever set it up, to do
+the update. GoDaddy, Hostinger, SiteHost and 1st Domains all say so for those plans.</p>
+
+<p><strong>If you use WordPress, one more check.</strong> The company behind the UpdraftPlus backup plugin was
+broken into over the weekend of 17 and 18 October, and attackers used its remote-management
+connections to add admin accounts and plugins to some customers’ sites. If you connected your site
+to UpdraftCentral, its cloud dashboard: log in to WordPress directly, update UpdraftPlus to 1.26.13
+(free) or 2.26.13 (Premium) or later, remove any administrator or plugin you don’t recognise, and change your
+passwords.</p>
+
+<h2 id="the-bigger-question-do-you-still-need-this-website">The bigger question: do you still need this website?</h2>
+
+<p>This is the part I’d spend the most time on. Every website has to be kept up to date, forever. If
+yours isn’t earning its keep, this is a good moment to decide.</p>
+
+<p>Three questions: how many real people visited in the last three months (ignore huge “hits” numbers,
+which are mostly bots); did any enquiries, bookings or sales come through it; and does it do
+something nothing else does, like an online shop, bookings or member logins?</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Your answers</th>
+      <th>Option</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Real visitors, and it takes orders, bookings or logins</td>
+      <td><strong>Keep it.</strong> Get the host’s written answer above and keep plugins up to date</td>
+    </tr>
+    <tr>
+      <td>Real visitors, but it’s just information about you</td>
+      <td><strong>Simplify it.</strong> Turn it into plain pages with no PHP behind them, which several services host for little or nothing, or move it to a site builder that does the updating for you</td>
+    </tr>
+    <tr>
+      <td>Hardly anyone visits, but you want a record</td>
+      <td><strong>Archive it.</strong> Save a copy, take it offline, and leave one page with your contact details</td>
+    </tr>
+    <tr>
+      <td>Nobody visits and it does nothing for you</td>
+      <td><strong>Retire it</strong>, after the checks below</td>
+    </tr>
+  </tbody>
+</table>
+
+<p>Before you cancel or move anything:</p>
+
+<ol>
+  <li><strong>Check where your email lives.</strong> Many small businesses’ email runs on the same hosting as the
+website. Ask your host whether yours does before you cancel anything.</li>
+  <li><strong>Keep your domain name on auto-renew,</strong> even if the website goes. A lapsed domain can be bought
+by someone else and used to pretend to be you.</li>
+  <li><strong>Forms and bookings need a new home</strong> if the site becomes plain pages.</li>
+  <li><strong>Save a copy first.</strong> Your host can make a full backup.</li>
+</ol>
+
+<h2 id="other-things-this-month">Other things this month</h2>
+
+<ul>
+  <li><strong>Windows:</strong> make sure the October 2026 update is installed (Settings, then Windows Update, then
+Update history). Attackers are already using one of the flaws it fixes.</li>
+  <li><strong>Your backups:</strong> if a company backs up your business, ask whether their service runs on
+AhsayCBS and whether they’ve installed the October hotfix.</li>
+  <li><strong>If an IT company looks after your network:</strong> ask whether they use Fortinet, Palo Alto,
+BeyondTrust or Ivanti products for you, and whether those have this month’s updates.</li>
+</ul>
+
+<h2 id="if-you-think-youve-already-been-hacked">If you think you’ve already been hacked</h2>
+
+<p>Call before you delete anything. In Australia: the Australian Cyber Security Hotline, 1300 CYBER1
+(1300 292 371), or IDCARE’s free small-business helpline, 1800 595 170. In New Zealand: the NCSC on
+0800 114 115 (free, 7am to 7pm, Monday to Friday), or report online at <a href="https://www.ncsc.govt.nz/report/">ncsc.govt.nz/report</a>.</p>]]></content><author><name>Nitin Sharma</name></author><category term="security" /><category term="small-business" /><category term="websites" /><category term="PHP" /><category term="Australia" /><category term="New-Zealand" /><summary type="html"><![CDATA[Ten minutes of checks for Australian and New Zealand small businesses: who issued your certificate, whether your site runs PHP, what to ask your host, and whether you still need the site at all.]]></summary></entry><entry><title type="html">Separating human, agent and CI credentials as a solo operator</title><link href="https://impacteng.com.au/blog/separating-human-agent-ci-credentials/" rel="alternate" type="text/html" title="Separating human, agent and CI credentials as a solo operator" /><published>2026-10-19T01:00:00+00:00</published><updated>2026-10-19T01:00:00+00:00</updated><id>https://impacteng.com.au/blog/separating-human-agent-ci-credentials</id><content type="html" xml:base="https://impacteng.com.au/blog/separating-human-agent-ci-credentials/"><![CDATA[<h2>One login, three actors: separating human, agent and CI credentials when AI agents do the work</h2>
 <p>I run <a href="/services/">ImpactEng</a> on my own, and a lot of the hands-on work now goes through AI coding agents. From mid-September I started bringing the pieces together. Most already followed the same conventions. They just didn't share one way in. In October I set out to make that one governed path for deploying infrastructure to every provider I use. One rule sits at the centre: I approve every production deploy.</p>
 
 <!--more-->
@@ -490,167 +652,4 @@ Scale by triggers, not the calendar. Watch the queue before the route-around.
 </ul>
 <h2>Ready to compare notes?</h2>
 <p>See how my <a href="/services/">assessments and the work beyond them</a> can help you achieve similar results.</p>
-<div class="actions"><a href="https://calendar.app.google/RgJtyQVimhpUgbTE7" class="btn">Book a free 30-minute call</a></div>]]></content><author><name>Nitin Sharma</name></author><category term="devops" /><category term="roi" /><category term="case-study" /><category term="australia" /><summary type="html"><![CDATA[How I turned a $2.3M setup into $7.4M value in an Aussie enterprise.]]></summary></entry><entry><title type="html">Demystifying AI for DevOps, SRE and Cloud engineers: from basics to practical LLM applications</title><link href="https://impacteng.com.au/blog/demystifying-ai-for-devops-sre-and-cloud-engineers/" rel="alternate" type="text/html" title="Demystifying AI for DevOps, SRE and Cloud engineers: from basics to practical LLM applications" /><published>2025-06-28T00:00:00+00:00</published><updated>2025-06-28T00:00:00+00:00</updated><id>https://impacteng.com.au/blog/demystifying-ai-for-DevOps-SRE-and-Cloud-Engineers</id><content type="html" xml:base="https://impacteng.com.au/blog/demystifying-ai-for-devops-sre-and-cloud-engineers/"><![CDATA[<h2>Introduction: why artificial intelligence (AI) matters</h2>
-<p>If you're a DevOps pro automating CI/CD pipelines, an SRE ensuring site reliability, or a Cloud engineer provisioning resources across AWS, Azure, or GCP, this post is for you.</p>
-<p>My goal is to demystify AI from the ground up using familiar analogies and share examples of practical application. No prior AI knowledge required, just curiosity.</p>
-
-<!--more-->
-
-<h2>Section 1: AI basics (building blocks)</h2>
-<p>Artificial Intelligence (AI) is essentially machines simulating human intelligence to perform tasks like learning, reasoning, and problem-solving. Think of it as evolving from rigid scripts (like early bash automation) to adaptive systems that learn from data.</p>
-<p>Historically, this marks an evolution from rule-based, deterministic systems, where outputs were predictable and explicitly coded, to modern AI systems that learn from data and are probabilistic and adaptive.</p>
-
-<h3>What is AI?</h3>
-<ul>
-<li><strong>Narrow AI (What We Have Today):</strong> Specialised for one task, like a microservice handling log parsing. Examples include spam filters or predictive autoscaling in AWS Auto Scaling groups.</li>
-<li><strong>General AI (The Future Horizon):</strong> Capable of any intellectual task, akin to a universal orchestrator managing your entire multi-cloud infrastructure. We're not there yet, but progress is rapid.</li>
-</ul>
-
-<h3>Key concepts: machine learning and beyond</h3>
-<p><strong>Machine Learning (ML):</strong> The core of modern AI, where systems learn patterns from data without explicit coding. Analogy: Instead of hardcoding rules for alert thresholds, ML trains on historical data to predict failures.</p>
-<ul>
-<li><strong>Supervised Learning:</strong> Uses labelled data, like training on past incidents tagged "high CPU" or "normal." Real-world: Azure Machine Learning's classification models for predicting VM failures based on labelled telemetry.</li>
-<li><strong>Unsupervised Learning:</strong> Finds hidden patterns, such as clustering unusual traffic in GCP's Operations Suite for anomaly detection.</li>
-</ul>
-<p><strong>Deep Learning &amp; Neural Networks:</strong> A subset of ML using layered networks. Imagine nodes as containers in a Kubernetes cluster: inputs (data) flow through layers (transformations), with connections routing like network policies.</p>
-
-<h3>Essential terminology:</h3>
-<ul>
-<li><strong>Dataset:</strong> Your training fuel. E.g., a collection of CloudWatch logs or Terraform configs.</li>
-<li><strong>Training:</strong> Feeding data to models so they can learn, similar to teaching a runbook to a new engineer.</li>
-<li><strong>Model:</strong> The output artifact, deployable via services like AWS SageMaker, Azure ML, or GCP Vertex AI. The learned logic is like an advanced runbook for patterns.</li>
-<li><strong>Inference:</strong> Using the trained model to make real-time predictions on new data, think of predictions like automated alert triage.</li>
-</ul>
-
-<h2>Section 2: Diving into large language models (LLMs)</h2>
-<p>LLMs are the stars of the AI show, massive neural networks trained on text corpora to understand and generate human-like language. Think GPT (OpenAI), Grok (xAI), Claude (Anthropic), or Gemini (Google).</p>
-
-<h3>How LLMs work</h3>
-<p>LLMs use transformer architectures with attention mechanisms that allow the model to consider all parts of a prompt simultaneously. This lets the LLM understand context and dependencies across the entire input, much like how Terraform evaluates the complete dependency graph of resources before applying changes.</p>
-
-<h3>Key terminology:</h3>
-<ul>
-<li><strong>Tokens:</strong> Basic text units (e.g., "Hello world!" = ~3 tokens).</li>
-<li><strong>Prompt Engineering:</strong> Crafting inputs for optimal outputs. Always specify role, context, and format. It's like writing precise Helm charts.
-<ul>
-<li>Poor: "Fix code."</li>
-<li>Good: "As an SRE, analyse this Azure ARM template for security flaws and suggest fixes."</li>
-</ul>
-</li>
-<li><strong>Fine-Tuning:</strong> customising models with your data, e.g., tuning Llama on internal runbooks via Hugging Face.</li>
-<li><strong>RAG (Retrieval-Augmented Generation):</strong> Pulls external knowledge to avoid hallucinations, like querying your Confluence docs before generating code.</li>
-<li><strong>MCP (Model Context Protocol):</strong> Standard for LLMs to interact with tools, e.g., querying Kubernetes APIs directly.</li>
-<li><strong>Agentic AI:</strong> Autonomous agents that take goal-oriented actions, like an agent creating PRs on GitHub.</li>
-</ul>
-
-<p><strong>LLMs vs. Traditional ML:</strong> LLMs are general-purpose (text-focused), while traditional ML is task-specific (e.g., regression for metrics). Real-world: Use GCP's Vertex AI for LLM fine-tuning on codebases, versus scikit-learn (Python) for simple predictions.</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>Traditional ML</th>
-<th>LLMs</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Input</td>
-<td>Structured data</td>
-<td>Unstructured text/cfg</td>
-</tr>
-<tr>
-<td>Output</td>
-<td>Classification</td>
-<td>Text, code, explanations</td>
-</tr>
-<tr>
-<td>Use</td>
-<td>Log anomaly, metrics</td>
-<td>Code, IaC, troubleshooting</td>
-</tr>
-</tbody>
-</table>
-
-<h2>Section 3: Practical applications (where AI meets Ops)</h2>
-<p>Here's where it gets exciting. LLMs automating your pain points across DevOps, SRE, and Cloud.</p>
-
-<h3>DevOps use cases</h3>
-<ul>
-<li><strong>Code Generation &amp; Debugging:</strong>
-<ul>
-<li>Generating <strong>CI/CD pipelines (e.g., GitLab YAML, AWS CodePipeline config)</strong> from natural language.
-<ul>
-<li><em>Example Prompt:</em> "Generate a GitLab CI/CD YAML for a Node.js application. It should have stages for build, test, and deploy. The build stage should install dependencies and build, test should run Jest tests, and deploy should push to an ECR repository and update an ECS service named 'my-nodejs-service'."</li>
-</ul>
-</li>
-<li>Debug <strong>Dockerfiles, Kubernetes YAML</strong>, or <strong>Terraform HCL</strong> by explaining errors.</li>
-</ul>
-</li>
-<li><strong>Configuration optimisation:</strong> "Suggest improvements to this Nginx config for performance."</li>
-<li><strong>Documentation Generation:</strong> Automatically create READMEs for repos, API documentation, or runbooks from code.</li>
-<li><strong>Dockerfile optimisation:</strong> LLM reviews for security. E.g., 'Harden my multi-stage Dockerfile for an Azure Container Instance deployment, catching exposed ports'.</li>
-<li><strong>MCP for Docker/K8s:</strong> Imagine an <strong>Agentic AI</strong> using <strong>MCP</strong> to:
-<ul>
-<li>Dynamically fetch <strong>Kubernetes manifests</strong> from your Git repo via an MCP resource server.</li>
-<li>Validate live <strong>Pod logs</strong> against best practices by connecting to a CloudWatch Logs MCP server.</li>
-<li>Troubleshoot a failing <strong>Docker container</strong> by querying its logs and then suggesting a <code>docker-compose</code> fix.</li>
-</ul>
-</li>
-</ul>
-
-<h3>SRE applications</h3>
-<ul>
-<li><strong>Log Analysis &amp; Incident Response:</strong>
-<ul>
-<li>summarise complex CloudWatch/Sumo Logic logs: "Find critical errors and unusual patterns from the last hour in this log stream."</li>
-<li>Generate incident summaries or root cause analysis drafts from disparate log sources and alerts.</li>
-<li><em>AWS Tooling:</em> LLMs, especially via <strong>Amazon Q (for AWS professionals)</strong>, can analyse <strong>CloudWatch Logs Insights</strong> query results, identify patterns, and correlate events to accelerate debugging. You can feed Q your CloudWatch logs and ask for anomaly explanations.</li>
-</ul>
-</li>
-<li><strong>Troubleshooting Guides:</strong> "Generate a troubleshooting guide for high CPU on an EC2 instance."</li>
-<li><strong>Runbook Automation:</strong> Convert tribal knowledge to automation.</li>
-</ul>
-
-<h3>Cloud Engineering</h3>
-<ul>
-<li><strong>IaC optimisation:</strong> Change my terraform module from basic S3 to enabling versioning/encryption.</li>
-<li><strong>Cloud Resource optimisation:</strong> "Suggest cost optimisation for this AWS account based on its EC2 usage."</li>
-<li><strong>Resource Provisioning:</strong> Generate Lambda functions or VM scripts. Example: Create an Azure Function for log processing, including env vars.</li>
-<li><strong>Security Audits:</strong> Scan IaC for common security misconfigurations using prompts. "Review this CloudFormation template for IAM least privilege violations."</li>
-<li><strong>Compliance Checks:</strong> Validate configuration files against compliance standards (e.g., PCI DSS).</li>
-</ul>
-
-<h3>Integration methods:</h3>
-<ul>
-<li><strong>Cloud Services:</strong> AWS Bedrock/SageMaker, Azure OpenAI, GCP Vertex AI.</li>
-<li><strong>Via APIs:</strong> OpenAI (ChatGPT), Anthropic (Claude), Gemini (Google), etc.</li>
-<li><strong>AI-Native Tools:</strong>
-<ul>
-<li><strong>Cursor:</strong> An AI-powered code editor (VS Code fork) that understands your entire codebase for smarter suggestions and edits.</li>
-<li><strong>Kiro (AWS offering):</strong> An <strong>Agentic AI IDE</strong> that uses 'spec-driven development' to turn high-level prompts into production-ready code across multiple files, integrating with <strong>MCP</strong> for secure enterprise access.</li>
-<li><strong>Windmill.dev:</strong> An open-source developer platform for turning scripts into auto-generated UIs, APIs, and cron jobs. Includes AI chat, code completion, and AI-powered flow building for automation.</li>
-</ul>
-</li>
-<li><strong>Frameworks:</strong> LangChain, LlamaIndex (for RAG orchestration).</li>
-</ul>
-
-<h3>Effective prompting - key to success!</h3>
-<ul>
-<li><strong>Be Specific:</strong> Clearly define output format, role, and constraints.</li>
-<li><strong>Provide Context:</strong> Include relevant code, logs, and error messages.</li>
-<li><strong>Iterate:</strong> Refine prompts based on initial outputs.</li>
-<li><strong>Costs:</strong> Monitor costs</li>
-<li><em>Example:</em> "Act as an AWS Solutions Architect. Write a Terraform module for an S3 bucket with versioning enabled, block public access, and enforce encryption with KMS. Include a variable for the bucket name and an output for the ARN."</li>
-</ul>
-
-<h3>Enterprise considerations</h3>
-<ul>
-<li><strong>Data Privacy:</strong> Don’t send sensitive code or production data to public LLMs.</li>
-<li><strong>Cost Control:</strong> Use APIs judiciously; local open-source LLMs for sensitive tasks.</li>
-<li><strong>Limitations:</strong> Hallucinations (LLMs may invent configs or facts), potential bias from training data, and unsuitable where automation accuracy is business-critical.</li>
-</ul>
-
-<h2>Where to from here</h2>
-<p>Understanding AI fundamentals is the first step. The next is knowing what the AI tools your engineers already use cost, what they return and where your code goes. My <a href="/services/#ai-coding">AI Coding Tools Assessment</a> answers exactly that.</p>
-<p>For a broader look at how I help engineering teams, see my <a href="/services/">full list of services</a>. You may also find my case study on <a href="/blog/orchestrating-devops-dominance/">turning a $2.3M DevOps investment into $7.4M value</a> a useful example of what mature Cloud and DevOps practice looks like in an Australian enterprise.</p>
-<div class="actions"><a href="https://calendar.app.google/RgJtyQVimhpUgbTE7" class="btn">Book a free 30-minute call</a></div>]]></content><author><name>Nitin Sharma</name></author><category term="AI" /><category term="devops" /><category term="sre" /><category term="cloud" /><category term="platform-engineering" /><category term="LLMs" /><summary type="html"><![CDATA[A guide to AI fundamentals, terminology, and LLM usage tailored for DevOps, SRE, and Cloud professionals with limited AI experience.]]></summary></entry></feed>
+<div class="actions"><a href="https://calendar.app.google/RgJtyQVimhpUgbTE7" class="btn">Book a free 30-minute call</a></div>]]></content><author><name>Nitin Sharma</name></author><category term="devops" /><category term="roi" /><category term="case-study" /><category term="australia" /><summary type="html"><![CDATA[How I turned a $2.3M setup into $7.4M value in an Aussie enterprise.]]></summary></entry></feed>
