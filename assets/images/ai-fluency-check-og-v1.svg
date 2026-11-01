@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#0f172a"/>
+  <rect x="0" y="0" width="1200" height="6" fill="#38bdf8"/>
+  <text x="600" y="220" text-anchor="middle"
+        font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+        font-size="105" font-weight="800"
+        fill="#f1f5f9">WHERE DO YOU</text>
+  <text x="600" y="345" text-anchor="middle"
+        font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+        font-size="105" font-weight="800"
+        fill="#f1f5f9">STAND ON AI?</text>
+  <rect x="555" y="385" width="90" height="4" fill="#38bdf8"/>
+  <text x="600" y="455" text-anchor="middle"
+        font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+        font-size="38" font-weight="500"
+        fill="#cbd5e1">AI Fluency Check</text>
+  <text x="600" y="525" text-anchor="middle"
+        font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+        font-size="22" font-weight="400"
+        fill="#64748b" letter-spacing="2">UNFAMILIAR  ·  AWARE  ·  WORKING  ·  STRONG</text>
+  <text x="600" y="595" text-anchor="middle"
+        font-family="Helvetica Neue, Helvetica, Arial, sans-serif"
+        font-size="20" font-weight="500"
+        fill="#475569">impacteng.com.au/tools/ai-fluency-check</text>
+</svg>
