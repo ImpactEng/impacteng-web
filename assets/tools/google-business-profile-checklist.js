@@ -15,6 +15,7 @@
   if (!list || !count || !next) return;
 
   var boxes = [], started = false, doneSent = false;
+  list.replaceChildren();
   var LINE = {
     started: 'A good start. The three below are the next ones to do.',
     'most-done': 'More than half done. Here are the next ones.',
