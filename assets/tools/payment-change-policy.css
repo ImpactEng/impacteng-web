@@ -1,0 +1,10 @@
+.t-policy { white-space: pre-wrap; overflow-wrap: anywhere; max-width: 72ch; }
+.t-field { display: grid; gap: 6px; border: 0; padding: 0; margin: 0; min-width: 0; }
+.t-err { margin: 0; color: var(--flag); font-size: var(--step--1); min-height: 0; }
+.t-err:empty { display: none; }
+.t-radio { display: flex; gap: 10px; align-items: flex-start; min-height: 44px; font-family: inherit; text-transform: none; letter-spacing: 0; font-size: 1rem; color: var(--ink); }
+.t-radio input { width: 24px; height: 24px; margin-top: 8px; flex: none; }
+@media print {
+  .t-form, .band-ink, .copy-btn, .actions, .t-print-line, nav, header, footer { display: none !important; }
+  .t-policy { border: 0; max-width: none; font-size: 11pt; }
+}
