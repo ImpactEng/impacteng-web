@@ -30,7 +30,7 @@
 <script>document.documentElement.classList.add('js');</script>
 <script>(function(){try{var t=localStorage.getItem('ie-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script><link type="application/atom+xml" rel="alternate" href="https://impacteng.com.au/feed.xml" title="ImpactEng" />
 <script>
-  if (!navigator.webdriver) {
+  if (!navigator.webdriver && location.hostname === 'impacteng.com.au') {
     
 
     (function () {
@@ -74,7 +74,7 @@
 <script>(function(){var r=document.documentElement;if(r.getAttribute('data-exp')!=='home_e1')return;var a=null;try{a=localStorage.getItem('ie-exp-home');}catch(e){}if(a!=='q'&&a!=='d'){a=Math.random()<0.5?'q':'d';try{localStorage.setItem('ie-exp-home',a);}catch(e){a='none';}}r.setAttribute('data-exp-arm',a);if(a==='d'){r.setAttribute('data-exp-home','d');var s=document.createElement('style');s.textContent='[data-exp-home="d"] [data-questions-link]{display:none !important}';document.head.appendChild(s);}})();</script>
 <script src="/assets/measure.js" defer></script>
 <script>
-  if (!navigator.webdriver && !window.ieInternal) (function (c, l, a, r, i, t, y) {
+  if (!navigator.webdriver && !window.ieInternal && location.hostname === 'impacteng.com.au') (function (c, l, a, r, i, t, y) {
     c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
     
 
@@ -174,8 +174,8 @@
 <section class="row ">
   <div class="margin"><h2 class="label">Analytics</h2></div>
   <div class="body">
-<div class="measure"><p>The site uses <strong>Google Analytics</strong> to count visits: the pages you view, how you arrived, including any campaign tags in the link, your approximate location and device type, and which parts of the site you use, such as starting a diagnostic, booking a call, sending a form, or which door or services tab you choose. None of it identifies you, and it never includes your diagnostic answers or anything you type into a form.</p>
-<p>The site also uses <strong>Microsoft Clarity</strong>, which records how pages are used (clicks, scrolling) so I can see where they are confusing. Text you type into forms is masked before it leaves your browser.</p>
+<div class="measure"><p>The site uses <strong>Google Analytics</strong> to count visits: the pages you view, how you arrived, including any campaign tags in the link, your approximate location and device type, and which parts of the site you use, such as starting a diagnostic, booking a call, sending a form, or which door or services tab you choose. None of it identifies you, and it never includes your diagnostic answers or anything you type into a form. It sets cookies on this site to tell a returning browser from a new one.</p>
+<p>The site also uses <strong>Microsoft Clarity</strong>, which records how pages are used (clicks, scrolling) so I can see where they are confusing. Text you type into forms is masked before it leaves your browser. Clarity sets cookies from clarity.ms, and Microsoft sets more from bing.com, including one Microsoft also uses for advertising. Neither service's cookies hold your name or anything you type into a form.</p>
 <p>To opt out of Google Analytics on every site, use Google's <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">opt-out browser add-on</a>, or a content blocker.</p></div>
   </div>
 </section>
@@ -197,7 +197,7 @@
   <div class="body">
 <div class="measure"><p>To ask what I hold about you, or to have it deleted, email <a href="mailto:nitin@impacteng.com.au">nitin@impacteng.com.au</a>.</p>
 
-<p>Last updated: 2026-11-02.</p></div>
+<p>Last updated: 2026-11-03.</p></div>
   </div>
 </section>
 </div>
