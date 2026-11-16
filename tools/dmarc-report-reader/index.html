@@ -68,10 +68,6 @@
     if (navigator.webdriver) return;
     if (typeof window.gtag === 'function') window.gtag('event', name, params || {});
   };
-  document.addEventListener('click', function (e) {
-    var link = e.target.closest && e.target.closest('a[href="https://calendar.app.google/RgJtyQVimhpUgbTE7"]');
-    if (link) window.ieTrack('booking_click', { page: window.location.pathname });
-  });
 </script>
 
 <script>(function(){var r=document.documentElement;if(r.getAttribute('data-exp')!=='home_e1')return;var a=null;try{a=localStorage.getItem('ie-exp-home');}catch(e){}if(a!=='q'&&a!=='d'){a=Math.random()<0.5?'q':'d';try{localStorage.setItem('ie-exp-home',a);}catch(e){a='none';}}r.setAttribute('data-exp-arm',a);if(a==='d'){r.setAttribute('data-exp-home','d');var s=document.createElement('style');s.textContent='[data-exp-home="d"] [data-questions-link]{display:none !important}';document.head.appendChild(s);}})();</script>
