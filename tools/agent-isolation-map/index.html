@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="en-AU"><head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.clarity.ms https://scripts.clarity.ms; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.google-analytics.com https://www.googletagmanager.com https://*.clarity.ms https://c.bing.com; font-src 'self'; connect-src 'self' https://dns.google https://cloudflare-dns.com https://www.google-analytics.com https://*.google-analytics.com https://*.analytics.google.com https://www.googletagmanager.com https://*.clarity.ms https://c.bing.com; form-action 'self'; base-uri 'self'; object-src 'none'">
+<link rel="stylesheet" href="/assets/tools/tools.css">
+
+<title>Agent Isolation Map | ImpactEng</title>
+<meta name="generator" content="Jekyll v3.10.0" />
+<meta property="og:title" content="Agent Isolation Map" />
+<meta property="og:locale" content="en_AU" />
+<meta name="description" content="Answer up to twelve questions about an AI agent and get its risk level and the six settings that keep it contained: sandbox, keys, outbound traffic, toolset, a human gate and recovery. Views for engineers, leaders and small businesses. Runs in your browser." />
+<meta name="twitter:description" property="og:description" content="Answer up to twelve questions about an AI agent and get its risk level and the six settings that keep it contained: sandbox, keys, outbound traffic, toolset, a human gate and recovery. Views for engineers, leaders and small businesses. Runs in your browser." />
+<link rel="canonical" href="https://impacteng.com.au/tools/agent-isolation-map/" />
+<meta property="og:url" content="https://impacteng.com.au/tools/agent-isolation-map/" />
+<meta property="og:site_name" content="ImpactEng" />
+<meta property="og:image" content="https://impacteng.com.au/assets/images/og-image-v2.jpg" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://impacteng.com.au/assets/images/og-image-v2.jpg" />
+<meta name="twitter:title" content="Agent Isolation Map" />
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","description":"Answer up to twelve questions about an AI agent and get its risk level and the six settings that keep it contained: sandbox, keys, outbound traffic, toolset, a human gate and recovery. Views for engineers, leaders and small businesses. Runs in your browser.","headline":"Agent Isolation Map","image":"https://impacteng.com.au/assets/images/og-image-v2.jpg","url":"https://impacteng.com.au/tools/agent-isolation-map/"}</script>
+
+<meta property="og:locale" content="en_AU">
+<meta name="theme-color" content="#EEF0EC" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#121518" media="(prefers-color-scheme: dark)">
+<link rel="preload" href="/assets/fonts/bricolage-grotesque-normal-300-800-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/ibm-plex-sans-normal-var-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/fonts/fonts.css">
+<link rel="stylesheet" href="/assets/brand.css">
+<link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
+<script>document.documentElement.classList.add('js');</script>
+<script>(function(){try{var t=localStorage.getItem('ie-theme');if(t==='dark'||t==='light')document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script><link type="application/atom+xml" rel="alternate" href="https://impacteng.com.au/feed.xml" title="ImpactEng" />
+<script>
+  if (!navigator.webdriver && location.hostname === 'impacteng.com.au') {
+    
+
+    (function () {
+      function add() {
+        var s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://www.googletagmanager.com/gtag/js?id=G-89R5ETTN6P';
+        document.head.appendChild(s);
+      }
+      if (document.readyState === 'complete') setTimeout(add, 0);
+      else window.addEventListener('load', function () { setTimeout(add, 0); });
+    })();
+    
+
+    window.ieInternal = false;
+    try {
+      if (/[?&]internal=1(&|$)/.test(location.search)) localStorage.setItem('ie-internal', '1');
+      if (/[?&]internal=0(&|$)/.test(location.search)) localStorage.removeItem('ie-internal');
+      window.ieInternal = localStorage.getItem('ie-internal') === '1';
+    } catch (e) {}
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-89R5ETTN6P', window.ieInternal ? { traffic_type: 'internal' } : {});
+  }
+</script>
+<script>
+  
+  
+  window.ieTrack = function (name, params) {
+    if (navigator.webdriver) return;
+    if (typeof window.gtag === 'function') window.gtag('event', name, params || {});
+  };
+</script>
+
+<script>(function(){var r=document.documentElement;if(r.getAttribute('data-exp')!=='home_e1')return;var a=null;try{a=localStorage.getItem('ie-exp-home');}catch(e){}if(a!=='q'&&a!=='d'){a=Math.random()<0.5?'q':'d';try{localStorage.setItem('ie-exp-home',a);}catch(e){a='none';}}r.setAttribute('data-exp-arm',a);if(a==='d'){r.setAttribute('data-exp-home','d');var s=document.createElement('style');s.textContent='[data-exp-home="d"] [data-questions-link]{display:none !important}';document.head.appendChild(s);}})();</script>
+<script src="/assets/measure.js" defer></script>
+<script>
+  if (!navigator.webdriver && !window.ieInternal && location.hostname === 'impacteng.com.au') (function (c, l, a, r, i, t, y) {
+    c[a] = c[a] || function () { (c[a].q = c[a].q || []).push(arguments); };
+    
+
+    var add = function () { t = l.createElement(r); t.async = 1; t.src = "https://www.clarity.ms/tag/" + i;
+      y = l.getElementsByTagName(r)[0]; y.parentNode.insertBefore(t, y); };
+    if (l.readyState === "complete") setTimeout(add, 0); else c.addEventListener("load", function () { setTimeout(add, 0); });
+  })(window, document, "clarity", "script", "yth23cop4q");
+</script>
+</head>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": ["ProfessionalService", "Service"],
+  "@id": "https://impacteng.com.au/#organization",
+  "name": "ImpactEng",
+  "alternateName": "impacteng.com.au",
+  "url": "https://impacteng.com.au",
+  "email": "nitin@impacteng.com.au",
+  "description": "Nitin Sharma's Cloud, Platform Engineering, DevOps and AI practice in Melbourne.",
+  "image": "https://impacteng.com.au/assets/images/og-image-v2.jpg",
+  "areaServed": {
+    "@type": "Country",
+    "name": "Australia"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "AU"
+  },
+  "founder": {
+    "@type": "Person",
+    "name": "Nitin Sharma",
+    "jobTitle": "Principal, ImpactEng"
+  },
+  "serviceType": ["Cloud Engineering", "DevOps Consulting", "AI Coding Tools Assessment", "Cloud Architecture Assessment", "Software Delivery Assessment"],
+  "knowsAbout": ["Cloud Infrastructure", "Cloud Architecture", "Platform Engineering", "DevOps", "AI", "Containers", "CI/CD", "Linux Systems"],
+  "sameAs": ["https://www.linkedin.com/company/impactengx"
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://impacteng.com.au/"
+    },{
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Tools",
+      "item": "https://impacteng.com.au/tools/"
+    },{
+      "@type": "ListItem",
+      "position": 3,
+      "name": "Agent isolation map",
+      "item": "https://impacteng.com.au/tools/agent-isolation-map/"
+    }
+  ]
+}
+</script><body><header class="site-header">
+  <div class="sheet bar">
+    <a class="wordmark" href="/" aria-label="ImpactEng home"><svg viewBox="0 0 32 32" aria-hidden="true"><path class="m" d="M3 3h26v6H20v14h9v6H3v-6h9V9H3z"/></svg><span><b>Impact</b>Eng</span></a>
+
+    <nav class="site-nav" aria-label="Primary">
+      <a href="/">Home</a>
+      <a href="/about/">About</a>
+      <a href="/services/">Services</a>
+      <a href="/blog/">Blog</a>
+      <a href="/tools/" aria-current="page">Tools</a>
+      <a href="/contact/">Contact</a>
+    </nav>
+    <div class="header-actions">
+      <button class="theme-btn" type="button" data-theme-toggle aria-label="Switch colour theme">
+        <svg class="moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
+        <svg class="sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<div class="sheet aim">
+<section class="row" style="border-top:0">
+  <link rel="stylesheet" href="/assets/tools/agent-isolation-map.css" />
+  <div class="margin"><span class="label">Agent Isolation Map</span><p class="muted">Free, in your browser</p></div>
+  <div class="body">
+    <p class="aim-eyebrow">Rules version 2026-11, revision 6</p>
+    <h1 style="font-size:var(--step-3)">Agent Isolation Map</h1>
+    <p class="lead measure" id="lede">Pick an agent type, or answer the questions for your own agent. You get its risk level and six settings to put in place. No one setting is enough on its own: a stronger sandbox does not stop an agent misusing the keys it can reach.</p>
+    <div>
+      <div class="aim-views" role="group" aria-label="Choose your view">
+        <button type="button" data-view="eng" aria-pressed="true">Engineers</button>
+        <button type="button" data-view="lead" aria-pressed="false">Leaders</button>
+        <button type="button" data-view="sb" aria-pressed="false">Small business</button>
+      </div>
+      <p class="aim-view-note" id="view-note">For developers and platform teams running coding and other agents.</p>
+    </div>
+    <p class="aim-jump"><a class="more" href="#aim-answer">Skip to the answer</a></p>
+    <noscript><p class="note">This map runs in your browser and needs JavaScript. Turn it on for this page, or open the page in a browser that has it.</p></noscript>
+  </div>
+</section>
+  <div class="aim-app" id="aim-app" data-clarity-mask="True">
+    <aside class="aim-card aim-controls" aria-label="Questions" id="aim-questions">
+      <span class="aim-eyebrow" id="presets-label">Start from an agent type</span>
+      <div class="aim-presets" id="presets"></div>
+      <p class="aim-example-note" id="sb-example" hidden="">The answers start as an example: an email assistant. Change them to match your tool.</p>
+      <div id="questions" class="aim-controls"></div>
+    </aside>
+
+    <div class="aim-main">
+      <section class="aim-card aim-panel aim-answer" aria-labelledby="answer-h" id="aim-answer">
+        <div class="aim-head-row">
+          <div class="aim-panel-head">
+            <span class="aim-eyebrow" id="answer-for">The answer</span>
+            <h2 id="answer-h" tabindex="-1" aria-live="polite">The answer</h2>
+          </div>
+          <div>
+            <button type="button" class="btn ghost" id="copy">Copy as a checklist</button>
+            <span class="aim-copy-status" id="copy-status" role="status"></span>
+          </div>
+        </div>
+        <p class="aim-verdict-why" id="verdict-why"></p>
+        <p class="aim-note" id="verdict-after"></p>
+        <p class="aim-note" id="controls-link"><a href="#fold-controls">Already have a gate or outbound limits? Count them</a></p>
+        <textarea class="aim-copy-fallback" id="copy-fallback" hidden="" readonly="" aria-label="Text to copy"></textarea>
+        <div class="aim-out-block" id="out-lead" hidden=""></div>
+        <div class="aim-out-block" id="out-sb" hidden=""></div>
+        <h3 class="aim-settings-h" id="settings-h">Six settings, and how hard each must hold</h3>
+        <div class="aim-dials" id="dials"></div>
+        <div class="aim-out-block" id="out-lead-after" hidden=""></div>
+        <p class="aim-note" id="scope-note" hidden="">What a public-facing assistant tells customers, such as a wrong price or promise, is a content and liability question outside this map.</p>
+        <p id="it-switch-wrap" hidden=""><button type="button" class="btn ghost" id="it-switch">For your IT provider: see the technical settings</button></p>
+      </section>
+    </div>
+  </div>
+
+  <div class="aim-more" data-clarity-mask="True">
+      <details class="t-details" id="fold-controls" data-hide="sb">
+      <summary>Already have a gate or outbound limits? Count them</summary>
+      <div class="t-details-body">
+        <p class="t-hint">Together with the sandbox you named above, these change only the risk that remains, never the six settings.</p>
+        <div id="controls-q" class="aim-controls-grid"></div>
+        <p class="aim-verdict-why" id="residual" aria-live="polite"></p>
+      </div>
+      </details>
+
+      <details class="t-details" id="fold-why">
+      <summary>Why these settings: the pictures behind the answer</summary>
+      <div class="t-details-body">
+      <section class="aim-card aim-panel" aria-labelledby="tri-h">
+        <div class="aim-panel-head">
+          <span class="aim-eyebrow" id="step-tri-h">Step 1 of 4</span>
+          <h2 id="tri-h">Which risks exist? The triangle</h2>
+        </div>
+        <div class="aim-split aim-tri">
+          <svg viewBox="0 0 320 250" role="img" aria-labelledby="tri-title">
+            <title id="tri-title">Triangle of three risk corners: untrusted input, private data or keys, and the ability to act or send</title>
+            <line id="e-ab" class="aim-tri-edge" x1="160" y1="34" x2="46" y2="214" />
+            <line id="e-ac" class="aim-tri-edge" x1="160" y1="34" x2="274" y2="214" />
+            <line id="e-bc" class="aim-tri-edge" x1="46" y1="214" x2="274" y2="214" />
+            <circle id="n-a" class="aim-tri-node" cx="160" cy="34" r="22" />
+            <circle id="n-b" class="aim-tri-node" cx="46" cy="214" r="22" />
+            <circle id="n-c" class="aim-tri-node" cx="274" cy="214" r="22" />
+            <text class="aim-tri-letter" x="160" y="40" text-anchor="middle">A</text>
+            <text class="aim-tri-letter" x="46" y="220" text-anchor="middle">B</text>
+            <text class="aim-tri-letter" x="274" y="220" text-anchor="middle">C</text>
+          </svg>
+          <div class="aim-panel">
+            <ul class="aim-corners" id="corners"></ul>
+            <p class="aim-verdict" id="tri-verdict"></p>
+            <p class="aim-note" data-hide="sb">From Meta's Agents Rule of Two and Simon Willison's lethal trifecta. Meta's guidance is at most two corners in one session without a person checking. All three need a corner removed, or a person at a gate the agent cannot bypass.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="aim-card aim-panel" aria-labelledby="path-h">
+        <div class="aim-panel-head">
+          <span class="aim-eyebrow" id="step-path-h">Step 2 of 4</span>
+          <h2 id="path-h">Where do you cut the chain? The attack path</h2>
+        </div>
+        <div class="aim-path" id="path"></div>
+        <p class="aim-path-summary" id="path-summary"></p>
+        <p class="aim-note" data-hide="sb">Harm usually needs several layers to fail together. Some incidents need no attacker at all: an agent with keys and the ability to delete only needs the right two layers open. In the public incident write-ups reviewed for this map (November 2026), most attacks got in through the left two layers and most damage came out through the right two. The sandbox is one layer of four. The incident names are examples, and some rest on a single source.</p>
+      </section>
+
+      <section class="aim-card aim-panel" aria-labelledby="grid-h" data-hide="sb">
+        <div class="aim-panel-head">
+          <span class="aim-eyebrow" id="step-grid-h">Step 3 of 4</span>
+          <h2 id="grid-h">Sandbox against keys only: which cell are you in?</h2>
+        </div>
+        <div class="aim-scroll"><table class="aim-rgrid" id="grid" aria-describedby="grid-note"></table></div>
+        <div class="aim-key">
+          <span><i class="aim-sw aim-start"></i> Today</span>
+          <span><i class="aim-sw aim-advised"></i> With the advice applied</span>
+        </div>
+        <p class="aim-note" id="grid-note">This grid rates only the sandbox against the keys in reach. It leaves out what the agent reads, who shares it and what it can send, so a lower cell is not an all-clear: the six settings above cover the rest. Moving down a column, to a stronger sandbox, never fixes the right-hand column. Moving left, to fewer and weaker keys, helps or holds on every row and never makes things worse. * Agent OS sandboxes usually allow broad reads by default, so deny reads of your secret files explicitly.</p>
+      </section>
+
+      <section class="aim-card aim-panel" aria-labelledby="heat-h" data-hide="sb">
+        <div class="aim-panel-head">
+          <span class="aim-eyebrow" id="step-heat-h">Step 4 of 4</span>
+          <h2 id="heat-h">Does it match the agent type? The heat map</h2>
+        </div>
+        <div class="aim-scroll"><table class="aim-heat" id="heat"></table></div>
+        <p class="aim-note">Each row is the same rules applied to a typical agent of that type. Read across a row to see where the effort goes. Read down the Sandbox column: the strongest sandbox is needed only for shared deployments that run code, and none for agents that run no code on your side, where keys and outbound traffic do the work. Select a row to load it.</p>
+      </section>
+      </div>
+      </details>
+
+      <details class="t-details" id="fold-ref" data-hide="sb">
+      <summary>Reference: where keys live, and what agent tools do by default</summary>
+      <div class="t-details-body">
+      <section class="aim-card aim-panel" aria-labelledby="keys-h" data-hide="sb">
+        <div class="aim-panel-head">
+          <span class="aim-eyebrow">Reference</span>
+          <h2 id="keys-h">Where your keys live, and how to reduce exposure</h2>
+        </div>
+        <p class="aim-note">An agent run directly on your machine acts as the account that starts it, so it can use whatever that account can. Denying reads of a folder covers only the first row.</p>
+        <div>
+          <table class="aim-ref">
+            <tr><th scope="col">Kind</th><th scope="col">Examples</th><th scope="col">What stops the agent using it</th></tr>
+            <tr><td data-label="Kind">Files on disk</td><td data-label="Examples"><code>~/.aws/credentials</code> and <code>~/.aws/config</code> (plain text), the AWS sign-in token cache in <code>~/.aws/sso/cache</code>, <code>~/.kube/config</code> when it holds tokens or client keys, gcloud's <code>application_default_credentials.json</code>, the Azure CLI token cache (plain text on Linux and macOS), <code>~/.npmrc</code>, <code>~/.pypirc</code>, <code>~/.git-credentials</code>, <code>~/.docker/config.json</code> without a credential helper, <code>.env</code> files, the agent's own login file where it keeps one, and MCP configuration files, whose <code>env</code> blocks can hold API keys</td><td data-label="What stops the agent using it">A sandbox rule that denies reads of these paths. Better still, no long-lived secret in a file at all</td></tr>
+            <tr><td data-label="Kind">Sockets</td><td data-label="Examples">The SSH agent socket named in <code>SSH_AUTH_SOCK</code>, including password managers' SSH agents; the Docker socket</td><td data-label="What stops the agent using it">Keep the socket out of the agent's box. Denying <code>~/.ssh</code> does nothing here: a process that can reach the socket can sign as you without reading any key file</td></tr>
+            <tr><td data-label="Kind">Environment</td><td data-label="Examples">Cloud keys and API tokens in variables the agent inherits, including secrets injected by tools such as <code>op run</code> or <code>doppler run</code></td><td data-label="What stops the agent using it">Inject a secret into the one command that needs it, not into the agent's own process, and make sure the agent cannot run the same tool in an already-authorised session</td></tr>
+            <tr><td data-label="Kind">Sessions</td><td data-label="Examples">A signed-in browser profile; a password manager's or secrets tool's command-line session already unlocked in that terminal (some stay unlocked for minutes or hours: check your tool's timeout)</td><td data-label="What stops the agent using it">Start agents in a fresh terminal and a separate browser profile</td></tr>
+          </table>
+        </div>
+        <h3>Tools that reduce key exposure</h3>
+        <p class="aim-note">Most of these shorten how long a key works or keep it off disk. Only a separate identity for the agent keeps your own keys out of its reach, and none of them protects a secret handed to the agent's own process.</p>
+        <div>
+          <table class="aim-ref">
+            <tr><th scope="col">Pattern</th><th scope="col">Examples</th><th scope="col">Watch for</th></tr>
+            <tr><td data-label="Pattern">An SSH agent that asks before each use of a key</td><td data-label="Examples">A password manager's SSH agent (1Password and Bitwarden both offer one), keys added with <code>ssh-add -c</code>, which asks for confirmation, or a FIDO security key (<code>ed25519-sk</code>) that needs a touch for each signature</td><td data-label="Watch for">Some approve an app and everything it starts until the vault locks. Choose approval per terminal session or per request where offered, keep the touch requirement on hardware keys, and don't start an agent in a terminal that is already approved</td></tr>
+            <tr><td data-label="Pattern">Short-lived cloud credentials</td><td data-label="Examples">Your cloud's own short-lived sign-in: on AWS, IAM Identity Center (sessions of 1 to 12 hours); on Google Cloud, service account impersonation, whose credentials last a few hours or less; on Azure, Microsoft Entra Privileged Identity Management, which activates a role for a set time. Also aws-vault and HashiCorp Vault leases</td><td data-label="Watch for">Short-lived still means usable for the whole session</td></tr>
+            <tr><td data-label="Pattern">A separate identity for the agent</td><td data-label="Examples">1Password service accounts limited to chosen vaults, HashiCorp Vault, Bitwarden Secrets Manager machine accounts</td><td data-label="Watch for">Give the agent its own identity rather than a person's login</td></tr>
+            <tr><td data-label="Pattern">Secrets fetched at run time</td><td data-label="Examples"><code>op run</code>, <code>doppler run</code></td><td data-label="Watch for">The secret lands in that process's environment, so run it for the one command, not for the agent, and not where the agent can run it too</td></tr>
+          </table>
+        </div>
+        <p class="aim-note">Products are named as examples, not endorsements, with their behaviour as documented in November 2026. Sources: <a href="https://man.openbsd.org/ssh-agent.1">ssh-agent manual</a>; <a href="https://man.openbsd.org/ssh-add.1">ssh-add manual</a>; <a href="https://man.openbsd.org/ssh-keygen.1">ssh-keygen manual (FIDO keys)</a>; <a href="https://www.1password.dev/ssh/agent/security/">1Password SSH agent security</a>; <a href="https://bitwarden.com/help/ssh-agent/">Bitwarden SSH agent</a>; <a href="https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-files.html">AWS CLI files</a>; <a href="https://docs.aws.amazon.com/cli/latest/userguide/sso-configure-profile-token.html">AWS CLI sign-in cache</a>; <a href="https://docs.aws.amazon.com/singlesignon/latest/userguide/howtogetcredentials.html">IAM Identity Center credentials</a>; <a href="https://docs.cloud.google.com/iam/docs/service-account-impersonation">Google Cloud service account impersonation</a>; <a href="https://learn.microsoft.com/en-us/entra/id-governance/privileged-identity-management/pim-configure">Microsoft Entra Privileged Identity Management</a>; <a href="https://learn.microsoft.com/en-us/cli/azure/msal-based-azure-cli">Azure CLI token cache</a>; <a href="https://developer.1password.com/docs/cli/app-integration-security/">1Password CLI authorisation</a>; <a href="https://developer.1password.com/docs/service-accounts/">1Password service accounts</a>; <a href="https://github.com/ByteNess/aws-vault">aws-vault</a>; <a href="https://docs.npmjs.com/cli/v10/configuring-npm/npmrc">npmrc</a>; <a href="https://packaging.python.org/en/latest/specifications/pypirc/">pypirc</a>; <a href="https://git-scm.com/docs/git-credential-store">git credential store</a>; <a href="https://docs.docker.com/reference/cli/docker/login/">docker login</a>; <a href="https://docs.docker.com/engine/security/">Docker daemon security</a>; <a href="https://modelcontextprotocol.io/docs/develop/connect-local-servers">MCP local servers</a>; <a href="https://code.claude.com/docs/en/mcp">an MCP server added with an API key in its environment (Claude Code)</a>; <a href="https://developer.hashicorp.com/vault/docs/concepts/lease">Vault leases</a>; <a href="https://bitwarden.com/help/secrets-manager-overview/">Bitwarden machine accounts</a>; <a href="https://docs.doppler.com/docs/accessing-secrets">Doppler</a>; <a href="https://developer.1password.com/docs/cli/secret-references/">1Password secret references</a>.</p>
+      </section>
+
+      <section class="aim-card aim-panel" aria-labelledby="ref-h" data-hide="sb">
+        <div class="aim-panel-head">
+          <span class="aim-eyebrow">Reference</span>
+          <h2 id="ref-h">What the main agent tools do by default</h2>
+        </div>
+        <div>
+          <table class="aim-ref">
+            <tr><th scope="col">Tool</th><th scope="col">Default, as of 2026-11</th><th scope="col">Source</th></tr>
+            <tr><td data-label="Tool">Claude Code</td><td data-label="Default, as of 2026-11">Sandbox off until you turn it on. When on, it wraps shell commands only and can read most of the machine, including <code>~/.ssh</code> and <code>~/.aws/credentials</code>, unless you deny them. Its credentials setting can deny files and environment variables, or mask them (files are masked on Linux and WSL only; on macOS a masked file is denied instead). Masks count only from user settings, managed settings or the --settings flag, not from a repository's own settings. Sandboxed commands cannot write to some sensitive home folders, its file tools refuse writes to sign-in files such as <code>.credentials.json</code>, and sandboxed commands go through the normal permission prompts unless <code>sandbox.autoAllowBashIfSandboxed</code> is set. Interactive terminal and VS Code sessions with no permission mode set start in auto mode; <code>claude -p</code> and Agent SDK runs start in Manual. If the sandbox cannot start, the docs say commands run without it unless <code>failIfUnavailable</code> is set, while the 2.1.328 changelog says the next sandboxed command is refused: set <code>failIfUnavailable</code>. As of version 2.1.329; the changelog has the history.</td><td data-label="Source"><a href="https://code.claude.com/docs/en/sandboxing">Anthropic docs</a>; <a href="https://code.claude.com/docs/en/permission-modes">permission modes</a>; <a href="https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md">changelog</a></td></tr>
+            <tr><td data-label="Tool">Claude Code on the web</td><td data-label="Default, as of 2026-11">Each session runs in an isolated Anthropic-managed VM, and the hosted container "has no command sandbox" of its own. The Default environment has Limited network access. Git credentials and network secrets stay outside the VM behind a proxy. At every network level, even None, sessions can still reach GitHub through its proxy, any MCP connectors you enable, the hosts listed on network secrets, and the Anthropic API, so data can still leave the VM by those routes.</td><td data-label="Source"><a href="https://code.claude.com/docs/en/claude-code-on-the-web">Anthropic docs</a>; <a href="https://code.claude.com/docs/en/cloud-environments">cloud environments</a>; <a href="https://raw.githubusercontent.com/anthropics/claude-code/main/CHANGELOG.md">changelog</a></td></tr>
+            <tr><td data-label="Tool">Codex CLI</td><td data-label="Default, as of 2026-11">Runs in an OS-enforced sandbox, usually limited to the current workspace, with network access turned off by default.</td><td data-label="Source"><a href="https://learn.chatgpt.com/docs/agent-approvals-security">OpenAI docs</a></td></tr>
+            <tr><td data-label="Tool">Cursor</td><td data-label="Default, as of 2026-11">Its recommended default mode, Auto-review (since Cursor 3.6, May 2026), runs shell commands in a sandbox when it can, on macOS and on Linux with kernel 6.2 or later; commands that need more access go to a classifier instead. Its default Read Access, System, lets the agent read files outside the workspace without approval. In February 2026 Cursor reported that about a third of requests on supported platforms ran in the sandbox. Cloud agents each run in their own VM on Firecracker-based microVMs in a separate AWS account, run terminal commands without asking, and have internet access on by default; secrets arrive as environment variables inside the VM.</td><td data-label="Source"><a href="https://cursor.com/docs/agent/security/run-modes">run modes</a>; <a href="https://cursor.com/blog/agent-sandboxing">Cursor blog</a>; <a href="https://cursor.com/docs/cloud-agent/security">cloud agent security</a></td></tr>
+            <tr><td data-label="Tool">Gemini CLI</td><td data-label="Default, as of 2026-11">Its docs list ways to turn the sandbox on: a flag, a variable or a setting. The default macOS profile allows broad file reads and network access. For unpaid and Google One users it was replaced by Antigravity CLI on 2026-06-18; that tool's sandbox defaults were not checked here.</td><td data-label="Source"><a href="https://geminicli.com/docs/cli/sandbox/">Gemini CLI docs</a></td></tr>
+            <tr><td data-label="Tool">GitHub Copilot cloud agent</td><td data-label="Default, as of 2026-11">Only users with write access can start it. It pushes to a single branch and cannot approve or merge its own pull requests, so a person must. Actions workflows on its pull requests wait until a user with write access approves them. Its firewall is on by default with a recommended allowlist, which you can customise, but it does not cover other MCP servers or processes started in setup steps, and GitHub warns that sophisticated attacks may bypass it.</td><td data-label="Source"><a href="https://docs.github.com/en/copilot/concepts/agents/coding-agent/risks-and-mitigations">GitHub docs</a>; <a href="https://docs.github.com/en/copilot/how-tos/use-copilot-agents/coding-agent/customize-the-agent-firewall">firewall</a></td></tr>
+          </table>
+        </div>
+        <p class="aim-note">Defaults change often. Check the linked page before relying on a row.</p>
+        <h3>Sandboxes you can put an agent in</h3>
+        <p class="aim-note">A microVM gives each sandbox its own kernel, but outbound access and where the keys sit are separate choices, and the defaults differ.</p>
+        <div>
+          <table class="aim-ref">
+            <tr><th scope="col">Sandbox</th><th scope="col">Default, as of 2026-11</th><th scope="col">Source</th></tr>
+            <tr><td data-label="Sandbox">Docker Sandboxes</td><td data-label="Default, as of 2026-11">Each sandbox is its own microVM with a separate kernel. Outbound TCP is blocked unless a rule allows it, UDP is off, ICMP is blocked and DNS goes through an internal resolver. A host proxy injects credentials so the values never enter the VM. The default allowlist includes broad wildcards such as <code>*.googleapis.com</code>, and <code>sbx run</code> mounts the current directory read-write. Before v0.51.0, a malicious sandbox could use a symlink to make a later <code>sbx cp</code> read or write host files outside the workspace (CVE-2026-103916).</td><td data-label="Source"><a href="https://docs.docker.com/ai/sandboxes/security/defaults/">defaults</a>; <a href="https://docs.docker.com/ai/sandboxes/security/">security</a>; <a href="https://nvd.nist.gov/vuln/detail/CVE-2026-103916">NVD</a></td></tr>
+            <tr><td data-label="Sandbox">Vercel Sandbox</td><td data-label="Default, as of 2026-11">Each sandbox is its own Firecracker microVM with a dedicated kernel. Outbound HTTP is allowed by default; a network policy is optional. Firewall rules that terminate TLS on the way out can inject credentials. A Trail of Bits review judged the virtualisation boundary sound. The bounty's worst finding, a Linux kernel networking zero-day, gave host command execution on the researcher's replica machines and leaked host memory from Vercel's production sandboxes. Vercel published both, so it is not a neutral audit.</td><td data-label="Source"><a href="https://vercel.com/docs/sandbox/concepts/security">security</a>; <a href="https://vercel.com/blog/findings-from-the-1-million-dollar-vercel-sandbox-challenge">challenge findings</a></td></tr>
+            <tr><td data-label="Sandbox">Cloudflare Sandbox</td><td data-label="Default, as of 2026-11">Each container instance runs in a Firecracker microVM with its own kernel and network, and every process in a deployed sandbox has root capabilities. Cloudflare's docs disagree on outbound: one page says a Sandbox allows internet access by default, another that a Container starts with <code>enableInternet</code> off. Set it yourself.</td><td data-label="Source"><a href="https://developers.cloudflare.com/containers/platform-details/architecture/">architecture</a>; <a href="https://developers.cloudflare.com/sandbox/guides/outbound-traffic/">outbound traffic</a>; <a href="https://developers.cloudflare.com/sandbox/concepts/security/">security concepts</a></td></tr>
+            <tr><td data-label="Sandbox">Coop (Trail of Bits)</td><td data-label="Default, as of 2026-11">Firecracker on Linux; Lima with Apple Virtualization.framework on macOS. Inside, Claude Code defaults to <code>bypassPermissions</code>, Firecracker networking defaults to open, and raw API keys are forwarded into the guest unless you turn on the opt-in credential proxy or isolated mode.</td><td data-label="Source"><a href="https://github.com/trailofbits/coop/blob/main/docs/backends.md">backends</a>; <a href="https://github.com/trailofbits/coop/blob/main/docs/claude-integration.md">Claude integration</a>; <a href="https://github.com/trailofbits/coop/blob/main/docs/firecracker-network-modes.md">network modes</a>; <a href="https://github.com/trailofbits/coop/blob/main/docs/credential-proxy.md">credential proxy</a></td></tr>
+            <tr><td data-label="Sandbox">Firecracker you run yourself</td><td data-label="Default, as of 2026-11">Firecracker 0.23.0 to 1.16.1 has CVE-2026-122192: guest root can read or modify Firecracker process memory if a guest memory discard fails under certain host memory conditions, on microVMs restored from a snapshot with the File memory backend and a balloon or virtio-mem device. Fixed in 1.16.2 and 1.17.0. Separately, news reports a host-kernel bug turned into host root from a Firecracker guest run as root without its jailer (secondary source): run it under its jailer.</td><td data-label="Source"><a href="https://github.com/firecracker-microvm/firecracker/security/advisories/GHSA-48ww-rqpp-2mgm">advisory</a>; <a href="https://www.itnews.com.au/news/researchers-turn-pwnescape-linux-flaw-into-firecracker-breakout-630201">iTnews</a></td></tr>
+          </table>
+        </div>
+        <h3>If you build your own agent: what your framework's code executor does</h3>
+        <p class="aim-note">In a framework, isolation is the executor you choose, and the executor covers only the code the model writes. The agent's other tools, its keys and its network access sit outside it.</p>
+        <div>
+          <table class="aim-ref">
+            <tr><th scope="col">Framework</th><th scope="col">How it runs model-written code or commands, as of 2026-11</th><th scope="col">Source</th></tr>
+            <tr><td data-label="Framework">LangChain Deep Agents</td><td data-label="How it runs model-written code or commands, as of 2026-11">The default backend has no shell. Its local shell backend runs commands on your machine "with no sandboxing"; sandbox providers include E2B, Modal, Daytona and AgentCore. Its docs say: "Never put secrets inside a sandbox." The older langchain-sandbox package is archived and not recommended for production</td><td data-label="Source"><a href="https://docs.langchain.com/oss/python/deepagents/backends">backends</a>; <a href="https://docs.langchain.com/oss/python/deepagents/sandboxes">sandboxes</a>; <a href="https://github.com/langchain-ai/langchain-sandbox">langchain-sandbox</a></td></tr>
+            <tr><td data-label="Framework">OpenAI Agents SDK</td><td data-label="How it runs model-written code or commands, as of 2026-11">Hosted code interpreter and shell run in OpenAI's containers, with no outbound network by default. A local shell tool runs wherever you run your app, and "SDK approval does not provide a sandbox". OpenAI's security guide says to give sandbox code a placeholder while a network proxy supplies the real secret for approved hosts, and to allow outbound traffic only to approved destinations</td><td data-label="Source"><a href="https://openai.github.io/openai-agents-python/tools/">tools</a>; <a href="https://developers.openai.com/api/docs/guides/tools-shell">shell guide</a>; <a href="https://developers.openai.com/api/docs/guides/agents-api/environments/security">security guide</a></td></tr>
+            <tr><td data-label="Framework">AWS Strands Agents</td><td data-label="How it runs model-written code or commands, as of 2026-11">Its Python and shell tools run on the host unless you configure a sandbox, such as its Docker sandbox</td><td data-label="Source"><a href="https://strandsagents.com/docs/user-guide/concepts/tools/community-tools-package/">community tools</a></td></tr>
+            <tr><td data-label="Framework">Google ADK</td><td data-label="How it runs model-written code or commands, as of 2026-11">You choose a code executor. The local one runs code "without sandboxing or security restrictions". Its bash tool takes a list of allowed command prefixes: set one</td><td data-label="Source"><a href="https://adk.dev/api-reference/typescript/classes/UnsafeLocalCodeExecutor.html">local executor</a>; <a href="https://adk.dev/integrations/bashtool/">bash tool</a></td></tr>
+            <tr><td data-label="Framework">AutoGen</td><td data-label="How it runs model-written code or commands, as of 2026-11">You choose a local or Docker executor; the local one "will run code on your local system. Use it with caution."</td><td data-label="Source"><a href="https://microsoft.github.io/autogen/stable/user-guide/core-user-guide/components/command-line-code-executors.html">executors</a></td></tr>
+            <tr><td data-label="Framework">smolagents</td><td data-label="How it runs model-written code or commands, as of 2026-11">"By default, the CodeAgent runs LLM-generated code in your environment." Sandboxed executors include E2B, Modal and Docker</td><td data-label="Source"><a href="https://huggingface.co/docs/smolagents/tutorials/secure_code_execution">secure execution</a></td></tr>
+            <tr><td data-label="Framework">Semantic Kernel with Azure sessions</td><td data-label="How it runs model-written code or commands, as of 2026-11">Code runs in Azure Container Apps sessions, each "fully isolated by a Hyper-V boundary". That covers the code, not the app's own keys</td><td data-label="Source"><a href="https://learn.microsoft.com/en-us/azure/container-apps/sessions-code-interpreter">Azure sessions</a></td></tr>
+            <tr><td data-label="Framework">LlamaIndex</td><td data-label="How it runs model-written code or commands, as of 2026-11">Its code interpreter tool gives the agent subprocess.run: "Arbitrary code execution is possible on the machine running this tool."</td><td data-label="Source"><a href="https://developers.llamaindex.ai/python/framework-api-reference/tools/code_interpreter/">code interpreter</a></td></tr>
+            <tr><td data-label="Framework">Pydantic AI</td><td data-label="How it runs model-written code or commands, as of 2026-11">Its Python runner for agents is archived; the maintainers found "no safe way to run Python within pyodide safely with reasonable latency"</td><td data-label="Source"><a href="https://github.com/pydantic/mcp-run-python">mcp-run-python</a></td></tr>
+          </table>
+        </div>
+        <details>
+          <summary>Terms used on this page</summary>
+          <dl class="aim-gloss">
+            <dt>Prompt injection</dt><dd>Instructions hidden in content the agent reads, such as a web page or an issue, that steer it.</dd>
+            <dt>OS sandbox</dt><dd>Operating system limits on a process, such as Seatbelt on macOS, bubblewrap on Linux or <a href="https://www.microsoft.com/en-us/security/blog/2026/11/05/whats-new-in-microsoft-security-november-2026/">Microsoft Execution Containers</a> (MXC) on Windows. Usually wraps the agent's shell commands, not the agent itself.</dd>
+            <dt>Container or VM</dt><dd>A separate environment for the whole agent. A container shares the host's kernel; a virtual machine (VM) has its own. The UK's NCSC ranks a VM above a container (<a href="https://www.ncsc.gov.uk/sites/default/files/2026-08/Managing-the-cyber-risk-of-agentic-AI_0.pdf">2026-08-20</a>); this map keeps them at one level because its main point is that keys and outbound access matter more than the box.</dd>
+            <dt>microVM, gVisor</dt><dd>Lightweight isolation built for running untrusted code from many users: microVMs (such as Firecracker) give each session its own small VM, and gVisor puts a user-space kernel in front of the host's. NVIDIA's AI Red Team rates gVisor's guarantees as "potentially weaker" than full virtualisation (<a href="https://developer.nvidia.com/blog/practical-security-guidance-for-sandboxing-agentic-workflows-and-managing-execution-risk/">2026-01-30</a>); this map groups the two for simplicity.</dd>
+            <dt>Brokered keys</dt><dd>The real secret stays outside the sandbox. A proxy attaches it to approved requests, or the agent gets a short-lived token scoped to one job.</dd>
+            <dt>Permission ceiling</dt><dd>A limit set above an account or project that caps what any identity in it can do, whatever its own permissions say. On AWS, a service control policy (SCP) caps IAM users and roles in a member account, including the account's root user; service-linked roles and the organisation's management account are not bound by it. On Google Cloud, an <a href="https://docs.cloud.google.com/iam/docs/deny-overview">IAM deny policy</a> attached to a project, folder or organisation does a similar job.</dd>
+            <dt>Shared account</dt><dd>When an assistant serves many people through one account, anyone who can talk to it can reach whatever that account can. Acting with each user's own access avoids this.</dd>
+            <dt>Outbound allowlist</dt><dd>A list of the only hosts the agent may connect to. It still leaks through allowed hosts that accept user content.</dd>
+            <dt>Rule of Two</dt><dd>Meta's guidance: within one session an agent should have at most two of untrusted input, sensitive data, and the ability to act or communicate.</dd>
+          </dl>
+        </details>
+      </section>
+      </div>
+      </details>
+  </div>
+
+<section class="row">
+  <div class="margin"><h2 class="label">About these rules</h2><p class="muted">What the map is, and is not</p></div>
+  <div class="body">
+    <p class="measure">Rules version 2026-11, revision 6 (2026-11-21). The map draws together public sources read in November 2026. No authority publishes rules like these as a whole; the nearest is the NCSC's pair of four-level scales, one for the sandbox and one for network access (see the terms under Reference). The rules are kept simple on purpose. Treat each answer as the start of a conversation, not the final word.</p>
+    <p class="measure">It covers isolation: what an agent can reach and do. It does not cover what a chatbot says, such as a wrong promise to a customer, which is a content and liability question.</p>
+    <p class="measure">If you use a model built or tuned for security work, use the strongest sandbox, keep nothing worth stealing inside it, and block outbound traffic by default, allowing only the model's own endpoints and what the job needs. In one published lab test (<a href="https://blog.trailofbits.com/2026/08/26/vms-wont-contain-cyber-capable-agents/">Trail of Bits, 2026-08-26</a>), a cyber-capable model escaped QEMU virtual machines, including one rebuilt from current source. It did not escape a Firecracker microVM in that run, though it hard-locked the host through Linux kernel flaws. One author, one model, lab conditions.</p>
+    <p class="measure muted">Your answers stay in this page: nothing you choose is sent or stored, and the address does not carry them. Site analytics counts that the map was used and the risk level it gave, in one word.</p>
+  </div>
+</section>
+<section class="row">
+  <div class="margin"><h2 class="label">Changes</h2><p class="muted">How the rules have moved</p></div>
+  <div class="body">
+    <ul class="measure">
+      <li><strong>Revision 6, 2026-11-21.</strong> An agent that runs code now always counts as able to act, including one that many people share. Before, sharing such an agent could lower its settings while its risk rose. Some settings rise and no risk level changes. A new check confirms that no change the map suggests ever raises the risk level. On the attack path, Reaches is open whenever the agent can read private data, and Gets out is closed once the gate and outbound control in place meet the settings.</li>
+      <li><strong>Revision 5, 2026-11-20.</strong> An unattended agent that runs code on input a stranger can aim at needs at least an outbound allowlist, even with nothing private to leak.</li>
+      <li><strong>Revision 4, 2026-11-12.</strong> Two questions record the human gate and outbound control already in place, and the risk that remains is shown with those counted.</li>
+      <li><strong>Earlier.</strong> Three levels of untrusted input; keys judged by the worst thing they allow, whatever their lifetime; a sixth setting, recover and notice; an OS sandbox as the floor for any agent that runs code; a browser agent type.</li>
+    </ul>
+  </div>
+</section>
+<section class="row">
+  <div class="margin"><h2 class="label">More tools</h2></div>
+  <div class="body">
+    <p class="measure"><a class="more" href="/tools/">All the tools</a></p>
+  </div>
+</section>
+</div>
+
+</main><footer class="site-footer">
+  <div class="scale major"></div>
+  <div class="sheet" style="padding-block:28px 0">
+    <dl class="titleblock">
+      <div><dt>Practice</dt><dd>ImpactEng<br><span class="muted">Melbourne, Australia</span></dd></div>
+      <div><dt>Principal</dt><dd>Nitin Sharma<br><span class="muted">Principal, ImpactEng</span></dd></div>
+      <div><dt>Contact</dt><dd><a href="mailto:nitin@impacteng.com.au">nitin@impacteng.com.au</a></dd></div>
+      <div><dt>Elsewhere</dt><dd><a href="https://www.linkedin.com/company/impactengx">LinkedIn</a> · <a href="https://github.com/ns408">GitHub</a> · <a href="/feed.xml">RSS</a></dd></div>
+      <div><dt>Page</dt><dd>Tools<br><span class="muted mono">Updated 2026-11</span></dd></div>
+    </dl>
+    <div class="footer-line mono muted">
+      <span>© 2026 ImpactEng. Cloud, Platform Engineering, DevOps and AI, Melbourne.</span>
+      <span><a href="/privacy/">Privacy</a></span>
+    </div>
+  </div>
+</footer>
+<nav class="tabbar" aria-label="Mobile"><a href="/"><svg viewBox="0 0 24 24"><path d="M3 11 12 4l9 7"/><path d="M5 10v10h14V10"/></svg><span>Home</span></a><a href="/services/"><svg viewBox="0 0 24 24"><path d="M12 3 3 8l9 5 9-5-9-5Z"/><path d="M3 13l9 5 9-5"/></svg><span>Services</span></a><a href="/blog/"><svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M9 11h7M9 15h7M9 7h3"/></svg><span>Blog</span></a><a href="/contact/"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14"/><path d="m3 6 9 7 9-7"/></svg><span>Contact</span></a><button type="button" data-menu-open aria-haspopup="dialog" aria-controls="menu-sheet"><svg viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></svg><span>Menu</span></button>
+</nav>
+<div class="menu-sheet" id="menu-sheet" role="dialog" aria-modal="true" aria-label="Menu" hidden>
+  <div class="top">
+    <a class="wordmark" href="/" aria-label="ImpactEng home"><svg viewBox="0 0 32 32" aria-hidden="true"><path class="m" d="M3 3h26v6H20v14h9v6H3v-6h9V9H3z"/></svg><span><b>Impact</b>Eng</span></a>
+
+    <button class="close-btn" type="button" data-menu-close aria-label="Close menu"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 6l12 12M18 6 6 18"/></svg></button>
+  </div>
+  <nav><a href="/">Home<small>Start</small></a><a href="/about/">About<small>Who</small></a><a href="/services/">Services<small>How</small></a><a href="/blog/">Blog<small>By date or by thread</small></a><a href="/tools/">Tools<small>Free tools</small></a><a href="/contact/">Contact<small>Talk</small></a>
+  </nav>
+  <div class="foot">
+    
+    <span class="mono muted">nitin@impacteng.com.au</span>
+  </div>
+</div>
+
+<script src="/assets/site.js" defer></script>
+<script src="/assets/tools/core.js" defer></script>
+<script src="/assets/tools/agent-isolation-map.logic.js" defer></script>
+<script src="/assets/tools/agent-isolation-map.js" defer></script>
+<script src="/assets/js/lightbox.js" defer></script>
+</body>
+</html>
