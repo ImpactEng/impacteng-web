@@ -442,6 +442,8 @@
     var why = document.getElementById("verdict-why"), after = document.getElementById("verdict-after");
     var lvl = L.riskLevel(s);
     card.classList.toggle("is-high", lvl === "high");
+    document.getElementById("aim-bar").classList.toggle("is-high", lvl === "high");
+    document.getElementById("aim-bar-text").textContent = view === "sb" ? LEVEL_HEAD[lvl] : LEVEL_HEAD[lvl] + " before controls";
     document.getElementById("settings-h").hidden = view === "sb";
     document.getElementById("controls-link").hidden = view === "sb";
     why.hidden = view === "lead";
@@ -727,6 +729,18 @@
     renderTriangle(s, d);
     renderPath(s);
     if (view !== "sb") { renderGrid(s); renderHeat(s); }
+  }
+
+  
+
+  var bar = document.getElementById("aim-bar"), onScreen = { q: false, a: false };
+  if (typeof IntersectionObserver === "function") {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { onScreen[e.target.id === "aim-answer" ? "a" : "q"] = e.isIntersecting; });
+      bar.hidden = !(onScreen.q && !onScreen.a);
+    });
+    io.observe(document.getElementById("aim-questions"));
+    io.observe(document.getElementById("aim-answer"));
   }
 
   setView("eng");
